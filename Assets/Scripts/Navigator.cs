@@ -1,7 +1,9 @@
 ﻿//Written by Lance Graham & Ellie McDonald
 //This is another model/controller responsible for coordinating the character's movement and location
 using UnityEngine;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using System.Linq;
 
 public class Navigator : MonoBehaviour
 {
@@ -9,9 +11,8 @@ public class Navigator : MonoBehaviour
     private float vMove = 10.0f;
     private float speed = 3.0f;
     public  bool enableDisplay = false;
+    public List<KeyCode> controllerKeys;
 
-    private XmlParser anXmlParser;
-    private KeyCode left, right, forward, backward, jump;
 
     private AbstractCalculate distanceCalculator = new ThreeDimensionalCalculate();
 
@@ -31,26 +32,9 @@ public class Navigator : MonoBehaviour
 
         builderDirector.Construct(controls);
 
-        //Parse the xml file to establish the controls that wil be used to move the capsule
-        //through the maze. The Contrlols.xml file is located in the Maze SandBox directory.
-        if (controls.GetType().ToString().Contains("ArrowControlsBuilder"))
-        {
-            anXmlParser = new XmlParser();
-            anXmlParser.loadDocument(controls.SetPlayerControls());
-            Debug.Log("Set player Controls: arrow");
-        }
-        else if (controls.GetType().ToString().Contains("WASDContolsBuilder"))
-        {
-            anXmlParser = new XmlParser();
-            anXmlParser.loadDocument(controls.SetPlayerControls());
-            Debug.Log("Set player Controls: wasd");
-        }
-
-        forward = anXmlParser.parseXml("forward");      // W or up arrow
-        backward = anXmlParser.parseXml("backward");    //S or down arow
-        left = anXmlParser.parseXml("left");            //A or left arrow
-        right = anXmlParser.parseXml("right");          //D or right arrow
-        jump = anXmlParser.parseXml("jump");            // Space bar
+        controllerKeys = controls.SetPlayerControls();
+        Debug.Log("Set player Controls: " + controls.GetType().ToString());
+        
     }
 
     //Update is called once per frame
@@ -63,25 +47,25 @@ public class Navigator : MonoBehaviour
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
         //Move Forward
-        if (Input.GetKeyUp(forward))
+        if (Input.GetKeyUp(controllerKeys.ElementAt(0))) // forward
         {
             vMove = 10.0f;
         }
 
         //Move Back
-        if (Input.GetKeyUp(backward))
+        if (Input.GetKeyUp(controllerKeys.ElementAt(1)))
         {
             vMove = -10.0f;
         }
 
         //Turn Left
-        if (Input.GetKeyUp(left))
+        if (Input.GetKeyUp(controllerKeys.ElementAt(2)))
         {
             transform.Rotate(0.0f, -10.0f, 0.0f);
         }
 
         //Turn Right
-        if (Input.GetKeyUp(right))
+        if (Input.GetKeyUp(controllerKeys.ElementAt(3)))
         {
             //transform is the game object
             transform.Rotate(0.0f, 10.0f, 0.0f);
@@ -89,7 +73,7 @@ public class Navigator : MonoBehaviour
 
         // TODO: Do we want to implement this?
         // Jump
-        /*if (Input.GetKeyUp(jump))
+        /*if (Input.GetKeyUp(controllerKeys.ElementAt(4)))
         {
             float yMove = 13.0f;
 
