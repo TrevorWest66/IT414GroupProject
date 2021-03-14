@@ -47,25 +47,25 @@ public class Navigator : MonoBehaviour
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
         //Move Forward
-        if (Input.GetKeyUp(controllerKeys.ElementAt(0))) // forward
+        if (Input.GetKeyDown(controllerKeys.ElementAt(0))) // forward
         {
             vMove = 10.0f;
         }
 
         //Move Back
-        if (Input.GetKeyUp(controllerKeys.ElementAt(1)))
+        if (Input.GetKeyDown(controllerKeys.ElementAt(1)))
         {
             vMove = -10.0f;
         }
 
         //Turn Left
-        if (Input.GetKeyUp(controllerKeys.ElementAt(2)))
+        if (Input.GetKeyDown(controllerKeys.ElementAt(2)))
         {
             transform.Rotate(0.0f, -10.0f, 0.0f);
         }
 
         //Turn Right
-        if (Input.GetKeyUp(controllerKeys.ElementAt(3)))
+        if (Input.GetKeyDown(controllerKeys.ElementAt(3)))
         {
             //transform is the game object
             transform.Rotate(0.0f, 10.0f, 0.0f);
