@@ -1,0 +1,7 @@
+<controls>
+<forward>UpArrow</forward>
+<backward>DownArrow</backward>
+<left>LeftArrow</left>
+<right>RightArrow</right>
+<jump>Space</jump>
+</controls>
