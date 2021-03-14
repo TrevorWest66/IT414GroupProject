@@ -1,0 +1,7 @@
+<controls>
+<forward>W</forward>
+<backward>S</backward>
+<left>A</left>
+<right>D</right>
+<jump>Space</jump>
+</controls>
