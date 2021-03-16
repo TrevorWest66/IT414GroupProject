@@ -7,11 +7,11 @@ using System.Linq;
 
 public class Navigator : MonoBehaviour
 {
-    private float hMove = 0.0f;
-    private float vMove = 10.0f;
-    private float speed = 3.0f;
     public  bool enableDisplay = false;
     public List<KeyCode> controllerKeys;
+
+    AbstractPlayerControllerCommand keyLeft, keyRight, keyForward, keyBack, keyJump;
+    public CharacterController aCharacterController;
 
 
     private AbstractCalculate distanceCalculator = new ThreeDimensionalCalculate();
@@ -34,7 +34,14 @@ public class Navigator : MonoBehaviour
 
         controllerKeys = controls.SetPlayerControls();
         Debug.Log("Set player Controls: " + controls.GetType().ToString());
-        
+
+        keyLeft = new TurnLeft();
+        keyRight = new TurnRight();
+        keyForward = new MoveForward();
+        keyBack = new MoveBack();
+        keyJump = new JumpUp();
+        aCharacterController = this.gameObject.GetComponent<CharacterController>();
+
     }
 
     //Update is called once per frame
@@ -46,45 +53,32 @@ public class Navigator : MonoBehaviour
 
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
-        //Move Forward
-        if (Input.GetKeyDown(controllerKeys.ElementAt(0))) // forward
+        if (Input.GetKeyDown(controllerKeys.ElementAt(0)))
         {
-            vMove = 10.0f;
+            keyForward.Execute(this.gameObject, aCharacterController);
         }
 
-        //Move Back
         if (Input.GetKeyDown(controllerKeys.ElementAt(1)))
         {
-            vMove = -10.0f;
+            keyBack.Execute(this.gameObject, aCharacterController);
         }
 
-        //Turn Left
         if (Input.GetKeyDown(controllerKeys.ElementAt(2)))
         {
-            transform.Rotate(0.0f, -10.0f, 0.0f);
+            keyLeft.Execute(this.gameObject, aCharacterController);
         }
 
-        //Turn Right
         if (Input.GetKeyDown(controllerKeys.ElementAt(3)))
         {
-            //transform is the game object
-            transform.Rotate(0.0f, 10.0f, 0.0f);
+            keyRight.Execute(this.gameObject, aCharacterController);
         }
 
-        // TODO: Do we want to implement this?
-        // Jump
-        /*if (Input.GetKeyUp(controllerKeys.ElementAt(4)))
+        //This is a newly added jump feature by Ellie
+        //Currently we do not save the jump commands in the stack as the jump movement is only meant to
+        //to jump the player up and down, not jump forward or backward
+        if (Input.GetKeyUp(controllerKeys.ElementAt(4)))
         {
-            float yMove = 13.0f;
-
-            transform.position = new Vector3(transform.position.x, transform.position.y + yMove, transform.position.z);
-            async Task.Delay(System.TimeSpan.FromSeconds(wait));
-            transform.position = new Vector3(transform.position.x, transform.position.y + (0 - yMove), transform.position.z);
-        }*/
-
-        Vector3 aMove = transform.forward * vMove + transform.right * hMove;
-        this.GetComponent<CharacterController>().Move(aMove * Time.deltaTime * speed);
-        hMove = 0.0f;
-        vMove = 0.0f;
+            keyJump.Execute(this.gameObject, aCharacterController);
+        }
     }
 }
