@@ -20,20 +20,27 @@ public class Navigator : MonoBehaviour
     {
         // Dictates which controls will be used
         BuilderDirector builderDirector = new BuilderDirector();
-        PlayerControlsBuilder controls;
-        if (true)
+        PlayerControlsBuilder controlsBuilder;
+        KeyboardControls keyboardControls = new KeyboardControls();
+
+        // TODO: should remove else and convert second if to else?
+        if (keyboardControls.ControlIsArrows)
         {
-            controls = new ArrowControlsBuilder();
+            controlsBuilder = new ArrowControlsBuilder();
         }
-        if (false /*change to pull in settings from main menu settings*/)
+        if (!(keyboardControls.ControlIsArrows))
         {
-            controls = new WASDContolsBuilder();
+            controlsBuilder = new WASDContolsBuilder();
+        }
+        else // if any issues with code above set default
+        {
+            controlsBuilder = new ArrowControlsBuilder();
         }
 
-        builderDirector.Construct(controls);
+        builderDirector.Construct(controlsBuilder);
 
-        controllerKeys = controls.SetPlayerControls();
-        Debug.Log("Set player Controls: " + controls.GetType().ToString());
+        controllerKeys = controlsBuilder.SetPlayerControls();
+        Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
 
         keyLeft = new TurnLeft();
         keyRight = new TurnRight();
@@ -53,27 +60,26 @@ public class Navigator : MonoBehaviour
 
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
-        if (Input.GetKeyDown(controllerKeys.ElementAt(0)))
+        if (Input.GetKey(controllerKeys.ElementAt(0))) // Up arrow or w
         {
             keyForward.Execute(this.gameObject, aCharacterController);
         }
 
-        if (Input.GetKeyDown(controllerKeys.ElementAt(1)))
+        if (Input.GetKey(controllerKeys.ElementAt(1)))
         {
             keyBack.Execute(this.gameObject, aCharacterController);
         }
 
-        if (Input.GetKeyDown(controllerKeys.ElementAt(2)))
+        if (Input.GetKey(controllerKeys.ElementAt(2)))
         {
             keyLeft.Execute(this.gameObject, aCharacterController);
         }
 
-        if (Input.GetKeyDown(controllerKeys.ElementAt(3)))
+        if (Input.GetKey(controllerKeys.ElementAt(3)))
         {
             keyRight.Execute(this.gameObject, aCharacterController);
         }
 
-        //This is a newly added jump feature by Ellie
         //Currently we do not save the jump commands in the stack as the jump movement is only meant to
         //to jump the player up and down, not jump forward or backward
         if (Input.GetKeyUp(controllerKeys.ElementAt(4)))

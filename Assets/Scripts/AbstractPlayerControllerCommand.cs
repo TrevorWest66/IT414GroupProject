@@ -16,7 +16,7 @@ public class MoveForward : AbstractPlayerControllerCommand
     {
         float hMove = 0.0f;
         float vMove = 5.0f;
-        float speed = 10.0f;
+        float speed = 1.0f;
 
         Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
         aController.Move(aMove * Time.deltaTime * speed);
@@ -31,7 +31,7 @@ public class MoveBack : AbstractPlayerControllerCommand
     {
         float hMove = 0.0f;
         float vMove = -5.0f;
-        float speed = 10.0f;
+        float speed = 1.0f;
 
         Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
         aController.Move(aMove * Time.deltaTime * speed);
@@ -44,7 +44,15 @@ public class TurnLeft : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
+        //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
+        float hMove = -5.0f;
+        float vMove = 0.0f;
+        float speed = 1.0f;
+
+        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        aController.Move(aMove * Time.deltaTime * speed);
+        hMove = 0.0f;
+        vMove = 0.0f;
     }
 }
 
@@ -52,7 +60,16 @@ public class TurnRight : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        aCharacter.transform.Rotate(0.0f, 20.0f, 0.0f);
+        //aCharacter.transform.Rotate(0.0f, 20.0f, 0.0f);
+        //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
+        float hMove = 5.0f;
+        float vMove = 0.0f;
+        float speed = 1.0f;
+
+        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        aController.Move(aMove * Time.deltaTime * speed);
+        hMove = 0.0f;
+        vMove = 0.0f;
     }
 }
 
