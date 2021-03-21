@@ -22,15 +22,9 @@ public sealed class CurrentGameObjects : MonoBehaviour
         if (instance = null)
         {
             CurrentGameObjects.instance = new CurrentGameObjects();
+           
         }
-    }
-
-    public static CurrentGameObjects Instance
-    {
-        get
-        {
-            return CurrentGameObjects.instance;
-        }
+        return CurrentGameObjects.instance;
     }
 
     // Method to add objects to the list
