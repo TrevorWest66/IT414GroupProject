@@ -11,18 +11,17 @@ public sealed class CurrentGameObjects : MonoBehaviour
     // Lists all the objects populated on the map
     List<GameObject> ObjectsPopulated = new List<GameObject>();
 
-    private readonly static CurrentGameObjects instance;
+    private static CurrentGameObjects instance;
 
     // Private constructor
     private CurrentGameObjects() { }
 
     // static constructor
-    static CurrentGameObjects()
+    public static CurrentGameObjects Instance()
     {
         if (instance = null)
         {
             CurrentGameObjects.instance = new CurrentGameObjects();
-           
         }
         return CurrentGameObjects.instance;
     }
