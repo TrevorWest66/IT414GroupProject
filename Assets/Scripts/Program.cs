@@ -6,19 +6,15 @@ public class Program : MonoBehaviour
 {
     private AbstractGameObjectFactory aFactory;
     private GameObject thePlayer;
-
+    
     //Start is called before the first frame udpate
     void Start()
     {
-        GUI.enabled = false;
-        
-        //Could put player in singleton too
         thePlayer = this.gameObject;
         thePlayer.AddComponent<Navigator>();
-        thePlayer.AddComponent<GraphicalUserInterfaceDisplay>();
+        thePlayer.AddComponent<InGameDisplay>();
 
-        aFactory = new CubeFactory();
-        aFactory.CreateGameObject(new Vector3(0, 0, 0), 3);
-
+        aFactory = new CauldronFactory();
+        aFactory.CreateGameObject(new Vector3(0, 0, 0), 1.5f);
     }
 }

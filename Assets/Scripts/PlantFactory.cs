@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class PlantFactory : AbstractGameObjectFactory
 {
-    public override void CreateGameObject(Vector3 thePosition, int scale)
+    public override void CreateGameObject(Vector3 thePosition, float scale)
     {
         // Replace this with the plant obj
         GameObject thePlant = GameObject.CreatePrimitive(PrimitiveType.Sphere);

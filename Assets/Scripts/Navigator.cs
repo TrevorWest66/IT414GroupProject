@@ -7,7 +7,7 @@ using System.Linq;
 
 public class Navigator : MonoBehaviour
 {
-    public  bool enableDisplay = false;
+    public static bool enableDisplay = false;
     public List<KeyCode> controllerKeys;
 
     AbstractPlayerControllerCommand keyLeft, keyRight, keyForward, keyBack, keyJump;
