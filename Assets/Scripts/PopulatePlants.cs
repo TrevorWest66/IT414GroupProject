@@ -2,14 +2,12 @@
 
 using System;
 using System.Collections.Generic;
-using System.Numerics;
+using System.Collections;
 using UnityEngine;
 
+// Singleton
 public sealed class PopulatePlants : MonoBehaviour
 {
-    public LayerMask mask = -1;
-    float radius;
-
     // Lists all the plants populated on the map
     List<GameObject> PlantsPopulated = new List<GameObject>();
 
@@ -42,15 +40,6 @@ public sealed class PopulatePlants : MonoBehaviour
     {
         return PlantsPopulated[i];
     }
-
-
-
-    public void generateRandomPosition()
-    {
-
-
-    }
-
 
 }
 
