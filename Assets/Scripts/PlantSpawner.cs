@@ -5,32 +5,35 @@ namespace Assets.Scripts
 {
     public class PlantSpawner : MonoBehaviour
     {
-
         public Terrain WorldTerrain;
         public LayerMask TerrainLayer;
+        public GameObject PlantObject;
         public static float TerrainLeft, TerrainRight, TerrainTop, TerrainBottom, TerrainWidth, TerrainLength, TerrainHeight;
 
         public static ArrayList units = new ArrayList();
         public static ArrayList positions = new ArrayList();
         public static ArrayList rotations = new ArrayList();
 
-
         private void Awake()
         {
-            TerrainLeft = WorldTerrain.transform.position.x;
-            TerrainBottom = WorldTerrain.transform.position.z;
-            TerrainWidth = WorldTerrain.terrainData.size.x;
-            TerrainLength = WorldTerrain.terrainData.size.z;
-            TerrainHeight = WorldTerrain.terrainData.size.y;
+            // Terrain is set smaller than it actually is so plants are spawned more in the center
+            TerrainLeft = -200;
+            TerrainBottom = -200;
+            TerrainWidth = 400;
+            TerrainLength = 400;
+            TerrainHeight = 300;
             TerrainRight = TerrainLeft + TerrainWidth;
             TerrainTop = TerrainBottom + TerrainLength;
 
-            InstatntiateRandomPosition("flower05", 20, 0f);
+            // Scales the plants to be larger
+            PlantObject.transform.localScale = new Vector3(4, 4, 4);
 
+            // Have to add height as a result of the scaling
+            InstatntiateRandomPosition(PlantObject, 100, 0.1f);
         }
 
-
-        public void InstatntiateRandomPosition(string Resource, int Amount, float AddedHeight)
+        // Takes in the game object, how many you want, moves item up vertically
+        public void InstatntiateRandomPosition(GameObject aPlant, int Amount, float AddedHeight)
         {
             var i = 0;
             float terrainHeight = 0f;
@@ -49,18 +52,17 @@ namespace Assets.Scripts
                     terrainHeight = hit.point.y;
                 }
 
-                randomPositionY = terrainHeight + AddedHeight;
+                // Prevents plant from being spawned up too high
+                if(terrainHeight < 40)
+                {
+                    randomPositionY = terrainHeight + AddedHeight;
 
-                randomPosition = new Vector3(randomPositionX, randomPositionY, RandomPositionZ);
+                    randomPosition = new Vector3(randomPositionX, randomPositionY, RandomPositionZ);
 
-                Instantiate(Resources.Load(Resource, typeof(GameObject)), randomPosition, Quaternion.identity);
-
-
+                    Instantiate(aPlant, randomPosition, Quaternion.identity);
+                }
 
             } while (i < Amount);
-
-
         }
-
     }
 }

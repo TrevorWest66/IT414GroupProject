@@ -1152,7 +1152,9 @@ MonoBehaviour:
   WorldTerrain: {fileID: 963547191}
   TerrainLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 4294967295
+  PlantObject: {fileID: 919132149155446097, guid: f1c3f8e347f55f44e98e7ea73efac66e,
+    type: 3}
 --- !u!4 &917438639
 Transform:
   m_ObjectHideFlags: 0
@@ -1464,6 +1466,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: LowPolyTerrain
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: e72ed15d5f748d541927b2ef230311f8,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72ed15d5f748d541927b2ef230311f8, type: 3}
 --- !u!1 &963547186 stripped
@@ -1486,6 +1493,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: e72ed15d5f748d541927b2ef230311f8, type: 3}
+--- !u!154 &963547188
+TerrainCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963547186}
+  m_Material: {fileID: 0}
+  m_Enabled: 1
+  m_TerrainData: {fileID: 0}
+  m_EnableTreeColliders: 1
 --- !u!218 &963547191
 Terrain:
   m_ObjectHideFlags: 0
