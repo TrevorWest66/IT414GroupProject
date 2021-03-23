@@ -25,7 +25,6 @@ public class Navigator : MonoBehaviour
     void Start()
     {
         keyboardControls = KeyboardControls.Instance;
-        Debug.Log("Navigator Start Controls Are: " + keyboardControls.ControlType.ToString());
 
         if (keyboardControls.ControlType.Equals(KeyboardControlsEnum.Arrows))
         {

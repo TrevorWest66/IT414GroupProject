@@ -31,7 +31,6 @@ public class KeyboardControls : MonoBehaviour
     {
         get 
         {
-            Debug.Log("Got the Instance of KeyboardControls");
             return KeyboardControls.instance; 
         }
     }
@@ -71,7 +70,8 @@ public class KeyboardControls : MonoBehaviour
             timeControlsChanged = DateTime.Now;
         }
 
-        transform.Rotate(Vector3.forward * 180); // This flips the toggle
+        // This flips the toggle to make is appear like the preferences have been changed
+        transform.Rotate(Vector3.forward * 180); 
     }
 
 }

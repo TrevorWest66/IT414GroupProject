@@ -8,6 +8,10 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+
+        /** Deactivates the menu, this is preserved by the KeyboardControls 
+         * class in order to save player preferences
+         */
         GameObject.FindGameObjectWithTag("MainMenuScreen").SetActive(false);
     }
 
