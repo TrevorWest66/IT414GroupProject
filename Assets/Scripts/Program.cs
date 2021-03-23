@@ -10,7 +10,8 @@ public class Program : MonoBehaviour
     //Start is called before the first frame udpate
     void Start()
     {
-        thePlayer = this.gameObject;
+        //Could put player in singleton too
+        thePlayer = GameObject.Find("Male A");
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
 
