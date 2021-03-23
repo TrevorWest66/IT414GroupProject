@@ -58,14 +58,12 @@ public class KeyboardControls : MonoBehaviour
     {
         if (controlType.Equals(KeyboardControlsEnum.Arrows))
         {
-            Debug.Log("Keyboard controls class: Set controls for WASD");
             controlType = KeyboardControlsEnum.WASD;
             timeControlsChanged = DateTime.Now;
         }
 
         else if (controlType.Equals(KeyboardControlsEnum.WASD))
         {
-            Debug.Log("Keyboard controls class: Set controls for Arrows");
             controlType = KeyboardControlsEnum.Arrows;
             timeControlsChanged = DateTime.Now;
         }

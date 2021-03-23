@@ -88,6 +88,7 @@ public class Navigator : MonoBehaviour
         }
     }
 
+    // TODO: Used fixed update to change player controls midgame if they've been updates in the options menu
     /*void FixedUpdate()
     {
         if (keyboardControls.TimeControlsChanged != timeControlsWereSetInNavigator)
