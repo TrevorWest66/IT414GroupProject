@@ -8,6 +8,7 @@ public class MainMenuScript : MonoBehaviour
     public void PlayGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        GameObject.FindGameObjectWithTag("MainMenuScreen").SetActive(false);
     }
 
     public void QuitGame()

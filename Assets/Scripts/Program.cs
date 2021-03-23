@@ -11,9 +11,9 @@ public class Program : MonoBehaviour
     void Start()
     {
         GUI.enabled = false;
-        
+
         //Could put player in singleton too
-        thePlayer = this.gameObject;
+        thePlayer = GameObject.Find("Male A");
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<GraphicalUserInterfaceDisplay>();
 
