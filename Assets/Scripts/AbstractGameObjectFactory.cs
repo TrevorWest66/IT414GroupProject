@@ -5,5 +5,5 @@ using System.Collections.Generic;
 using UnityEngine;
 public abstract class AbstractGameObjectFactory
 {
-    public abstract void CreateGameObject(Vector3 thePosition, int scale);
+    public abstract void CreateGameObject(Vector3 thePosition, float scale);
 }

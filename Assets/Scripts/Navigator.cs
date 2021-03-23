@@ -7,7 +7,7 @@ using System.Linq;
 
 public class Navigator : MonoBehaviour
 {
-    public  bool enableDisplay = false;
+    public static bool enableDisplay = false;
     private AbstractCalculate distanceCalculator = new ThreeDimensionalCalculate();
 
     public List<KeyCode> controllerKeys;
