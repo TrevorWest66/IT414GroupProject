@@ -13,7 +13,7 @@ public class ThreeDimensionalCalculate : AbstractCalculate
     {
         double distance = Vector3.Distance(locationOne, locationTwo);
     
-        if (distance <= 2.75)
+        if (distance <= 2.5)
         {
             currentDistance = true;
         }

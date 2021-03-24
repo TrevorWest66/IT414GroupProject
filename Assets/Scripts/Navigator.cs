@@ -13,7 +13,6 @@ public class Navigator : MonoBehaviour
     AbstractPlayerControllerCommand keyLeft, keyRight, keyForward, keyBack, keyJump;
     public CharacterController aCharacterController;
 
-
     private AbstractCalculate distanceCalculator = new ThreeDimensionalCalculate();
 
     void Start()
@@ -40,7 +39,7 @@ public class Navigator : MonoBehaviour
         builderDirector.Construct(controlsBuilder);
 
         controllerKeys = controlsBuilder.SetPlayerControls();
-        Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
+        //Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
 
         keyLeft = new TurnLeft();
         keyRight = new TurnRight();

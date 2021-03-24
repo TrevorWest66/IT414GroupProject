@@ -10,11 +10,13 @@ public class Program : MonoBehaviour
     //Start is called before the first frame udpate
     void Start()
     {
+        //Initialize the player by adding navigation and 
         thePlayer = this.gameObject;
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
 
+        //Create the crafting station
         aFactory = new CauldronFactory();
-        aFactory.CreateGameObject(new Vector3(0, 0, 0), 1.5f);
+        aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
     }
 }
