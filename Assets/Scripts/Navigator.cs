@@ -40,7 +40,6 @@ public class Navigator : MonoBehaviour
         builderDirector.Construct(controlsBuilder);
 
         controllerKeys = controlsBuilder.SetPlayerControls();
-        Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
 
         keyLeft = new TurnLeft();
         keyRight = new TurnRight();
@@ -54,7 +53,6 @@ public class Navigator : MonoBehaviour
     //Update is called once per frame
     void Update()
     {
-        //Could use a singleton to track the gameobjects and the cauldron
         Vector3 theCauldron = new Vector3(0, 0, 0);
         Vector3 currentLocation = this.GetComponent<Transform>().position;
 

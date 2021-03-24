@@ -1,4 +1,5 @@
 ﻿//Written by Lance Graham
+//Written 3/24/2021
 //This is the first concrete iterator that will iterate through the game objects collected by the player
 using System.Collections;
 using System.Collections.Generic;

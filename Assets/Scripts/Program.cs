@@ -10,7 +10,7 @@ public class Program : MonoBehaviour
     //Start is called before the first frame udpate
     void Start()
     {
-        //Initialize the player by adding navigation and 
+        //Initialize the player by adding navigation and the in game display (player's actions determine crafting button and inventory display)
         thePlayer = this.gameObject;
 
         thePlayer.AddComponent<Navigator>();

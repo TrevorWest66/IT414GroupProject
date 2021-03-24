@@ -1,6 +1,7 @@
 ﻿//Written by Lance Graham
 //This is a model responsible for calculating the distance between the player and the cauldron
-//The distance determines whether the view should display the button
+//The distance determines whether the view should display the crafting button
+//This is our first concrete class that follows the strategy pattern
 using System.Collections;
 using System.Collections.Generic;
 using System;
