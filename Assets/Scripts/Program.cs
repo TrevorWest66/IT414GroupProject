@@ -12,6 +12,8 @@ public class Program : MonoBehaviour
     {
         //Initialize the player by adding navigation and 
         thePlayer = this.gameObject;
+        //Could put player in singleton too
+        thePlayer = GameObject.Find("Male A");
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
 
