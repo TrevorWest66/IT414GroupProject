@@ -14,19 +14,21 @@ public class KeyboardControls : MonoBehaviour
 
     private void Awake()
     {
+        // This gets the root of the options menu
         controlsSingleton = GameObject.FindGameObjectWithTag("OptionMenu").transform.parent.gameObject;
-        // if instance is not yet set, set it and make it persistent between scenes
+        
+        // If there is an instance, don't destoy the main menu
         if (instance == null)
         {
-            instance = this;
             DontDestroyOnLoad(controlsSingleton);
         }
-        else
-        {
-            // if instance is already set and this is not the same object, destroy it
-            if (this != instance) { Destroy(gameObject); }
-        }
     }
+
+    static KeyboardControls()
+    {
+        KeyboardControls.instance = new KeyboardControls();
+    }
+
     public static KeyboardControls Instance
     {
         get 
