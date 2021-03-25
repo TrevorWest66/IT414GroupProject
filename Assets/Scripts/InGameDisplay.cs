@@ -31,11 +31,17 @@ public class InGameDisplay : MonoBehaviour
         //crafting button hasn't been clicked (prevents overlay of crafting button with inventory canvas)
         if (showCraftingButton && !craftingClicked)
         {
+            // Unlocks the mouse so that the player is able to interact with the button
+            Cursor.lockState = CursorLockMode.None;
+
             craftingCanvas.enabled = true;
         }
         //If above conditions are false, don't display crafting button
         else
         {
+            // Locks the mouse after the player leaves to couldron
+            Cursor.lockState = CursorLockMode.Locked;
+
             craftingCanvas.enabled = false;
         }
 
