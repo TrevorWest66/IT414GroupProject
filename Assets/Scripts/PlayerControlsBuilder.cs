@@ -31,7 +31,6 @@ public class ArrowControlsBuilder : PlayerControlsBuilder
         listOfKeys.Add(right);
         listOfKeys.Add(jump);
 
-        Debug.Log("Set Contols for arrows.");
         return listOfKeys;
     }
 
@@ -59,7 +58,6 @@ public class WASDContolsBuilder : PlayerControlsBuilder
         listOfKeys.Add(right);
         listOfKeys.Add(jump);
 
-        Debug.Log("Set Contols for wasd.");
         return listOfKeys;
     }
 
