@@ -19,11 +19,15 @@ public class InGameDisplay : MonoBehaviour
 
         if (showButton)
         {
+            // Unlocks the mouse so that the player is able to interact with the button
+            Cursor.lockState = CursorLockMode.None;
             craftingButton.SetActive(true);
         }
 
         else
         {
+            // Locks the mouse after the player leaves to couldron
+            Cursor.lockState = CursorLockMode.Locked;
             craftingButton.SetActive(false);
         }
     }
