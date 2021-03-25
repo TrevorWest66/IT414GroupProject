@@ -19,7 +19,7 @@ public class KeyboardControls : MonoBehaviour
         // If there is an instance, don't destoy the main menu
         if (instance == null)
         {
-            //DontDestroyOnLoad(controlsSingleton);
+            DontDestroyOnLoad(controlsSingleton);
         }
     }
 
