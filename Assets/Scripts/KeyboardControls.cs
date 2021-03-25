@@ -11,7 +11,6 @@ public class KeyboardControls : MonoBehaviour
 
     public static GameObject controlsSingleton;
 
-
     private void Awake()
     {
         controlsSingleton = GameObject.FindGameObjectWithTag("OptionMenu").transform.parent.gameObject;
@@ -27,6 +26,7 @@ public class KeyboardControls : MonoBehaviour
             if (this != instance) { Destroy(gameObject); }
         }
     }
+
     public static KeyboardControls Instance
     {
         get 
@@ -34,7 +34,6 @@ public class KeyboardControls : MonoBehaviour
             return KeyboardControls.instance; 
         }
     }
-
 
     public KeyboardControlsEnum ControlType
     {
@@ -71,5 +70,4 @@ public class KeyboardControls : MonoBehaviour
         // This flips the toggle to make is appear like the preferences have been changed
         transform.Rotate(Vector3.forward * 180); 
     }
-
 }

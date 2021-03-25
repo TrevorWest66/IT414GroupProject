@@ -10,12 +10,14 @@ public class Program : MonoBehaviour
     //Start is called before the first frame udpate
     void Start()
     {
-        //Could put player in singleton too
-        thePlayer = GameObject.Find("Male A");
+        //Initialize the player by adding navigation and the in game display (player's actions determine crafting button and inventory display)
+        thePlayer = this.gameObject;
+
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
 
+        //Create the crafting station
         aFactory = new CauldronFactory();
-        aFactory.CreateGameObject(new Vector3(0, 0, 0), 1.5f);
+        aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
     }
 }
