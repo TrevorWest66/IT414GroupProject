@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿// Trevor West
+// 3/28/2021
 
 public class PromptLengthCalc
 {
     public float DeterminePropmptLength(float gameTimer)
     {
-        float promptLength = 0f;
+        // sets a default prompt length
+        float promptLength = 5f;
 
+        // sets teh prompt length based off of how long the game has been running
         if (gameTimer <= 5)
         {
             promptLength = 5f;

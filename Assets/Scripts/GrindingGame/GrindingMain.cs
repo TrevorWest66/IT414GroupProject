@@ -1,34 +1,38 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Trevor West
+// 3/28/2021
+
 using UnityEngine;
 using TMPro;
 
 public class GrindingMain : MonoBehaviour
 {
-    private readonly float Scale = 2f;
-    private readonly int XClamp, YClamp = 5;
-    private float PromptLength = 5f;
-    float MiniGameTimer = 0f;
-    float PromptTimer = 0f;
     private Vector3 ButtonPosition;
-    PromptLengthCalc PromptLengthCalculator;
-    PositionGenerator PositionFinder;
-    IKeyPrompt KeyPromptObject;
-    IKeyPrompt Decorator;
-    KeyPicker KeyPromptPicker;
-    CorrectKeyPress CorrectKey;
+    private PromptLengthCalc PromptLengthCalculator;
+    private PositionGenerator PositionFinder;
+    private IKeyPrompt KeyPromptObject;
+    private IKeyPrompt Decorator;
+    private KeyPicker KeyPromptPicker;
+    private CorrectKeyPress CorrectKey;
     public GameObject PlayerScoreDisplay;
     public GameObject StartPanel;
     public GameObject EndPanel;
     public GameObject FinalPlayerScore;
-    bool StartGame = false;
-    int Strikes = 0;
+
+    bool startGame = false;
+    int strikes = 0;
+    private readonly float scale = 2f;
+    private readonly int xClamp, yClamp = 5;
+    private float promptLength = 5f;
+    float miniGameTimer = 0f;
+    float promptTimer = 0f;
 
     public void EndGmae()
     {
-        StartGame = false;
+        startGame = false;
+        // destroys the prompt
         GameObject.Destroy(GameObject.Find("KeyPromptImage"));
         GameObject.Destroy(GameObject.Find("IndicatedKey"));
+        // switches to the end screen and adds final score to final score display
         PlayerScoreDisplay.SetActive(false);
         EndPanel.SetActive(true);
         FinalPlayerScore.GetComponent<TextMeshProUGUI>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
@@ -37,16 +41,16 @@ public class GrindingMain : MonoBehaviour
 
     public void PlayGame()
     {
-        StartGame = true;
+        // starts the game and switches off the main menu
+        startGame = true;
+        PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
         PlayerScoreDisplay.SetActive(true);
         StartPanel.SetActive(false);
     }
 
     void Start()
     {
-        // Delete later just for testing purposes
-        PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
-
+        // intializes basic vaiables
         PromptLengthCalculator = new PromptLengthCalc();
         PositionFinder = new PositionGenerator();
         KeyPromptPicker = new KeyPicker();
@@ -56,32 +60,46 @@ public class GrindingMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (StartGame)
+        // chekcs if the game has been started
+        if (startGame)
         {
-            MiniGameTimer += Time.deltaTime;
+            // increases the timer for the game
+            miniGameTimer += Time.deltaTime;
+            // if there are no prompt objects creates them
             if (GameObject.Find("KeyPromptImage") == null)
             {
-                PromptLength = PromptLengthCalculator.DeterminePropmptLength(MiniGameTimer);
-                ButtonPosition = PositionFinder.GeneratePosition(XClamp, YClamp);
-                KeyPromptObject = new KeyPrompt(ButtonPosition, Scale);
+                // determines the prompt length
+                promptLength = PromptLengthCalculator.DeterminePropmptLength(miniGameTimer);
+                // Determines the prompts location
+                ButtonPosition = PositionFinder.GeneratePosition(xClamp, yClamp);
+                // Creates the prompt
+                KeyPromptObject = new KeyPrompt(ButtonPosition, scale);
+                // make the object editble by the decorator
                 IKeyPrompt keyPromptDecorator = new KeyPromptDecorator(KeyPromptObject);
+                // picks a decorator to add an image for a key
                 Decorator = KeyPromptPicker.PickKeyPrompt(keyPromptDecorator);
+                // decorator adds the key image to the prompt
                 Decorator.GetObjectForSprite();
-                PromptTimer = 0f;
+                // sets the timer for the pompt to 0
+                promptTimer = 0f;
             }
 
-            PromptTimer += Time.deltaTime;
+            // Calls the method to see if the correct key is pressed, increments the strikes if not
+            strikes += CorrectKey.Determine(Decorator, PlayerScoreDisplay);
 
-            if (PromptTimer >= PromptLength)
+            // increases the timer for the prompt
+            promptTimer += Time.deltaTime;
+
+            // if the prompt timer exceeds the allowed time destroys the prompt and adds a strike
+            if (promptTimer >= promptLength)
             {
                 GameObject.Destroy(GameObject.Find("KeyPromptImage"));
                 GameObject.Destroy(GameObject.Find("IndicatedKey"));
-                Strikes += 1;
+                strikes += 1;
             }
 
-            Strikes += CorrectKey.Determine(Decorator, PlayerScoreDisplay);
-
-            if (Strikes >= 3)
+            // if the user gets 3 strikes ends the game
+            if (strikes >= 3)
             {
                 EndGmae();
             }

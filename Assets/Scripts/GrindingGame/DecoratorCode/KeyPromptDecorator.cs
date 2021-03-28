@@ -1,23 +1,28 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Trevor West
+// 3/28/2021
+
 using UnityEngine;
 
 public class KeyPromptDecorator : IKeyPrompt
 {
-    private IKeyPrompt _KeyPrompt;
+    // A variable for the orginal object
+    private IKeyPrompt KeyPrompt;
 
+    // takes in the orginal object and assigns it to its property;
     public KeyPromptDecorator(IKeyPrompt keyPrompt)
     {
-        _KeyPrompt = keyPrompt;
+        KeyPrompt = keyPrompt;
     }
 
+    // calls the GetObjectForSprite on the original object
     public virtual GameObject GetObjectForSprite()
     {
-        return _KeyPrompt.GetObjectForSprite();
+        return KeyPrompt.GetObjectForSprite();
     }
 
+    // calls the GetKeyValue on the original object
     public virtual string GetKeyValue()
     {
-        return _KeyPrompt.GetKeyValue();
+        return KeyPrompt.GetKeyValue();
     }
 }

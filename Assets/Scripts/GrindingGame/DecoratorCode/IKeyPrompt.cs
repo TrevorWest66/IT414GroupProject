@@ -1,5 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Trevor West
+// 3/28/2021
+
 using UnityEngine;
 
 public interface IKeyPrompt

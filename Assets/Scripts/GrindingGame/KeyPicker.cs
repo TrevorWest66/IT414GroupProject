@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿// Trevor West
+// 3/28/2021
 
 public class KeyPicker
 {
@@ -9,8 +8,10 @@ public class KeyPicker
 
     public IKeyPrompt PickKeyPrompt(IKeyPrompt keyPromptDecorator)
     {
+        // creates a random number between 0 and 4 (inclusivve)
         int chosenNum = RandomGenerator.Next(5);
 
+        // picks a decorator for adding the key image based of the random numbner
         if (chosenNum.Equals(0))
         {
             decorator = new WDecorator(keyPromptDecorator);
@@ -32,6 +33,7 @@ public class KeyPicker
             decorator = new SpaceDecorator(keyPromptDecorator);
         }
 
+        // returns the chosen decroator
         return decorator;
 
     }

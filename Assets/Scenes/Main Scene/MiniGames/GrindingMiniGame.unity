@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 130129939}
   - component: {fileID: 130129938}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Instructions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,8 +345,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -237.1, y: 99.6}
-  m_SizeDelta: {x: 285.89474, y: 130.71579}
+  m_AnchoredPosition: {x: -235.61, y: 45.32}
+  m_SizeDelta: {x: 288.88278, y: 239.28088}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &130129938
 MonoBehaviour:
@@ -383,6 +383,15 @@ MonoBehaviour:
   m_Text: 'Press the correct key
 
     when it appears.
+
+
+    You can also use the
+
+    corresponding
+    Arrow
+
+    buttons!
+
 
     Spc = Space Bar'
 --- !u!222 &130129939

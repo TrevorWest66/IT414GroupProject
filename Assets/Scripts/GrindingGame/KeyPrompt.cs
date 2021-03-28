@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿// Trevor West
+// 3/28/2021
+
 using UnityEngine;
 
 class KeyPrompt : IKeyPrompt
@@ -12,30 +10,32 @@ class KeyPrompt : IKeyPrompt
 
     public KeyPrompt(Vector3 thePosition, float scale)
     {
-        //Instantiate the object at the vector passed in
+        // Loads the background sprite and gives it a name
         Sprite backGroundSprite = Resources.Load<Sprite>("RequestedKeyImage");
         backGroundSprite.name = "BackGroundSprite";
 
-        // SpriteObject = GameObject.Instantiate(new GameObject(), thePosition, Quaternion.identity);
+        // Creates the object for the sprite to go onto
         SpriteObject = new GameObject();
         SpriteObject.transform.position = thePosition;
 
-        //Resize the cauldron
+        //Resizes the background object
         SpriteObject.transform.localScale = new Vector3(scale, scale, scale);
 
         //Rename the game object
         SpriteObject.name = "KeyPromptImage";
 
-        // Add sprite component
+        // Add sprite component and sets sprite
         SpriteRenderer spriteRenderer = SpriteObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sprite = backGroundSprite;
     }
 
+    // gets the object with the background image that the letter will be attached to
     public GameObject GetObjectForSprite()
     {
         return SpriteObject;
     }
 
+    // gets teh key value
     public string GetKeyValue()
     {
         return KeyValue;
