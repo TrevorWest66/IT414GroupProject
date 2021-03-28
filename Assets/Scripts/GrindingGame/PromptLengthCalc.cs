@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Determines how long the key prompt will stay on the screen
 
 public class PromptLengthCalc
 {

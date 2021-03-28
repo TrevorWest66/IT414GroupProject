@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Ends the mini gamne
 
 using UnityEngine;
 using UnityEngine.SceneManagement;

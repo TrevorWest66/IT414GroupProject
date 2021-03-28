@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Base decorator
 
 using UnityEngine;
 

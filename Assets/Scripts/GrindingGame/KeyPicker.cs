@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Decides what key the prompt will ask for
 
 public class KeyPicker
 {

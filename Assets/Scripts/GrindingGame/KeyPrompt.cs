@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Creates the object for the background of the key prompt
 
 using UnityEngine;
 

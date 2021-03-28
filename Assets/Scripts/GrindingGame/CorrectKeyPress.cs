@@ -1,10 +1,11 @@
 ﻿// Trevor West
 // 3/28/2021
+// Determines if the correct key was pressed
 
 using UnityEngine;
 using TMPro;
 
-class CorrectKeyPress
+public class CorrectKeyPress
 {
     public int Determine(IKeyPrompt prompt, GameObject playerScore)
     {

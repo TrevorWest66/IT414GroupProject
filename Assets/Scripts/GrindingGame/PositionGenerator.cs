@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Generates a random psotion for the key prmpt
 
 using UnityEngine;
 

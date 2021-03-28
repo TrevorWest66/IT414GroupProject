@@ -1,5 +1,6 @@
 ﻿// Trevor West
 // 3/28/2021
+// Main program for the Grinding Mini game
 
 using UnityEngine;
 using TMPro;
