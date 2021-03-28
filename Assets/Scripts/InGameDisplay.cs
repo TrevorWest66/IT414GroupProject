@@ -31,7 +31,6 @@ public class InGameDisplay : MonoBehaviour
         //crafting button hasn't been clicked (prevents overlay of crafting button with inventory canvas)
         if (showCraftingButton && !craftingClicked)
         {
-            Debug.Log("1");
             // Unlocks the mouse so that the player is able to interact with the button
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
@@ -66,7 +65,6 @@ public class InGameDisplay : MonoBehaviour
     {
         backClicked = true;
         craftingClicked = false;
-        Debug.Log("4");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
