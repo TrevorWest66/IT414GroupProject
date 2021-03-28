@@ -6,5 +6,5 @@ using UnityEngine;
 public abstract class AbstractGameObjectFactory
 {
     //To create a game object we need to know the position and scale of the game object
-    public abstract void CreateGameObject(Vector3 thePosition, float scale);
+    public abstract GameObject CreateGameObject(Vector3 thePosition, float scale);
 }

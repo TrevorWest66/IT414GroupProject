@@ -6,7 +6,7 @@ using UnityEngine;
 public class KeyboardControls : MonoBehaviour
 {
     private static KeyboardControls instance = null;
-    private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // default is arrows, when game starts
+    private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // default is WASD, when game starts
     private DateTime timeControlsChanged = DateTime.Now;
 
     public static GameObject controlsSingleton;
