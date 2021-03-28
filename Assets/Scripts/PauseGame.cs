@@ -27,7 +27,6 @@ public class PauseGame : MonoBehaviour
     public void Resume()
     {
         // Locks the users cursor when the game resumes
-        Debug.Log("Locked cursor, invisable.");
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
