@@ -13,6 +13,7 @@ public class Program : MonoBehaviour
     {
         //Initialize the player by adding navigation and the in game display (player's actions determine crafting button and inventory display)
         thePlayer = this.gameObject;
+        PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
 
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();

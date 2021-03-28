@@ -22,5 +22,6 @@ public class PlantFactory : AbstractGameObjectFactory
         // Adds object to list
         CurrentGameObjects.Instance.addObjectsPopulated(PlantObject);
 
+        return thePlant;
     }
 }
