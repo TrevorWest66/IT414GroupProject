@@ -9,7 +9,7 @@ public class CauldronFactory : AbstractGameObjectFactory
     //Load the prefab cauldron
     private GameObject cauldron = Resources.Load("Cauldron2") as GameObject;
 
-    public override void CreateGameObject(Vector3 thePosition, float scale)
+    public override GameObject CreateGameObject(Vector3 thePosition, float scale)
     {
         //Instantiate the object at the vector passed in
         cauldron = GameObject.Instantiate(cauldron, thePosition, Quaternion.identity);
@@ -19,5 +19,7 @@ public class CauldronFactory : AbstractGameObjectFactory
 
         //Rename the game object
         cauldron.name = "Cauldron";
+
+        return cauldron;
     }
 }
