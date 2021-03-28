@@ -22,8 +22,5 @@ public class Program : MonoBehaviour
         aFactory = new CauldronFactory();
         aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
 
-        aPlantSpawner = new PlantSpawner();
-        aPlantSpawner.spawnPlants(50);
-
     }
 }

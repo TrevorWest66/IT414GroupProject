@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class GenerateRandomPosition : MonoBehaviour
+public class GenerateRandomPosition
 {
     public Terrain WorldTerrain;
     public LayerMask TerrainLayer;
@@ -13,7 +13,7 @@ public class GenerateRandomPosition : MonoBehaviour
     public static ArrayList positions = new ArrayList();
     public static ArrayList rotations = new ArrayList();
 
-    private void Awake()
+    public GenerateRandomPosition(Terrain worldTerrain, LayerMask terrainLayer)
     {
         // Terrain is set smaller than it actually is so plants are spawned more in the center
         TerrainLeft = -200;
@@ -23,6 +23,9 @@ public class GenerateRandomPosition : MonoBehaviour
         TerrainHeight = 300;
         TerrainRight = TerrainLeft + TerrainWidth;
         TerrainTop = TerrainBottom + TerrainLength;
+
+        WorldTerrain = worldTerrain;
+        TerrainLayer = terrainLayer;
     }
 
     // Takes in the game object, how many you want, moves item up vertically
@@ -48,6 +51,10 @@ public class GenerateRandomPosition : MonoBehaviour
             randomPositionY = terrainHeight + addedHeight;
 
             randomPosition = new Vector3(randomPositionX, randomPositionY, RandomPositionZ);
+        }
+        else
+        {
+            GenerateRandomPositionOnTerrain();
         }
 
         /*// check position of the plant and verify there is not already a plant there

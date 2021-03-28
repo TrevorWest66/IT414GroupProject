@@ -3,21 +3,27 @@ using UnityEngine;
 
 public class PlantSpawner : MonoBehaviour
 {
+    public Terrain WorldTerrain;
+    public LayerMask TerrainLayer;
+
     private AbstractGameObjectFactory aPlantFactory;
-    private GenerateRandomPosition aRandomPositionGenerator = new GenerateRandomPosition();
+    private GenerateRandomPosition aRandomPositionGenerator;
 
     private void Update()
     {
-        if (CurrentGameObjects.Instance.getObjectsPopulated().Count > 100)
+        if (CurrentGameObjects.Instance.getObjectsPopulated().Count < 50)
         {
+            aRandomPositionGenerator = new GenerateRandomPosition(WorldTerrain, TerrainLayer);
             Vector3 aRandomPosition = aRandomPositionGenerator.GenerateRandomPositionOnTerrain();
 
             aPlantFactory = new PlantFactory();
-            aPlantFactory.CreateGameObject(aRandomPosition, 4f);
+            aPlantFactory.CreateGameObject(aRandomPosition, 8f);
         }
     }
-    public void spawnPlants(int numPlants)
+   /* public void SpawnPlants(int numPlants)
     {
+        aRandomPositionGenerator = new GenerateRandomPosition(WorldTerrain, TerrainLayer);
+
         for (int i = 0; i < numPlants; i++)
         {
             Vector3 aRandomPosition = aRandomPositionGenerator.GenerateRandomPositionOnTerrain();
@@ -25,21 +31,5 @@ public class PlantSpawner : MonoBehaviour
             aPlantFactory = new PlantFactory();
             aPlantFactory.CreateGameObject(aRandomPosition, 4f);
         }
-    }
-
-    // put in a void update method
-    // create a checker that checkd the number of plants in the objects populated 
-
-    // create method that takes in how many plants you want to create
-
-    // calls the random position generator
-
-    // calls the plant factory
-
-    // add plant to the objects populated list
-
-
-
-    // Attach to game controller
-
+    }*/
 }
