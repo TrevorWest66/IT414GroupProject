@@ -6,7 +6,8 @@ public class Program : MonoBehaviour
 {
     private AbstractGameObjectFactory aFactory;
     private GameObject thePlayer;
-    
+    private PlantSpawner aPlantSpawner;
+
     //Start is called before the first frame udpate
     void Start()
     {
@@ -19,5 +20,9 @@ public class Program : MonoBehaviour
         //Create the crafting station
         aFactory = new CauldronFactory();
         aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
+
+        aPlantSpawner = new PlantSpawner();
+        aPlantSpawner.spawnPlants(50);
+
     }
 }

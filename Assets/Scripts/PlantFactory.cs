@@ -6,13 +6,21 @@ using UnityEngine;
 
 public class PlantFactory : AbstractGameObjectFactory
 {
+    private GameObject PlantObject = Resources.Load("flower05") as GameObject;
+
     public override void CreateGameObject(Vector3 thePosition, float scale)
     {
-        // Replace this with the plant obj
-        GameObject thePlant = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        // Scales the plants to be larger
+        PlantObject.transform.localScale = new Vector3(scale, scale, scale);
 
-        thePlant.transform.localScale = new Vector3(scale, scale, scale);
-        thePlant.transform.position = thePosition;
+        // Instantiate the object at the vector passed in
+        PlantObject = GameObject.Instantiate(PlantObject, thePosition, Quaternion.identity);
+
+        // Rename the game object
+        PlantObject.name = "Flower";
+
+        // Adds object to list
+        CurrentGameObjects.Instance.addObjectsPopulated(PlantObject);
 
     }
 }

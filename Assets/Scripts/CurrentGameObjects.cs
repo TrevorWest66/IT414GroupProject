@@ -45,6 +45,11 @@ public sealed class CurrentGameObjects : MonoBehaviour
         return objectsPopulated[i];
     }
 
+    public List<GameObject> getObjectsPopulated()
+    {
+        return objectsPopulated;
+    }
+
     //Add objects collected by player
     public void addObjectsCollected(GameObject aPlant)
     {
