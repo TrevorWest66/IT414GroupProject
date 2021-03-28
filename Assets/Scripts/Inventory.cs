@@ -44,6 +44,7 @@ public class Inventory : MonoBehaviour
         }
 
         //We have clicked the crafting button so set that static variable to true (will disable the crafting canvas and enable the inventory canvas)
+        Cursor.lockState = CursorLockMode.None;
         InGameDisplay.craftingClicked = true;
 
         //The back button has not been clicked yet as the inventory canvas hasn't been displayed so we set this static variable to false
