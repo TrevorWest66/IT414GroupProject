@@ -26,12 +26,15 @@ public class PauseGame : MonoBehaviour
 
     public void Resume()
     {
+        // Locks the users cursor when the game resumes
+        Debug.Log("Locked cursor, invisable.");
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+
         PauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         GameIsPaused = false;
 
-        // Locks the users cursor when the game resumes
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
     public void Pause()
@@ -42,6 +45,7 @@ public class PauseGame : MonoBehaviour
 
         // Unlocks the users cursor when the game pauses
         Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void QuitToMenu()

@@ -48,6 +48,8 @@ public class InGameDisplay : MonoBehaviour
         //If crafting button is clicked, display the inventory canvas
         if (craftingClicked)
         {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
             inventoryCanvas.enabled = true;
 
         }
@@ -55,8 +57,8 @@ public class InGameDisplay : MonoBehaviour
         //If back button is clicked on the inventory canvas, disable the inventory canvas
         if (backClicked)
         {
+            Cursor.lockState = CursorLockMode.Locked;
             inventoryCanvas.enabled = false;
-
         }
     }
 
@@ -64,6 +66,7 @@ public class InGameDisplay : MonoBehaviour
     //When it is clicked we need to disable the inventory canvas
     public void Back()
     {
+        Cursor.lockState = CursorLockMode.Locked;
         backClicked = true;
         craftingClicked = false;
     }
