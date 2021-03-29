@@ -11,13 +11,10 @@ public class MouseLook : MonoBehaviour
 
     public Transform playerBody;
 
-    private Vector3 offset;
-
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        offset = transform.position - playerBody.transform.position;
     }
 
     // Update is called once per frame
