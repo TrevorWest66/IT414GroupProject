@@ -11,25 +11,15 @@ public class PlantSpawner : MonoBehaviour
 
     private void Update()
     {
+        // Will populate a plant if there are less than 50 objects populated
         if (CurrentGameObjects.Instance.getObjectsPopulated().Count < 50)
         {
             aRandomPositionGenerator = new GenerateRandomPosition(WorldTerrain, TerrainLayer);
             Vector3 aRandomPosition = aRandomPositionGenerator.GenerateRandomPositionOnTerrain();
 
+            // Creates a new plant factory which will generate the random plant
             aPlantFactory = new PlantFactory();
-            aPlantFactory.CreateGameObject(aRandomPosition, 8f);
+            aPlantFactory.CreateGameObject(aRandomPosition, 6f);
         }
     }
-   /* public void SpawnPlants(int numPlants)
-    {
-        aRandomPositionGenerator = new GenerateRandomPosition(WorldTerrain, TerrainLayer);
-
-        for (int i = 0; i < numPlants; i++)
-        {
-            Vector3 aRandomPosition = aRandomPositionGenerator.GenerateRandomPositionOnTerrain();
-
-            aPlantFactory = new PlantFactory();
-            aPlantFactory.CreateGameObject(aRandomPosition, 4f);
-        }
-    }*/
 }

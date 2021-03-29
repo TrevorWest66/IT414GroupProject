@@ -28,15 +28,15 @@ public class GenerateRandomPosition
         TerrainLayer = terrainLayer;
     }
 
-    // Takes in the game object, how many you want, moves item up vertically
     public Vector3 GenerateRandomPositionOnTerrain()
     {
-        float addedHeight = .1f;
+        float addedHeight = .3f;
         float terrainHeight = 0f;
         RaycastHit hit;
         float randomPositionX, randomPositionY, RandomPositionZ;
         Vector3 randomPosition = Vector3.zero;
         
+        // Generates a random number within the bound of the terrain
         randomPositionX = Random.Range(TerrainLeft, TerrainRight);
         RandomPositionZ = Random.Range(TerrainBottom, TerrainTop);
 
@@ -45,13 +45,14 @@ public class GenerateRandomPosition
             terrainHeight = hit.point.y;
         }
 
-        // Prevents position from being set up too high
+        // If the position is under 40, set it as the position
         if (terrainHeight < 40)
         {
             randomPositionY = terrainHeight + addedHeight;
 
             randomPosition = new Vector3(randomPositionX, randomPositionY, RandomPositionZ);
         }
+        // If the position generated is above 40, generate a new position
         else
         {
             GenerateRandomPositionOnTerrain();
