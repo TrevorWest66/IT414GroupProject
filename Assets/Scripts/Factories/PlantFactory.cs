@@ -7,11 +7,11 @@ using UnityEngine;
 public class PlantFactory : AbstractGameObjectFactory
 {
     private GameObject PlantObject; // Generic plant
-    private GameObject LavenderPlant = Resources.Load("Lavender") as GameObject;
-    private GameObject SpearmintPlant = Resources.Load("Spearmint") as GameObject;
-    private GameObject RosePlant = Resources.Load("Rose") as GameObject;
-    private GameObject ChamomilePlant = Resources.Load("Chamomile") as GameObject;
-    private GameObject AloePlant = Resources.Load("Aloe") as GameObject;
+    private GameObject LavenderPlant = Resources.Load("LavenderPrefab") as GameObject;
+    private GameObject SpearmintPlant = Resources.Load("SpearmintPrefab") as GameObject;
+    private GameObject RosePlant = Resources.Load("RosePrefab") as GameObject;
+    private GameObject ChamomilePlant = Resources.Load("ChamomilePrefab") as GameObject;
+    private GameObject AloePlant = Resources.Load("AloePrefab") as GameObject;
     private GameObject Plant = Resources.Load("flower05") as GameObject;
 
     public override GameObject CreateGameObject(Vector3 thePosition, float scale)

@@ -41,6 +41,8 @@ public class Inventory : MonoBehaviour
             //Find the game object to place the text for the quanity of that game object
             theGameObject = GameObject.Find("Slot (" + slot + ")/Quantity");
             theGameObject.GetComponent<Text>().text = value.ToString();
+
+            slot += slot;
         }
 
         //We have clicked the crafting button so set that static variable to true (will disable the crafting canvas and enable the inventory canvas)

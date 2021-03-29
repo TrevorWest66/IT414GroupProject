@@ -58,6 +58,12 @@ public class GenerateRandomPosition
             GenerateRandomPositionOnTerrain();
         }
 
+        // Prevents default location from spawning plants
+        if (randomPosition.Equals(new Vector3(0, 0, 0)))
+        {
+            randomPosition = GenerateRandomPositionOnTerrain();
+        }
+
         /*// check position of the plant and verify there is not already a plant there
         foreach(GameObject p in CurrentGameObjects.Instance.getObjectsPopulated())
         {
