@@ -41,6 +41,7 @@ public class InGameDisplay : MonoBehaviour
         else
         {
             craftingCanvas.enabled = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         //If crafting button is clicked, display the inventory canvas
