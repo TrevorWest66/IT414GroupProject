@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour
         //Our abstract iterator initialized to our concrete InventoryIterator to iterate through the collected game objects
         anIterator = new InventoryIterator();
 
-        //Reset slot so that inventory always populates at slot 1
+        //Reset slot so that inventory always starts populating at slot 1
         Reset();
 
         //Check to verify there are objects in the inventory; we also only have 12 slots
