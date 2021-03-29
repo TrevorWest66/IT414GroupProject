@@ -20,7 +20,35 @@ public class Program : MonoBehaviour
 
         //Create the crafting station
         aFactory = new CauldronFactory();
-        aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
+        aFactory.CreateGameObject(new Vector3(0, .5f, 0), 1.5f);
 
+        //This is only used to populate the inventory for the phase 2 demonstration since we can't pick up objects yet
+        //This will be all be deleted
+
+        GameObject one = new GameObject();
+        one.name = "Cone Flower";
+
+        GameObject two = new GameObject();
+        two.name = "Cone Flower";
+
+        GameObject three = new GameObject();
+        three.name = "Rose";
+
+        GameObject four = new GameObject();
+        four.name = "Rose";
+
+        GameObject five = new GameObject();
+        five.name = "Rose";
+
+        GameObject six = new GameObject();
+        six.name = "Spearmint";
+
+        CurrentGameObjects aSingleton = CurrentGameObjects.Instance;
+        aSingleton.addObjectsCollected(three);
+        aSingleton.addObjectsCollected(four);
+        aSingleton.addObjectsCollected(five);
+        aSingleton.addObjectsCollected(one);
+        aSingleton.addObjectsCollected(two);
+        aSingleton.addObjectsCollected(six);
     }
 }

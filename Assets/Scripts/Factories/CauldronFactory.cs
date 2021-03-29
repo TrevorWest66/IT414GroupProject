@@ -7,7 +7,7 @@ using UnityEngine;
 public class CauldronFactory : AbstractGameObjectFactory
 {
     //Load the prefab cauldron
-    private GameObject cauldron = Resources.Load("Cauldron2") as GameObject;
+    private GameObject cauldron = Resources.Load("CauldronPrefab") as GameObject;
 
     public override GameObject CreateGameObject(Vector3 thePosition, float scale)
     {

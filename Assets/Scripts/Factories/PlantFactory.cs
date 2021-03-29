@@ -12,7 +12,7 @@ public class PlantFactory : AbstractGameObjectFactory
     private GameObject RosePlant = Resources.Load("RosePrefab") as GameObject;
     private GameObject ChamomilePlant = Resources.Load("ChamomilePrefab") as GameObject;
     private GameObject AloePlant = Resources.Load("AloePrefab") as GameObject;
-    private GameObject Plant = Resources.Load("flower05") as GameObject;
+    private GameObject Plant = Resources.Load("ConeFlowerPrefab") as GameObject;
 
     public override GameObject CreateGameObject(Vector3 thePosition, float scale)
     {
@@ -93,10 +93,10 @@ public class PlantFactory : AbstractGameObjectFactory
         else // Creates generic plant
         {
             PlantObject = GameObject.Instantiate(Plant, thePosition, Quaternion.identity);
-            PlantObject.name = "Flower";
+            PlantObject.name = "Cone Flower";
 
             TextMesh aPlantName = PlantObject.AddComponent<TextMesh>();
-            aPlantName.text = "Flower";
+            aPlantName.text = "Cone Flower";
             aPlantName.characterSize = .05f;
             aPlantName.anchor = TextAnchor.UpperCenter;
 
