@@ -14,14 +14,12 @@ public class MoveForward : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        float hMove = 0.0f;
-        float vMove = 5.0f;
-        float speed = 1.0f;
+        float hMove = 5.0f;
+        // float vMove = 5.0f;
+        float speed = 2.0f;
 
-        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        Vector3 aMove = aCharacter.transform.forward * hMove;
         aController.Move(aMove * Time.deltaTime * speed);
-        hMove = 0.0f;
-        vMove = 0.0f;
     }
 }
 
@@ -29,14 +27,12 @@ public class MoveBack : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        float hMove = 0.0f;
-        float vMove = -5.0f;
-        float speed = 1.0f;
+        float hMove = -5.0f;
+        // float vMove = -5.0f;
+        float speed = 2.0f;
 
-        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        Vector3 aMove = aCharacter.transform.forward * hMove;
         aController.Move(aMove * Time.deltaTime * speed);
-        hMove = 0.0f;
-        vMove = 0.0f;
     }
 }
 
@@ -46,13 +42,11 @@ public class TurnLeft : AbstractPlayerControllerCommand
     {
         //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
         float hMove = -5.0f;
-        float vMove = 0.0f;
-        float speed = 1.0f;
+        // float vMove = 0.0f;
+        float speed = 2.0f;
 
-        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        Vector3 aMove = aCharacter.transform.right * hMove;
         aController.Move(aMove * Time.deltaTime * speed);
-        hMove = 0.0f;
-        vMove = 0.0f;
     }
 }
 
@@ -63,13 +57,14 @@ public class TurnRight : AbstractPlayerControllerCommand
         //aCharacter.transform.Rotate(0.0f, 20.0f, 0.0f);
         //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
         float hMove = 5.0f;
-        float vMove = 0.0f;
-        float speed = 1.0f;
+        // float vMove = 0.0f;
+        float speed = 2.0f;
 
-        Vector3 aMove = aCharacter.transform.forward * vMove + aCharacter.transform.right * hMove;
+        Vector3 aMove = aCharacter.transform.right * hMove;
+        Debug.Log(aMove);
+        Debug.Log(aCharacter);
+        Debug.Log(aController);
         aController.Move(aMove * Time.deltaTime * speed);
-        hMove = 0.0f;
-        vMove = 0.0f;
     }
 }
 
@@ -83,7 +78,6 @@ public class JumpUp : AbstractPlayerControllerCommand
 
         aCharacter.transform.position = new Vector3(aCharacter.transform.position.x, aCharacter.transform.position.y + yMove, aCharacter.transform.position.z);
         await WaitJump(0.2f);
-        aCharacter.transform.position = new Vector3(aCharacter.transform.position.x, aCharacter.transform.position.y + (0 - yMove), aCharacter.transform.position.z);
     }
 
     private async Task WaitJump(float wait)

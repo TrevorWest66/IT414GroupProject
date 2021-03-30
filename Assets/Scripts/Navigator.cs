@@ -22,6 +22,9 @@ public class Navigator : MonoBehaviour
     // Time will be used to determine if players keyboard control preferences have changes recently
     private DateTime timeControlsWereSetInNavigator;
 
+    float jumpSpeed, gravity = 1;
+    bool grounded, jumping;
+
     void Start()
     {
         keyboardControls = KeyboardControls.Instance;
@@ -58,8 +61,21 @@ public class Navigator : MonoBehaviour
 
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
+        grounded = aCharacterController.isGrounded;
+
+        Debug.Log(grounded);
+        if (grounded)
+        {
+            jumping = false;
+            jumpSpeed = 0;
+        }
+        else
+            jumpSpeed -= (gravity * 25) * Time.deltaTime;
+            aCharacterController.Move(new Vector3(0, 1, 0) * jumpSpeed);
+
         if (Input.GetKey(controllerKeys.ElementAt(0)))
         {
+            Debug.Log("movement commands getting sent");
             keyForward.Execute(this.gameObject, aCharacterController);
         }
 
