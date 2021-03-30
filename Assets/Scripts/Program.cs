@@ -20,7 +20,6 @@ public class Program : MonoBehaviour
 
         //Create the crafting station
         aFactory = new CauldronFactory();
-        aFactory.CreateGameObject(new Vector3(0, .7f, 0), 1.5f);
-
+        aFactory.CreateGameObject(new Vector3(0, .5f, 0), 1.5f);
     }
 }
