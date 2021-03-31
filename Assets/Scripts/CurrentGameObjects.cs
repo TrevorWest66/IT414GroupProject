@@ -6,7 +6,7 @@ using System.Collections;
 using UnityEngine;
 
 // Singleton design pattern
-public sealed class CurrentGameObjects : MonoBehaviour
+public sealed class CurrentGameObjects
 {
     // Lists all the objects populated on the map
     private List<GameObject> objectsPopulated = new List<GameObject>();
@@ -32,7 +32,6 @@ public sealed class CurrentGameObjects : MonoBehaviour
             //this variable below is attached to the classname
             return CurrentGameObjects.instance;
         }
-
     }
     // Method to add objects to the list
     public void addObjectsPopulated(GameObject aPlant)
@@ -43,6 +42,11 @@ public sealed class CurrentGameObjects : MonoBehaviour
     public GameObject getObjectPopulated(int i)
     {
         return objectsPopulated[i];
+    }
+
+    public List<GameObject> getObjectsPopulated()
+    {
+        return objectsPopulated;
     }
 
     //Add objects collected by player

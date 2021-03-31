@@ -31,12 +31,17 @@ public class InGameDisplay : MonoBehaviour
         //crafting button hasn't been clicked (prevents overlay of crafting button with inventory canvas)
         if (showCraftingButton && !craftingClicked)
         {
+            // Unlocks the mouse so that the player is able to interact with the button
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
             craftingCanvas.enabled = true;
         }
         //If above conditions are false, don't display crafting button
         else
         {
             craftingCanvas.enabled = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
 
         //If crafting button is clicked, display the inventory canvas
@@ -44,13 +49,14 @@ public class InGameDisplay : MonoBehaviour
         {
             inventoryCanvas.enabled = true;
 
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
         }
 
         //If back button is clicked on the inventory canvas, disable the inventory canvas
         if (backClicked)
         {
             inventoryCanvas.enabled = false;
-
         }
     }
 
@@ -60,5 +66,7 @@ public class InGameDisplay : MonoBehaviour
     {
         backClicked = true;
         craftingClicked = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 }

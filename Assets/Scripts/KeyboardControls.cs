@@ -6,25 +6,26 @@ using UnityEngine;
 public class KeyboardControls : MonoBehaviour
 {
     private static KeyboardControls instance = null;
-    private KeyboardControlsEnum controlType = KeyboardControlsEnum.Arrows; // default is arrows, when game starts
+    private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // default is WASD, when game starts
     private DateTime timeControlsChanged = DateTime.Now;
 
     public static GameObject controlsSingleton;
 
     private void Awake()
     {
+        // This gets the root of the options menu
         controlsSingleton = GameObject.FindGameObjectWithTag("OptionMenu").transform.parent.gameObject;
-        // if instance is not yet set, set it and make it persistent between scenes
+
+        // If there is an instance, don't destoy the main menu
         if (instance == null)
         {
-            instance = this;
             DontDestroyOnLoad(controlsSingleton);
         }
-        else
-        {
-            // if instance is already set and this is not the same object, destroy it
-            if (this != instance) { Destroy(gameObject); }
-        }
+    }
+
+    static KeyboardControls() 
+    {
+        KeyboardControls.instance = new KeyboardControls();
     }
 
     public static KeyboardControls Instance
