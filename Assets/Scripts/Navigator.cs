@@ -70,7 +70,7 @@ public class Navigator : MonoBehaviour
             jumpSpeed = 0;
         }
         else
-            jumpSpeed -= (gravity * 25) * Time.deltaTime;
+            jumpSpeed -= (gravity * 1) * Time.deltaTime;
             aCharacterController.Move(new Vector3(0, 1, 0) * jumpSpeed);
 
         if (Input.GetKey(controllerKeys.ElementAt(0)))
