@@ -73,7 +73,6 @@ public class Navigator : MonoBehaviour
 
         if (Input.GetKey(controllerKeys.ElementAt(0)))
         {
-            Debug.Log("movement commands getting sent");
             keyForward.Execute(this.gameObject, aCharacterController);
         }
 
