@@ -54,9 +54,6 @@ public class TurnRight : AbstractPlayerControllerCommand
         float speed = 2.0f;
 
         Vector3 aMove = aCharacter.transform.right * hMove;
-        Debug.Log(aMove);
-        Debug.Log(aCharacter);
-        Debug.Log(aController);
         aController.Move(aMove * Time.deltaTime * speed);
     }
 }
