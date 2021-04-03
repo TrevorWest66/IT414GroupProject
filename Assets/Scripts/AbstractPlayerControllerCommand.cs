@@ -15,7 +15,6 @@ public class MoveForward : AbstractPlayerControllerCommand
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
         float hMove = 5.0f;
-        // float vMove = 5.0f;
         float speed = 2.0f;
 
         Vector3 aMove = aCharacter.transform.forward * hMove;
@@ -28,7 +27,6 @@ public class MoveBack : AbstractPlayerControllerCommand
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
         float hMove = -5.0f;
-        // float vMove = -5.0f;
         float speed = 2.0f;
 
         Vector3 aMove = aCharacter.transform.forward * hMove;
@@ -40,9 +38,7 @@ public class TurnLeft : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
         float hMove = -5.0f;
-        // float vMove = 0.0f;
         float speed = 2.0f;
 
         Vector3 aMove = aCharacter.transform.right * hMove;
@@ -54,10 +50,7 @@ public class TurnRight : AbstractPlayerControllerCommand
 {
     public override void Execute(GameObject aCharacter, CharacterController aController)
     {
-        //aCharacter.transform.Rotate(0.0f, 20.0f, 0.0f);
-        //aCharacter.transform.Rotate(0.0f, -20.0f, 0.0f);
         float hMove = 5.0f;
-        // float vMove = 0.0f;
         float speed = 2.0f;
 
         Vector3 aMove = aCharacter.transform.right * hMove;
@@ -83,6 +76,5 @@ public class JumpUp : AbstractPlayerControllerCommand
     private async Task WaitJump(float wait)
     {
         await Task.Delay(System.TimeSpan.FromSeconds(wait));
-        // Debug.Log("I waited");
     }
 }
