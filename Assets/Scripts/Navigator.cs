@@ -62,8 +62,6 @@ public class Navigator : MonoBehaviour
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
         grounded = aCharacterController.isGrounded;
-
-        Debug.Log(grounded);
         if (grounded)
         {
             jumping = false;
@@ -101,32 +99,5 @@ public class Navigator : MonoBehaviour
             keyJump.Execute(this.gameObject, aCharacterController);
         }
     }
-
-    // TODO: Used fixed update to change player controls midgame if they've been updates in the options menu
-    /*void FixedUpdate()
-    {
-        if (keyboardControls.TimeControlsChanged != timeControlsWereSetInNavigator)
-        {
-            if (keyboardControls.ControlType.Equals(KeyboardControlsEnum.Arrows))
-            {
-                controlsBuilder = new ArrowControlsBuilder();
-            }
-            if (keyboardControls.ControlType.Equals(KeyboardControlsEnum.WASD))
-            {
-                controlsBuilder = new WASDContolsBuilder();
-            }
-            timeControlsWereSetInNavigator = keyboardControls.TimeControlsChanged;
-            builderDirector.Construct(controlsBuilder);
-            controllerKeys = controlsBuilder.SetPlayerControls();
-            Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
-            keyLeft = new TurnLeft();
-            keyRight = new TurnRight();
-            keyForward = new MoveForward();
-            keyBack = new MoveBack();
-            keyJump = new JumpUp();
-            aCharacterController = this.gameObject.GetComponent<CharacterController>();
-        }
-        
-    }*/
 
 }
