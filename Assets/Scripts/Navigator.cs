@@ -22,6 +22,9 @@ public class Navigator : MonoBehaviour
     // Time will be used to determine if players keyboard control preferences have changes recently
     private DateTime timeControlsWereSetInNavigator;
 
+    float jumpSpeed, gravity = 1;
+    bool grounded, jumping;
+
     void Start()
     {
         keyboardControls = KeyboardControls.Instance;
@@ -58,6 +61,16 @@ public class Navigator : MonoBehaviour
 
         enableDisplay = distanceCalculator.Calculate(theCauldron, currentLocation);
 
+        grounded = aCharacterController.isGrounded;
+        if (grounded)
+        {
+            jumping = false;
+            jumpSpeed = 0;
+        }
+        else
+            jumpSpeed -= (gravity * 1) * Time.deltaTime;
+            aCharacterController.Move(new Vector3(0, 1, 0) * jumpSpeed);
+
         if (Input.GetKey(controllerKeys.ElementAt(0)))
         {
             keyForward.Execute(this.gameObject, aCharacterController);
@@ -85,32 +98,5 @@ public class Navigator : MonoBehaviour
             keyJump.Execute(this.gameObject, aCharacterController);
         }
     }
-
-    // TODO: Used fixed update to change player controls midgame if they've been updates in the options menu
-    /*void FixedUpdate()
-    {
-        if (keyboardControls.TimeControlsChanged != timeControlsWereSetInNavigator)
-        {
-            if (keyboardControls.ControlType.Equals(KeyboardControlsEnum.Arrows))
-            {
-                controlsBuilder = new ArrowControlsBuilder();
-            }
-            if (keyboardControls.ControlType.Equals(KeyboardControlsEnum.WASD))
-            {
-                controlsBuilder = new WASDContolsBuilder();
-            }
-            timeControlsWereSetInNavigator = keyboardControls.TimeControlsChanged;
-            builderDirector.Construct(controlsBuilder);
-            controllerKeys = controlsBuilder.SetPlayerControls();
-            Debug.Log("Set player Controls: " + controlsBuilder.GetType().ToString());
-            keyLeft = new TurnLeft();
-            keyRight = new TurnRight();
-            keyForward = new MoveForward();
-            keyBack = new MoveBack();
-            keyJump = new JumpUp();
-            aCharacterController = this.gameObject.GetComponent<CharacterController>();
-        }
-        
-    }*/
 
 }
