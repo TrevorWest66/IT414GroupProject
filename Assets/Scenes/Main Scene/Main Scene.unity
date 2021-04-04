@@ -120,7 +120,7 @@ NavMeshSettings:
     accuratePlacement: 0
     debug:
       m_Flags: 0
-  m_NavMeshData: {fileID: 23800000, guid: b3b3aff9490ddb24b85f6a70fbb107e6, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: f46a1ef388e2fe24f94a8f13ffd5ad2c, type: 2}
 --- !u!1 &19465729
 GameObject:
   m_ObjectHideFlags: 0
@@ -1136,7 +1136,7 @@ Rigidbody:
   m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!20 &494961285
 Camera:
   m_ObjectHideFlags: 0
@@ -1187,13 +1187,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 494961283}
-  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
-  m_LocalPosition: {x: 0, y: 1, z: -0.5}
+  m_LocalRotation: {x: 0.2164396, y: 0, z: 0, w: 0.97629607}
+  m_LocalPosition: {x: 0, y: 2.2, z: -1.48}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1135196726}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 25, y: 0, z: 0}
 --- !u!114 &494961287
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2730,7 +2730,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: e72ed15d5f748d541927b2ef230311f8,
         type: 3}
       propertyPath: m_StaticEditorFlags
-      value: 0
+      value: 4294967295
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e72ed15d5f748d541927b2ef230311f8, type: 3}
@@ -3653,15 +3653,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.29
+      value: -5
       objectReference: {fileID: 0}
     - target: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.35
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.174
       objectReference: {fileID: 0}
     - target: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3689,6 +3689,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 95844511793012932, guid: 7e6e29f21a00d5f499e21eb93d6fabaa,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -3722,28 +3727,6 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!195 &1135196723
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135196721}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
 --- !u!143 &1135196724
 CharacterController:
   m_ObjectHideFlags: 0
@@ -3755,13 +3738,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 2
+  m_Height: 1.8
   m_Radius: 0.5
-  m_SlopeLimit: 45
+  m_SlopeLimit: 60
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_MinMoveDistance: 0
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!4 &1135196726 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4927973787200604, guid: 7e6e29f21a00d5f499e21eb93d6fabaa,
@@ -3780,22 +3763,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d43684aea5229446989763860f2ffcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &1135196728
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135196721}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 1
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!1 &1138610715
 GameObject:
   m_ObjectHideFlags: 0
