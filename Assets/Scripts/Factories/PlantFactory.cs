@@ -72,7 +72,10 @@ public class PlantFactory : AbstractGameObjectFactory
         PlantObject = GameObject.Instantiate(PlantType, thePosition, Quaternion.identity);
         PlantObject.name = PlantName;
 
-        TextMesh aPlantName = PlantObject.AddComponent<TextMesh>();
+        TextMesh aPlantName = new TextMesh();
+
+        aPlantName.transform.parent = PlantObject.transform;
+
         aPlantName.text = PlantName;
         aPlantName.characterSize = .05f;
         aPlantName.anchor = TextAnchor.UpperCenter;
