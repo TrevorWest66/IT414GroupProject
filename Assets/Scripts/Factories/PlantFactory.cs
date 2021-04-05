@@ -18,6 +18,8 @@ public class PlantFactory : AbstractGameObjectFactory
     private GameObject SpearmintPlant = Resources.Load("SpearmintPrefab") as GameObject;
     private GameObject WheatgrassPlant = Resources.Load("WheatgrassPrefab") as GameObject;
 
+    private ThreeDimensionalCalculate aCalculate = new ThreeDimensionalCalculate();
+
     public override GameObject CreateGameObject(Vector3 thePosition, float scale)
     {
         // Generates a random number that will randomly choose which plant spawns
@@ -54,7 +56,7 @@ public class PlantFactory : AbstractGameObjectFactory
                 PlantObject = setPlantType("Spearmint", SpearmintPlant, thePosition);
                 break;
             default:
-                PlantObject = setPlantType("Wheatgrass", ChamomilePlant, thePosition);
+                PlantObject = setPlantType("Wheatgrass", WheatgrassPlant, thePosition);
                 break;
         }
         
@@ -72,16 +74,25 @@ public class PlantFactory : AbstractGameObjectFactory
         PlantObject = GameObject.Instantiate(PlantType, thePosition, Quaternion.identity);
         PlantObject.name = PlantName;
 
-        TextMesh aPlantName = new TextMesh();
+        // Adds new game object with a text render
+        GameObject textObject = new GameObject();
 
-        aPlantName.transform.parent = PlantObject.transform;
+        textObject.name = "Plant Name Text";
+        textObject.transform.parent = PlantObject.transform;
+        textObject.transform.position = PlantObject.transform.position;
 
-        aPlantName.text = PlantName;
-        aPlantName.characterSize = .05f;
-        aPlantName.anchor = TextAnchor.UpperCenter;
+        // Adds text mesh which displays the text
+        TextMesh textRenderer = textObject.AddComponent<TextMesh>();
+        textRenderer.text = PlantName;
+        textRenderer.characterSize = .05f;
+        textRenderer.anchor = TextAnchor.UpperCenter;
 
-        MeshRenderer aRender = aPlantName.GetComponent<MeshRenderer>();
-        //aRender.enabled = false;
+        // By default the text is not visible
+        MeshRenderer aRender = textRenderer.GetComponent<MeshRenderer>();
+        aRender.enabled = false;
+
+        // Adds the object text proximity script to the text object
+        textObject.AddComponent<ObjectTextProximity>();
 
         return PlantObject;
     }

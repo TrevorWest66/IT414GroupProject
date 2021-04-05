@@ -17,6 +17,7 @@ public class Program : MonoBehaviour
 
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
+        thePlayer.tag = "Player";
 
         //Create the crafting station
         aFactory = new CauldronFactory();
