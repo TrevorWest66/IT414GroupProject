@@ -18,8 +18,6 @@ public class PlantFactory : AbstractGameObjectFactory
     private GameObject SpearmintPlant = Resources.Load("SpearmintPrefab") as GameObject;
     private GameObject WheatgrassPlant = Resources.Load("WheatgrassPrefab") as GameObject;
 
-    private ThreeDimensionalCalculate aCalculate = new ThreeDimensionalCalculate();
-
     public override GameObject CreateGameObject(Vector3 thePosition, float scale)
     {
         // Generates a random number that will randomly choose which plant spawns
@@ -83,8 +81,9 @@ public class PlantFactory : AbstractGameObjectFactory
 
         // Adds text mesh which displays the text
         TextMesh textRenderer = textObject.AddComponent<TextMesh>();
-        textRenderer.text = PlantName;
+        textRenderer.text = PlantName + "\n(E to pickup)";
         textRenderer.characterSize = .05f;
+        textRenderer.alignment = TextAlignment.Center;
         textRenderer.anchor = TextAnchor.UpperCenter;
 
         // By default the text is not visible
@@ -93,6 +92,9 @@ public class PlantFactory : AbstractGameObjectFactory
 
         // Adds the object text proximity script to the text object
         textObject.AddComponent<ObjectTextProximity>();
+
+        // Adds the collect object script to the Plant object
+        PlantObject.AddComponent<CollectObjects>();
 
         return PlantObject;
     }

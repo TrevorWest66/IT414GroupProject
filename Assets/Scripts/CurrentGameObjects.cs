@@ -49,6 +49,11 @@ public sealed class CurrentGameObjects
         return objectsPopulated;
     }
 
+    public void removeObject(GameObject aPlant)
+    {
+        objectsPopulated.Remove(aPlant);
+    }
+
     //Add objects collected by player
     public void addObjectsCollected(GameObject aPlant)
     {

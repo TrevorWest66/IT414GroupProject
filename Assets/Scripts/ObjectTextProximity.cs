@@ -5,44 +5,33 @@ using UnityEngine;
 public class ObjectTextProximity : MonoBehaviour
 {
     private ThreeDimensionalCalculate aCalculate = new ThreeDimensionalCalculate();
-    private CurrentGameObjects GameObjects = CurrentGameObjects.Instance;
 
     void Update()
     {
         // Finds the player
         GameObject Player = GameObject.FindGameObjectsWithTag("Player")[0];
 
-        // Grabs this list of plants from the singleton
-        List<GameObject> Plants = GameObjects.getObjectsPopulated();
+        // Grabs the plant from the reference
+        GameObject Plant = this.gameObject;
 
-        for (int i = 0; i < Plants.Count; i ++)
+        // If the player is within 2.5m of the plant
+        if (aCalculate.Calculate(Player.transform.position, Plant.transform.position))
         {
-            // If the player is within 2.5m of the plant
-            if (aCalculate.Calculate(Player.transform.position, Plants[i].transform.position))
-            {
-              
-                //GameObject plantText = GameObject.Find("Plant Name Text");
-                //plantText.transform.position = new Vector3(-plantText.transform.position.x, plantText.transform.position.y, plantText.transform.position.z);
+            TextMesh textMesh = Plant.GetComponentInChildren<TextMesh>();
+            MeshRenderer aRender = textMesh.GetComponent<MeshRenderer>();
 
-                TextMesh textMesh = Plants[i].GetComponentInChildren<TextMesh>();
-                MeshRenderer aRender = textMesh.GetComponent<MeshRenderer>();
-
-                //Vector3 playerPosition = Player.transform.position;
-
-                //playerPosition = new Vector3(-Player.transform.position.x, Player.transform.position.y, Player.transform.position.z);
-
-                textMesh.transform.LookAt(Player.transform.position);
+            // positions text to face player
+            textMesh.transform.rotation = Player.transform.rotation;
                 
-                // Makes text visible
-                aRender.enabled = true;
-            }
-            else // Otherwise 
-            {
-                TextMesh textMesh = Plants[i].GetComponentInChildren<TextMesh>();
-                MeshRenderer aRender = textMesh.GetComponent<MeshRenderer>();
-                // Makes text not visible
-                aRender.enabled = false;
-            }
+            // Makes text visible
+            aRender.enabled = true;
         }
+        else // Otherwise 
+        {
+            TextMesh textMesh = Plant.GetComponentInChildren<TextMesh>();
+            MeshRenderer aRender = textMesh.GetComponent<MeshRenderer>();
+            // Makes text not visible
+            aRender.enabled = false;
+        }   
     }
 }
