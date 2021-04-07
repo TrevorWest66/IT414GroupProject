@@ -11,6 +11,7 @@ public class PeekPlayerInventory : MonoBehaviour
     // Inventory variables
     public static bool inventoryDisplayed = false;
     private Canvas inventoryCanvas;
+    private Inventory theInventory;
 
     private GameObject playMiniGameButton;
     private GameObject backButton;
@@ -25,6 +26,7 @@ public class PeekPlayerInventory : MonoBehaviour
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
         playMiniGameButton = GameObject.Find("Play Mini Game Button");
         backButton = GameObject.Find("Back To Game Button");
+        theInventory = new Inventory();
     }
 
     // Update is called once per frame
@@ -61,6 +63,9 @@ public class PeekPlayerInventory : MonoBehaviour
 
     public void ShowInventory()
     {
+        //Populate inventory
+        theInventory.PopulateInventory();
+
         // Enable Inventory canvas
         inventoryCanvas.enabled = true;
         inventoryDisplayed = true;

@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory : MonoBehaviour
+public class Inventory: MonoBehaviour
 {
     private GameObject theGameObject;
     private Sprite theSprite;
@@ -47,6 +47,12 @@ public class Inventory : MonoBehaviour
 
             slot += 1;
         }
+    }
+
+    public void CraftingInventory()
+    {
+        //Populate the inventory for the player
+        PopulateInventory();
 
         //We have clicked the crafting button so set that static variable to true (will disable the crafting canvas and enable the inventory canvas)
         Cursor.lockState = CursorLockMode.None;
