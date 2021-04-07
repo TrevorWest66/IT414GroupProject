@@ -5729,7 +5729,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1515417358}
-        m_MethodName: PopulateInventory
+        m_MethodName: CraftingInventory
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
