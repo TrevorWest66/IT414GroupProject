@@ -5270,6 +5270,7 @@ GameObject:
   - component: {fileID: 1768424643}
   - component: {fileID: 1135196722}
   - component: {fileID: 1768424644}
+  - component: {fileID: 1768424646}
   m_Layer: 5
   m_Name: InventoryCanvas
   m_TagString: Untagged
@@ -5350,6 +5351,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1768424646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768424641}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a59fb51b4b53684478f2ec65109093b6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1135196721}
+  cam: {fileID: 494961283}
 --- !u!1 &1791886490
 GameObject:
   m_ObjectHideFlags: 0
