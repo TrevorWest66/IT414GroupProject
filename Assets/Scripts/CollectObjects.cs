@@ -24,7 +24,7 @@ public class CollectObjects : MonoBehaviour
                 // add plant to objects collected dictionary in the singleton
                 GameObjects.addObjectsCollected(Plant);
 
-                // remove plant from list containing all spawned plants
+                // remove plant from list in singleton containing all spawned plants
                 GameObjects.removeObject(Plant);
 
                 Destroy(Plant);
