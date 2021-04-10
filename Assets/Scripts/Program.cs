@@ -17,6 +17,8 @@ public class Program : MonoBehaviour
 
         thePlayer.AddComponent<Navigator>();
         thePlayer.AddComponent<InGameDisplay>();
+        thePlayer.AddComponent<Inventory>();
+
         thePlayer.tag = "Player";
 
         //Create the crafting station
