@@ -32,6 +32,7 @@ public class CorrectKeyPress
                 else
                 {
                     strikes = 1;
+                    return strikes;
                 }
             }
             // The rest works the same as the first if statemnet just checks different keys
@@ -48,6 +49,7 @@ public class CorrectKeyPress
                 else
                 {
                     strikes = 1;
+                    return strikes;
                 }
             }
             if (correctKey.Equals("S"))
@@ -63,6 +65,7 @@ public class CorrectKeyPress
                 else
                 {
                     strikes = 1;
+                    return strikes;
                 }
             }
             if (correctKey.Equals("D"))
@@ -78,6 +81,7 @@ public class CorrectKeyPress
                 else
                 {
                     strikes = 1;
+                    return strikes;
                 }
             }
             if (correctKey.Equals("Space"))
@@ -93,17 +97,12 @@ public class CorrectKeyPress
                 else
                 {
                     strikes = 1;
+                    return strikes;
                 }
             }
         }
 
-        // Currently shows striks in the debugger later will add this to images on the screen and delete this part
-        if (strikes == 1)
-        {
-            Debug.Log("Strike!");
-        }
-
-        // returns if the there was a strike
+        // returns if the there was no strike
         return strikes;
     }
 }

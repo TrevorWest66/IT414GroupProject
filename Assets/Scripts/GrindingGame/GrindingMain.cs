@@ -50,6 +50,7 @@ public class GrindingMain : MonoBehaviour
         PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
         PlayerScoreDisplay.SetActive(true);
         StartPanel.SetActive(false);
+        strikes = 0;
     }
 
     void Start()
@@ -59,7 +60,6 @@ public class GrindingMain : MonoBehaviour
         PositionFinder = new PositionGenerator();
         KeyPromptPicker = new KeyPicker();
         CorrectKey = new CorrectKeyPress();
-        strikes = 0;
     }
 
     // Update is called once per frame
@@ -103,16 +103,20 @@ public class GrindingMain : MonoBehaviour
                 strikes += 1;
             }
 
+            Debug.Log(strikes);
             if (strikes == 1)
             {
                 StrikeOne.SetActive(true);
             }
             else if (strikes == 2)
             {
+                StrikeOne.SetActive(true);
                 StrikeTwo.SetActive(true);
             }
             else if (strikes == 3)
             {
+                StrikeOne.SetActive(true);
+                StrikeTwo.SetActive(true);
                 StrikeThree.SetActive(true);
             }
 
