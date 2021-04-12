@@ -18,6 +18,9 @@ public class GrindingMain : MonoBehaviour
     public GameObject StartPanel;
     public GameObject EndPanel;
     public GameObject FinalPlayerScore;
+    public GameObject StrikeOne;
+    public GameObject StrikeTwo;
+    public GameObject StrikeThree;
 
     bool startGame = false;
     int strikes = 0;
@@ -97,6 +100,19 @@ public class GrindingMain : MonoBehaviour
                 GameObject.Destroy(GameObject.Find("KeyPromptImage"));
                 GameObject.Destroy(GameObject.Find("IndicatedKey"));
                 strikes += 1;
+            }
+
+            if (strikes == 1)
+            {
+                StrikeOne.SetActive(true);
+            }
+            else if (strikes == 2)
+            {
+                StrikeTwo.SetActive(true);
+            }
+            else if (strikes == 3)
+            {
+                StrikeThree.SetActive(true);
             }
 
             // if the user gets 3 strikes ends the game
