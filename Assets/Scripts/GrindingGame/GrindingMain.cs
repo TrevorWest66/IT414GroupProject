@@ -59,6 +59,7 @@ public class GrindingMain : MonoBehaviour
         PositionFinder = new PositionGenerator();
         KeyPromptPicker = new KeyPicker();
         CorrectKey = new CorrectKeyPress();
+        strikes = 0;
     }
 
     // Update is called once per frame
