@@ -21,7 +21,7 @@ public class GrindingMain : MonoBehaviour
 
     bool startGame = false;
     int strikes = 0;
-    private readonly float scale = 2f;
+    private readonly float scale = 1f;
     private readonly int xClamp, yClamp = 5;
     private float promptLength = 5f;
     float miniGameTimer = 0f;
