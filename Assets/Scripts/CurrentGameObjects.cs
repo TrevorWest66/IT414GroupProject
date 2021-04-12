@@ -80,4 +80,10 @@ public sealed class CurrentGameObjects
     {
         return objectsCollected;
     }
+
+    //Count the total number of objects collected thus far
+    public int CountObjectsCollected()
+    {
+        return objectsCollected.Count;
+    }
 }

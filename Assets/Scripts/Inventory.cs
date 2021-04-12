@@ -7,7 +7,7 @@ using System;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Inventory: MonoBehaviour
+public class Inventory : MonoBehaviour
 {
     private GameObject theGameObject;
     private Sprite theSprite;
@@ -47,19 +47,6 @@ public class Inventory: MonoBehaviour
 
             slot += 1;
         }
-    }
-
-    public void CraftingInventory()
-    {
-        //Populate the inventory for the player
-        PopulateInventory();
-
-        //We have clicked the crafting button so set that static variable to true (will disable the crafting canvas and enable the inventory canvas)
-        Cursor.lockState = CursorLockMode.None;
-        InGameDisplay.craftingClicked = true;
-
-        //The back button has not been clicked yet as the inventory canvas hasn't been displayed so we set this static variable to false
-        InGameDisplay.backClicked = false;
     }
 
     //Reset slot count for inventory; this is needed to prevent duplicating inventory items when user opens inventory more then once
