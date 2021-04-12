@@ -28,9 +28,10 @@ public class SpaceDecorator : KeyPromptDecorator
         // Adds the text and sets its options
         TextMesh textRenderer = textObject.AddComponent<TextMesh>();
         textRenderer.text = "Spc";
-        textRenderer.fontSize = 36;
+        textRenderer.fontSize = 85;
         textRenderer.color = new Color(0, 0, 0);
         textRenderer.anchor = TextAnchor.MiddleCenter;
+        textRenderer.alignment = TextAlignment.Center;
 
         // returns the sprite object
         return gameObject;

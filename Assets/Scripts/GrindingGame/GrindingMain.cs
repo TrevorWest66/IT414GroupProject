@@ -18,10 +18,13 @@ public class GrindingMain : MonoBehaviour
     public GameObject StartPanel;
     public GameObject EndPanel;
     public GameObject FinalPlayerScore;
+    public GameObject StrikeOne;
+    public GameObject StrikeTwo;
+    public GameObject StrikeThree;
 
     bool startGame = false;
     int strikes = 0;
-    private readonly float scale = 2f;
+    private readonly float scale = 1f;
     private readonly int xClamp, yClamp = 5;
     private float promptLength = 5f;
     float miniGameTimer = 0f;
@@ -56,6 +59,7 @@ public class GrindingMain : MonoBehaviour
         PositionFinder = new PositionGenerator();
         KeyPromptPicker = new KeyPicker();
         CorrectKey = new CorrectKeyPress();
+        strikes = 0;
     }
 
     // Update is called once per frame
@@ -97,6 +101,19 @@ public class GrindingMain : MonoBehaviour
                 GameObject.Destroy(GameObject.Find("KeyPromptImage"));
                 GameObject.Destroy(GameObject.Find("IndicatedKey"));
                 strikes += 1;
+            }
+
+            if (strikes == 1)
+            {
+                StrikeOne.SetActive(true);
+            }
+            else if (strikes == 2)
+            {
+                StrikeTwo.SetActive(true);
+            }
+            else if (strikes == 3)
+            {
+                StrikeThree.SetActive(true);
             }
 
             // if the user gets 3 strikes ends the game
