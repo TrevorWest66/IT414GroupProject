@@ -79,7 +79,7 @@ public class InGameDisplay : MonoBehaviour
         this.gameObject.AddComponent<CraftingState>();
         this.gameObject.AddComponent<InventoryState>();
 
-        //At start of game the player is in the no plant state since
+        //At start of game the player is in the no plant state
         State = this.gameObject.GetComponent<NoPlantState>();
     }
 
