@@ -12,7 +12,7 @@ class KeyPrompt : IKeyPrompt
     public KeyPrompt(Vector3 thePosition, float scale)
     {
         // Loads the background sprite and gives it a name
-        Sprite backGroundSprite = Resources.Load<Sprite>("RequestedKeyImage");
+        Sprite backGroundSprite = Resources.Load<Sprite>("PromptBackground");
         backGroundSprite.name = "BackGroundSprite";
 
         // Creates the object for the sprite to go onto

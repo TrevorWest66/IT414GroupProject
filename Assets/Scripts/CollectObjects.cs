@@ -21,11 +21,14 @@ public class CollectObjects : MonoBehaviour
             // Checks if player wants to pickup the object
             if (Input.GetKey("e"))
             {
+                // add plant to objects collected dictionary in the singleton
+                GameObjects.addObjectsCollected(Plant);
+
+                // remove plant from list in singleton containing all spawned plants
+                GameObjects.removeObject(Plant);
+
                 Destroy(Plant);
             }
-
-            // remove plant from singleton
-            GameObjects.removeObject(Plant);
         }
     }
 }
