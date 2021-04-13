@@ -15,6 +15,7 @@ public class InventoryState : MonoBehaviour, State
         //states since the player is only collecting plants. 
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
@@ -27,6 +28,7 @@ public class InventoryState : MonoBehaviour, State
         context.State = this.gameObject.GetComponent<CraftingState>();
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
@@ -40,6 +42,18 @@ public class InventoryState : MonoBehaviour, State
 
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = true;
+        canvasCriteria["recipeDisplay"] = false;
+
+        return canvasCriteria;
+    }
+
+    public Dictionary<string, bool> ViewRecipe(InGameDisplay context)
+    {
+        // can view recipe from the inventory display
+        context.State = this.gameObject.GetComponent<ViewRecipeListState>();
+        canvasCriteria["craftingDisplay"] = false;
+        canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = true;
 
         return canvasCriteria;
     }

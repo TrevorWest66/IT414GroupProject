@@ -16,7 +16,7 @@ public class Program : MonoBehaviour
         PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
 
         thePlayer.AddComponent<Navigator>();
-        thePlayer.AddComponent<InGameDisplay>();
+        //thePlayer.AddComponent<InGameDisplay>();
         thePlayer.AddComponent<Inventory>();
 
         thePlayer.tag = "Player";

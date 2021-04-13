@@ -16,6 +16,7 @@ public class CraftingState : MonoBehaviour, State
         //states since the player is only collecting plants. 
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
@@ -25,6 +26,7 @@ public class CraftingState : MonoBehaviour, State
         //The crafting canvas is enabled in this state since the player has collected at least one plant
         canvasCriteria["craftingDisplay"] = true;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
@@ -34,7 +36,18 @@ public class CraftingState : MonoBehaviour, State
         //If the player clicks the crafting button we disable both canvas' and switch to inventory state
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
         context.State = this.gameObject.GetComponent<InventoryState>();
+
+        return canvasCriteria;
+    }
+
+    public Dictionary<string, bool> ViewRecipe(InGameDisplay context)
+    {
+        // Cannot view recipe from crafting state
+        canvasCriteria["craftingDisplay"] = false;
+        canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }

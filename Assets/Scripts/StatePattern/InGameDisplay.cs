@@ -9,10 +9,10 @@ using UnityEngine.UI;
 public class InGameDisplay : MonoBehaviour
 {
     private State state;
-    private Canvas craftingCanvas, inventoryCanvas;
-    private Button craftingButton, backButton;
+    private Canvas craftingCanvas, inventoryCanvas, potionRecipeCanvas;
+    private Button craftingButton, inventoryBackButton, potionRecipeButton, recipeBackButton;
 
-    private bool enableCraftingCanvas, enableInventoryCanvas;
+    private bool enableCraftingCanvas, enableInventoryCanvas, enableRecipeCanvas;
 
     //Getter and setter for the state that the ingamedisplay object is in
     public State State
@@ -42,6 +42,12 @@ public class InGameDisplay : MonoBehaviour
         SetDisplayOptions(displayOptions);
     }
 
+    public void ViewRecipeList()
+    {
+        Dictionary<string, bool> displayOptions = state.ViewRecipe(this);
+        SetDisplayOptions(displayOptions);
+    }
+
     //Method tied to the Back button on the inventory canvas
     //When it is clicked we need to disable the inventory canvas
     public void Back()
@@ -59,6 +65,9 @@ public class InGameDisplay : MonoBehaviour
 
         displayOptions.TryGetValue("inventoryDisplay", out canvasState);
         enableInventoryCanvas = canvasState;
+
+        displayOptions.TryGetValue("recipeDisplay", out canvasState);
+        enableRecipeCanvas = canvasState;
     }
 
     void Start()
@@ -66,18 +75,24 @@ public class InGameDisplay : MonoBehaviour
         //Get and set the instance variables upon start of game
         craftingCanvas = GameObject.Find("CraftingCanvas").GetComponent<Canvas>();
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
+        potionRecipeCanvas = GameObject.Find("PotionRecipeCanvas").GetComponent<Canvas>();
 
         craftingButton = GameObject.Find("CraftingButton").GetComponent<Button>();
-        backButton = GameObject.Find("Back To Game Button").GetComponent<Button>();
+        inventoryBackButton = GameObject.Find("Back To Game Button").GetComponent<Button>();
+        potionRecipeButton = GameObject.Find("RecipeButton").GetComponent<Button>();
+        recipeBackButton = GameObject.Find("Potion Recipe Back").GetComponent<Button>();
 
         //Add event listeners needed for when the player can click the crafting button and back button depending on the state.
         craftingButton.onClick.AddListener(delegate () { ChooseInventory(); });
-        backButton.onClick.AddListener(delegate () { ChooseCraft(); });
+        inventoryBackButton.onClick.AddListener(delegate () { ChooseCraft(); });
+        potionRecipeButton.onClick.AddListener(delegate () { ViewRecipeList(); });
+        recipeBackButton.onClick.AddListener(delegate () { ChooseInventory(); });
 
         //Add the different states that a player can be in to the player gameobject
         this.gameObject.AddComponent<NoPlantState>();
         this.gameObject.AddComponent<CraftingState>();
         this.gameObject.AddComponent<InventoryState>();
+        this.gameObject.AddComponent<ViewRecipeListState>();
 
         //At start of game the player is in the no plant state
         State = this.gameObject.GetComponent<NoPlantState>();
@@ -124,8 +139,20 @@ public class InGameDisplay : MonoBehaviour
                 GatherPlant();
             }
 
+            //Else the player is not at cauldron and can collect plants
+            else if (state.GetType().Name == "ViewRecipeListState" && showCraftingButton)
+            {
+                ViewRecipeList();
+            }
+
+            //Else the player is not at cauldron and can collect plants without the canvas displayed
+            else if (state.GetType().Name == "ViewRecipeListState")
+            {
+                GatherPlant();
+            }
+
             //Separate if else block actually enables the canvas' on the GUI
-            if (enableInventoryCanvas || enableCraftingCanvas)
+            if (enableInventoryCanvas || enableCraftingCanvas || enableRecipeCanvas)
             {
                 //Unlock player cursor since one of the canvas' is going to be displayed which requires user interaction
                 Cursor.lockState = CursorLockMode.None;
@@ -141,6 +168,8 @@ public class InGameDisplay : MonoBehaviour
             //Enables the canvas' on the GUI depending on state
             craftingCanvas.enabled = enableCraftingCanvas;
             inventoryCanvas.enabled = enableInventoryCanvas;
+            potionRecipeCanvas.enabled = enableRecipeCanvas;
         }
     }
+
 }

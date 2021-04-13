@@ -19,9 +19,6 @@ public class Navigator : MonoBehaviour
     private PlayerControlsBuilder controlsBuilder;
     private KeyboardControls keyboardControls;
 
-    // Time will be used to determine if players keyboard control preferences have changes recently
-    private DateTime timeControlsWereSetInNavigator;
-
     float jumpSpeed, gravity = 1;
     bool grounded, jumping;
 

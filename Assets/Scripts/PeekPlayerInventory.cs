@@ -13,8 +13,7 @@ public class PeekPlayerInventory : MonoBehaviour
     private Canvas inventoryCanvas;
     private Inventory theInventory;
 
-    private GameObject playMiniGameButton;
-    private GameObject backButton;
+    private GameObject playMiniGameButton, backButton, potionRecipeButton;
 
     // Player Variables
     public GameObject player;
@@ -25,6 +24,7 @@ public class PeekPlayerInventory : MonoBehaviour
         // Get the inventory canvas, play mini game button and back button
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
         playMiniGameButton = GameObject.Find("Play Mini Game Button");
+        potionRecipeButton = GameObject.Find("RecipeButton");
         backButton = GameObject.Find("Back To Game Button");
         theInventory = new Inventory();
     }
@@ -54,6 +54,7 @@ public class PeekPlayerInventory : MonoBehaviour
         // Re-enable inventory canvas button
         playMiniGameButton.SetActive(true);
         backButton.SetActive(true);
+        potionRecipeButton.SetActive(true);
 
         // Enable player movements 
         cam.GetComponent<MouseLook>().enabled = true;
@@ -69,9 +70,11 @@ public class PeekPlayerInventory : MonoBehaviour
         // Enable Inventory canvas
         inventoryCanvas.enabled = true;
         inventoryDisplayed = true;
+
         // Disable inventory canvas button
         playMiniGameButton.SetActive(false);
         backButton.SetActive(false);
+        potionRecipeButton.SetActive(false);
 
         // Disable player movements
         cam.GetComponent<MouseLook>().enabled = false;

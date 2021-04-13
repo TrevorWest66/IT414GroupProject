@@ -8,17 +8,18 @@ using UnityEngine.UI;
 
 public class PotionRecipeListDisplay : MonoBehaviour
 {
+    private InGameDisplay inGameDisplay;
     public GameObject recipeTextBox;
     private AbstractIterator iterator;
 
-    private Canvas inventoryCanvas;
-    private Canvas potionRecipeCanvas;
+    private Canvas inventoryCanvas, potionRecipeCanvas, craftingCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
         potionRecipeCanvas = GameObject.Find("PotionRecipeCanvas").GetComponent<Canvas>();
+        craftingCanvas = GameObject.Find("CraftingCanvas").GetComponent<Canvas>();
 
         Text myText = recipeTextBox.AddComponent<Text>();
         myText.font = (Font)Resources.Load("Fonts/JazzCreateBubble");
@@ -60,12 +61,4 @@ public class PotionRecipeListDisplay : MonoBehaviour
         myText.text = recipe;
     }
 
-    public void ClickBack()
-    {
-        //The back button has not been clicked yet as the inventory canvas hasn't been displayed so we set this static variable to false
-        InGameDisplay.backClicked = false;
-
-        inventoryCanvas.enabled = true;
-        potionRecipeCanvas.enabled = false;
-    }
 }
