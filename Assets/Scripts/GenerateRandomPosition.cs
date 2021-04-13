@@ -30,7 +30,7 @@ public class GenerateRandomPosition
 
     public Vector3 GenerateRandomPositionOnTerrain()
     {
-        float addedHeight = .3f;
+        float addedHeight = .2f;
         float terrainHeight = 0f;
         RaycastHit hit;
         float randomPositionX, randomPositionY, RandomPositionZ;
