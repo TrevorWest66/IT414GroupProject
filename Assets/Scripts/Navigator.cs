@@ -38,8 +38,6 @@ public class Navigator : MonoBehaviour
             controlsBuilder = new WASDContolsBuilder();
         }
 
-        // This will help to program determine when the player controls preferences were updates in the options menu
-        timeControlsWereSetInNavigator = keyboardControls.TimeControlsChanged;
         builderDirector.Construct(controlsBuilder);
 
         controllerKeys = controlsBuilder.SetPlayerControls();
@@ -50,7 +48,6 @@ public class Navigator : MonoBehaviour
         keyBack = new MoveBack();
         keyJump = new JumpUp();
         aCharacterController = this.gameObject.GetComponent<CharacterController>();
-
     }
 
     //Update is called once per frame

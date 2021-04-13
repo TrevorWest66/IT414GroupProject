@@ -7,7 +7,6 @@ public class KeyboardControls : MonoBehaviour
 {
     private static KeyboardControls instance = null;
     private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // default is WASD, when game starts
-    private DateTime timeControlsChanged = DateTime.Now;
 
     public static GameObject controlsSingleton;
 
@@ -42,13 +41,7 @@ public class KeyboardControls : MonoBehaviour
         set 
         { 
             controlType = value; 
-            timeControlsChanged = DateTime.Now;
         }
-    }
-
-    public DateTime TimeControlsChanged
-    {
-        get { return this.timeControlsChanged; }
     }
 
     /**
@@ -59,13 +52,11 @@ public class KeyboardControls : MonoBehaviour
         if (controlType.Equals(KeyboardControlsEnum.Arrows))
         {
             controlType = KeyboardControlsEnum.WASD;
-            timeControlsChanged = DateTime.Now;
         }
 
         else if (controlType.Equals(KeyboardControlsEnum.WASD))
         {
             controlType = KeyboardControlsEnum.Arrows;
-            timeControlsChanged = DateTime.Now;
         }
 
         // This flips the toggle to make is appear like the preferences have been changed

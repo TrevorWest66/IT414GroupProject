@@ -1,4 +1,4 @@
-﻿//Written by Lance Graham
+﻿//Written by Lance Graham & Ellie McDonald
 //This is the in game display class responsible for displaying buttons and canvas' that the player
 //can interact with during the game. These are "in game" displays that won't stop or halt the game
 using System.Collections;
@@ -9,6 +9,7 @@ public class InGameDisplay : MonoBehaviour
 {
     private Canvas craftingCanvas;
     private Canvas inventoryCanvas;
+    private Canvas potionRecipeCanvas;
     
     //Used for determing whether to display the crafting button or inventory canvas
     public static bool craftingClicked = false;
@@ -19,6 +20,7 @@ public class InGameDisplay : MonoBehaviour
         //Get and set the craftingCanvas and inventoryCanvas instance variables upon start of game
         craftingCanvas = GameObject.Find("CraftingCanvas").GetComponent<Canvas>();
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
+        potionRecipeCanvas = GameObject.Find("PotionRecipeCanvas").GetComponent<Canvas>();
     }
 
     //Unity function responsible for handling GUI events
@@ -64,9 +66,16 @@ public class InGameDisplay : MonoBehaviour
     //When it is clicked we need to disable the inventory canvas
     public void Back()
     {
-        backClicked = true;
+        inventoryCanvas.enabled = false;
         craftingClicked = false;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+    }
+
+    public void OpenPotionRecipeCanvas()
+    {
+        backClicked = true;
+        inventoryCanvas.enabled = false;
+        potionRecipeCanvas.enabled = true;
     }
 }
