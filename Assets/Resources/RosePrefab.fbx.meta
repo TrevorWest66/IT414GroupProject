@@ -8,14 +8,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong1
-    second: {fileID: 3914514453283248406, guid: 83788b3540687f8428861777750096a2,
-      type: 3}
+    second: {fileID: 2100000, guid: 610d8eab62248e145a08551da327c921, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: phong2
-    second: {fileID: 3914514453283248406, guid: 790006beabcb8ef4eb77fb3f067abdba,
-      type: 3}
+    second: {fileID: 2100000, guid: 610d8eab62248e145a08551da327c921, type: 2}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
@@ -98,7 +96,7 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
-    globalScale: 0.0016
+    globalScale: 0.16
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0

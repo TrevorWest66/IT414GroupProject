@@ -49,6 +49,11 @@ public sealed class CurrentGameObjects
         return objectsPopulated;
     }
 
+    public void removeObject(GameObject aPlant)
+    {
+        objectsPopulated.Remove(aPlant);
+    }
+
     //Add objects collected by player
     public void addObjectsCollected(GameObject aPlant)
     {
@@ -74,5 +79,11 @@ public sealed class CurrentGameObjects
     public Dictionary<string, int> getObjectsCollected()
     {
         return objectsCollected;
+    }
+
+    //Count the total number of objects collected thus far
+    public int CountObjectsCollected()
+    {
+        return objectsCollected.Count;
     }
 }

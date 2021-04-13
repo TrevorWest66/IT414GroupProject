@@ -1,4 +1,6 @@
-﻿using System.Collections;
+﻿// Written by Trevor West
+
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;

@@ -18,10 +18,13 @@ public class GrindingMain : MonoBehaviour
     public GameObject StartPanel;
     public GameObject EndPanel;
     public GameObject FinalPlayerScore;
+    public GameObject StrikeOne;
+    public GameObject StrikeTwo;
+    public GameObject StrikeThree;
 
     bool startGame = false;
     int strikes = 0;
-    private readonly float scale = 2f;
+    private readonly float scale = 1f;
     private readonly int xClamp, yClamp = 5;
     private float promptLength = 5f;
     float miniGameTimer = 0f;
@@ -47,6 +50,7 @@ public class GrindingMain : MonoBehaviour
         PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
         PlayerScoreDisplay.SetActive(true);
         StartPanel.SetActive(false);
+        strikes = 0;
     }
 
     void Start()
@@ -97,6 +101,23 @@ public class GrindingMain : MonoBehaviour
                 GameObject.Destroy(GameObject.Find("KeyPromptImage"));
                 GameObject.Destroy(GameObject.Find("IndicatedKey"));
                 strikes += 1;
+            }
+
+            Debug.Log(strikes);
+            if (strikes == 1)
+            {
+                StrikeOne.SetActive(true);
+            }
+            else if (strikes == 2)
+            {
+                StrikeOne.SetActive(true);
+                StrikeTwo.SetActive(true);
+            }
+            else if (strikes == 3)
+            {
+                StrikeOne.SetActive(true);
+                StrikeTwo.SetActive(true);
+                StrikeThree.SetActive(true);
             }
 
             // if the user gets 3 strikes ends the game

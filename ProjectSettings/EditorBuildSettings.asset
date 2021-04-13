@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Scene/Main Scene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Main Scene/MiniGames/GrindingMiniGame.unity
+    guid: 85cf73fedfd3c204a81fa2eff15209e6
   m_configObjects: {}
