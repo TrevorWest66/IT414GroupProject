@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class ViewRecipeListState : MonoBehaviour, State
 {
-    //Dictionary holds the booleans for displaying the crafting and inventory canvas
     private Dictionary<string, bool> canvasCriteria = new Dictionary<string, bool>();
     public Dictionary<string, bool> ChooseCraft(InGameDisplay context)
     {

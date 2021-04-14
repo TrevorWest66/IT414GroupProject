@@ -11,7 +11,7 @@ public class PeekPlayerInventory : MonoBehaviour
     private Canvas inventoryCanvas, recipeCanvas, craftingCanvas;
     private Inventory theInventory;
 
-    private GameObject playMiniGameButton, backButton, potionRecipeButton;
+    private GameObject playMiniGameButton, inventoryBackButton, potionRecipeButton;
 
     // Player Variables
     public GameObject player;
