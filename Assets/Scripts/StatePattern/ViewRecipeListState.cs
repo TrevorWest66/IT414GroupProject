@@ -10,7 +10,6 @@ public class ViewRecipeListState : MonoBehaviour, State
     private Dictionary<string, bool> canvasCriteria = new Dictionary<string, bool>();
     public Dictionary<string, bool> ChooseCraft(InGameDisplay context)
     {
-        //User is viewing the recipes, until they click back
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
         canvasCriteria["recipeDisplay"] = false;
@@ -30,7 +29,6 @@ public class ViewRecipeListState : MonoBehaviour, State
 
     public Dictionary<string, bool> GatherPlant(InGameDisplay context)
     {
-        //User is viewing the recipes, until they click back
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
         canvasCriteria["recipeDisplay"] = false;
