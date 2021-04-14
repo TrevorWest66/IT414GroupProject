@@ -1,7 +1,5 @@
 ﻿// Written by Rebecca Herny
 // Creates the plants
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlantFactory : AbstractGameObjectFactory
@@ -92,6 +90,7 @@ public class PlantFactory : AbstractGameObjectFactory
 
         // Adds the object text proximity script to the text object
         textObject.AddComponent<ObjectTextProximity>();
+        textObject.transform.localScale = new Vector3(.75f, .75f, .75f);
 
         // Adds the collect object script to the Plant object
         PlantObject.AddComponent<CollectObjects>();

@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿// Written by Rebecca Henry
 using UnityEngine;
 
 public class PlantSpawner : MonoBehaviour
