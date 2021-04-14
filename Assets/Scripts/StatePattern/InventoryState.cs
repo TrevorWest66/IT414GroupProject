@@ -53,7 +53,7 @@ public class InventoryState : MonoBehaviour, State
         context.State = this.gameObject.GetComponent<ViewRecipeListState>();
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
-        canvasCriteria["recipeDisplay"] = true;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
