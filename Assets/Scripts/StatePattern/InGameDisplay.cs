@@ -139,7 +139,7 @@ public class InGameDisplay : MonoBehaviour
                 GatherPlant();
             }
 
-            //Else the player is not at cauldron and can collect plants
+            //Else the player is at cauldron and viewing the recipe screen
             else if (state.GetType().Name == "ViewRecipeListState" && showCraftingButton)
             {
                 ViewRecipeList();
