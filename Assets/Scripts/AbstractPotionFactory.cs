@@ -6,6 +6,6 @@ using System.Collections.Generic;
 
 public abstract class AbstractPotionFactory
 {
-    public abstract List<Potion> CreatePotionRecipes(List<CollectablePlantsEnum> listOfPlantsForRecipe);
+    public abstract List<Potion> CreatePotionRecipes();
 }
 

@@ -10,5 +10,6 @@ public interface State
 {
     Dictionary<string, bool> GatherPlant(InGameDisplay context);
     Dictionary<string, bool> ChooseCraft(InGameDisplay context);
+    Dictionary<string, bool> ViewRecipe(InGameDisplay context);
     Dictionary<string, bool> ChooseInventory(InGameDisplay context);
 }

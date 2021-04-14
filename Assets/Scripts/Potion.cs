@@ -7,7 +7,7 @@ using System.Collections.Generic;
 public class Potion
 {
     private string potionName;
-    private int potionCoinValue;
+    private int potionBaseCoinValue;
     private List<CollectablePlantsEnum> plantsInPotion;
 
     public string PotionName
@@ -18,8 +18,8 @@ public class Potion
 
     public int PotionCoinValue
     {
-        get { return this.potionCoinValue; }
-        set { this.potionCoinValue = value; }
+        get { return this.potionBaseCoinValue; }
+        set { this.potionBaseCoinValue = value; }
     }
 
     public List<CollectablePlantsEnum> PlantsInPotion

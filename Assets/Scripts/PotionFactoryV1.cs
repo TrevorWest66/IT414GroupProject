@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 class PotionFactoryV1 : AbstractPotionFactory
 {
-    public override List<Potion> CreatePotionRecipes(List<CollectablePlantsEnum> listOfPlantsForRecipe)
+    public override List<Potion> CreatePotionRecipes()
     {
         // Create Strength Potion
         List<CollectablePlantsEnum> strengthPotionPlantIngredients = new List<CollectablePlantsEnum>

@@ -16,6 +16,7 @@ public class NoPlantState : MonoBehaviour, State
         //No canvas' should be displayed in this state
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         //If the player picks up a plant, the player moves into the crafting state where he or she can now see the crafting canvas
         //when approaching the cauldron
@@ -28,6 +29,7 @@ public class NoPlantState : MonoBehaviour, State
         //No canvas' should be displayed in this state; the player does not have the ability to craft since they have not collected plants
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
@@ -38,6 +40,17 @@ public class NoPlantState : MonoBehaviour, State
         //click the crafting button, and select 'Play Mini Game'
         canvasCriteria["craftingDisplay"] = false;
         canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
+
+        return canvasCriteria;
+    }
+
+    public Dictionary<string, bool> ViewRecipe(InGameDisplay context)
+    {
+        // can't view recipes without first collecting a plant and viewing the inventory
+        canvasCriteria["craftingDisplay"] = false;
+        canvasCriteria["inventoryDisplay"] = false;
+        canvasCriteria["recipeDisplay"] = false;
 
         return canvasCriteria;
     }
