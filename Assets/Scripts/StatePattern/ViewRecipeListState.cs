@@ -1,4 +1,7 @@
-﻿using System.Collections.Generic;
+﻿// Written by Ellie McDonald
+// 4/13/21
+
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ViewRecipeListState : MonoBehaviour, State
