@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Written by Rebecca Henry
+// Checks the distance between object and player and displays the name when within a certain distance
 using UnityEngine;
 
 public class ObjectTextProximity : MonoBehaviour
