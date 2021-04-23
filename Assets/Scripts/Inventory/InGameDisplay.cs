@@ -1,4 +1,4 @@
-﻿//Written by Lance Graham
+﻿//Written by Lance Graham and Ellie McDonald
 //This is the in game display class responsible for displaying buttons and canvas' that the player
 //can interact with during the game. These are "in game" displays that won't stop or halt the game.
 using System.Collections;
@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class InGameDisplay : MonoBehaviour
 {
     private State state;
-    private Canvas craftingCanvas, inventoryCanvas, potionRecipeCanvas;
+    private Canvas craftingCanvas, inventoryCanvas, potionRecipeCanvas, sellPotionCanvas, potionInventoryCanvas;
     private Button craftingButton, inventoryBackButton, potionRecipeButton, recipeBackButton;
 
     private bool enableCraftingCanvas, enableInventoryCanvas, enableRecipeCanvas;
@@ -76,6 +76,8 @@ public class InGameDisplay : MonoBehaviour
         craftingCanvas = GameObject.Find("CraftingCanvas").GetComponent<Canvas>();
         inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
         potionRecipeCanvas = GameObject.Find("PotionRecipeCanvas").GetComponent<Canvas>();
+        sellPotionCanvas = GameObject.Find("SellPotionCanvas").GetComponent<Canvas>();
+        potionInventoryCanvas = GameObject.Find("PotionInventoryCanvas").GetComponent<Canvas>();
 
         craftingButton = GameObject.Find("CraftingButton").GetComponent<Button>();
         inventoryBackButton = GameObject.Find("Back To Game Button").GetComponent<Button>();
@@ -152,17 +154,14 @@ public class InGameDisplay : MonoBehaviour
             }
 
             //Separate if else block actually enables the canvas' on the GUI
-            if (enableInventoryCanvas || enableCraftingCanvas || enableRecipeCanvas)
+            if (enableInventoryCanvas || enableCraftingCanvas || enableRecipeCanvas || sellPotionCanvas.enabled || potionInventoryCanvas.enabled)
             {
-                //Unlock player cursor since one of the canvas' is going to be displayed which requires user interaction
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
+
+                UnlockCursor();
             }
             else
             {
-                //Lock player cursor since both canvas' are disabled
-                Cursor.lockState = CursorLockMode.Locked;
-                Cursor.visible = false;
+                LockCursor();
             }
 
             //Enables the canvas' on the GUI depending on state
@@ -170,6 +169,19 @@ public class InGameDisplay : MonoBehaviour
             inventoryCanvas.enabled = enableInventoryCanvas;
             potionRecipeCanvas.enabled = enableRecipeCanvas;
         }
+    }
+
+    //Unlock player cursor since one of the canvas' is going to be displayed which requires user interaction
+    private void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+    }
+
+    //Lock player cursor since both canvas' are disabled
+    private void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
 }

@@ -1,4 +1,5 @@
-﻿// Written by Rebecca Henry
+﻿// Written by Rebecca Henry and Ellie McDonald
+// 04/23/21 
 
 using System;
 using System.Collections.Generic;
@@ -79,6 +80,21 @@ public sealed class CurrentGameObjects
     public Dictionary<string, int> getObjectsCollected()
     {
         return objectsCollected;
+    }
+
+    // Return just potions from collected objects
+    public Dictionary<string, int> GetPotionsCollected()
+    {
+        Dictionary<string, int> allObjects = objectsCollected;
+        Dictionary<string, int> justPotions = null;
+        foreach (KeyValuePair<string, int> anObjectCollected in allObjects)
+        {
+            if (anObjectCollected.Key.Contains("Potion") || anObjectCollected.Key.Contains("potion"))
+            {
+                justPotions.Add(anObjectCollected.Key, anObjectCollected.Value);
+            }
+        }
+        return justPotions;
     }
 
     //Count the total number of objects collected thus far
