@@ -1,14 +1,17 @@
 ﻿// Written by Ellie McDonald
 // 04/06/2021
 // Class that holds details about a given potion
-
+using UnityEngine;
 using System.Collections.Generic;
 
 public class Potion
 {
     private string potionName;
-    private int potionBaseCoinValue;
+    private int potionCoinValue;
+    private Sprite potionImage;
     private List<CollectablePlantsEnum> plantsInPotion;
+
+    private System.Random random = null;
 
     public string PotionName
     {
@@ -18,8 +21,14 @@ public class Potion
 
     public int PotionCoinValue
     {
-        get { return this.potionBaseCoinValue; }
-        set { this.potionBaseCoinValue = value; }
+        get { return this.potionCoinValue; }
+        set { this.potionCoinValue = value; }
+    }
+
+    public Sprite PotionImage
+    {
+        get { return this.potionImage; }
+        set { this.potionImage = value; }
     }
 
     public List<CollectablePlantsEnum> PlantsInPotion
@@ -28,10 +37,15 @@ public class Potion
         set { this.plantsInPotion = value; }
     }
 
+    // Constructor
     public Potion(string potionName, int potionCoinValue, List<CollectablePlantsEnum> plantsInPotionRecipe)
     {
+        random = new System.Random();
         PotionName = potionName;
         PotionCoinValue = potionCoinValue;
         PlantsInPotion = plantsInPotionRecipe;
+
+        // TODO: Fix to have 1 image per potion type instead of random
+        PotionImage = Resources.Load<Sprite>("Potion" + random.Next(1,3).ToString());
     }
 }

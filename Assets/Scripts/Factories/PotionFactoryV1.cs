@@ -12,7 +12,7 @@ class PotionFactoryV1 : AbstractPotionFactory
         List<CollectablePlantsEnum> strengthPotionPlantIngredients = new List<CollectablePlantsEnum>
         { CollectablePlantsEnum.Rose, CollectablePlantsEnum.Wheatgrass, CollectablePlantsEnum.ConeFlower};
 
-        Potion strenthPotion = new Potion("Stregth Potion", 1000, strengthPotionPlantIngredients);
+        Potion strenthPotion = new Potion("Strength Potion", 1000, strengthPotionPlantIngredients);
 
         // Create Speed Potion
         List<CollectablePlantsEnum> speedPotionPlantIngredients = new List<CollectablePlantsEnum>
