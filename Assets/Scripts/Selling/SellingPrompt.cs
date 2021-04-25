@@ -24,9 +24,6 @@ public class SellingPrompt : MonoBehaviour
     {
         player = GameObject.Find("Male A").transform.position;
 
-        // this technically shouldn't change positions so idk if this needs to be int the OnGui() or not
-        sellingShed = GameObject.Find("Selling Shed").transform.position;
-
         enablePrompt = distance.Calculate(player, sellingShed);
 
         if (enablePrompt && (!potionInventoryCanvas.enabled))
@@ -34,6 +31,7 @@ public class SellingPrompt : MonoBehaviour
             UnlockCursor();
             sellPotionCanvas.enabled = true;
         }
+        // This cannot be just else... the inventory canvas wont pop up 
         else if ((!enablePrompt) && (potionInventoryCanvas.enabled))
         {
             sellPotionCanvas.enabled = false;

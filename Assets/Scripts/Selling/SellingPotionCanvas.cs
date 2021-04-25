@@ -62,6 +62,5 @@ public class SellingPotionCanvas : MonoBehaviour
         Dictionary<int, Potion> slotPotionDictionary = potionInventory.SlotPotionDictionary;
         slotPotionDictionary.TryGetValue(slotNumber, out currentPotionSelection);
         currentSlotSelection = slotNumber;
-        Debug.Log(currentSlotSelection);
     }
 }

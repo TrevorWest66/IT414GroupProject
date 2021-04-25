@@ -91,6 +91,7 @@ public sealed class CurrentGameObjects
     // Return just potions created by the user
     public List<Potion> GetPotionsCreated()
     {
+        // All this is just dummy data to populate the potion inventory
         List<Potion> potions = new List<Potion>();
 
         // Create Strength Potion
@@ -117,6 +118,7 @@ public sealed class CurrentGameObjects
 
         return potions;
 
+        // Uncomment this once potions are added to the list after the mini game
         // return this.potionsCreated;
     }
 
