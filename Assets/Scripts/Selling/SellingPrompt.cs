@@ -26,16 +26,22 @@ public class SellingPrompt : MonoBehaviour
 
         enablePrompt = distance.Calculate(player, sellingShed);
 
+        // If the player is close enough and the potion inventory cavas is not displayed
         if (enablePrompt && (!potionInventoryCanvas.enabled))
         {
             UnlockCursor();
             sellPotionCanvas.enabled = true;
         }
-        // This cannot be just else... the inventory canvas wont pop up 
+        // If the player is not close enough to the shed and the and the potion inventory canvas is displayed
         else if ((!enablePrompt) && (potionInventoryCanvas.enabled))
         {
             sellPotionCanvas.enabled = false;
             potionInventoryCanvas.enabled = false;
+        }
+        // If the player is not close enough and potion inventory is not displayed
+        else
+        {
+            sellPotionCanvas.enabled = false;
         }
 
     }
