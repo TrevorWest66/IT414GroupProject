@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Written by Rebecca Henry
 using UnityEngine;
 
 public class CollectObjects : MonoBehaviour
