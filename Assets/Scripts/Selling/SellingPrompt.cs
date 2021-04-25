@@ -6,7 +6,7 @@ using UnityEngine;
 public class SellingPrompt : MonoBehaviour
 {
     private Vector3 player, sellingShed;
-    private Canvas sellPotionCanvas, potionInventory;
+    private Canvas sellPotionCanvas, potionInventoryCanvas;
 
     private bool enablePrompt = false;
     private AbstractCalculate distance = new ThreeDimensionalCalculateSellingShed();
@@ -17,7 +17,7 @@ public class SellingPrompt : MonoBehaviour
         player = GameObject.Find("Male A").transform.position;
         sellingShed = GameObject.Find("Selling Shed").transform.position;
         sellPotionCanvas = GameObject.Find("SellPotionCanvas").GetComponent<Canvas>();
-        potionInventory = GameObject.Find("PotionInventoryCanvas").GetComponent<Canvas>();
+        potionInventoryCanvas = GameObject.Find("PotionInventoryCanvas").GetComponent<Canvas>();
     }
 
     void OnGUI()
@@ -28,11 +28,16 @@ public class SellingPrompt : MonoBehaviour
         sellingShed = GameObject.Find("Selling Shed").transform.position;
 
         enablePrompt = distance.Calculate(player, sellingShed);
-        
-        if (enablePrompt && (!potionInventory.enabled))
+
+        if (enablePrompt && (!potionInventoryCanvas.enabled))
         {
             UnlockCursor();
             sellPotionCanvas.enabled = true;
+        }
+        else if ((!enablePrompt) && (potionInventoryCanvas.enabled))
+        {
+            sellPotionCanvas.enabled = false;
+            potionInventoryCanvas.enabled = false;
         }
 
     }
@@ -56,6 +61,6 @@ public class SellingPrompt : MonoBehaviour
         enablePrompt = false;
 
         // Enable to Inventory Canvas
-        potionInventory.enabled = true;
+        potionInventoryCanvas.enabled = true;
     }
 }

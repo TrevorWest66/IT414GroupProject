@@ -6,50 +6,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-class PotionInventory
+public class PotionInventory
 {
     private GameObject theGameObject;
-    private AbstractIterator anIterator;
-    private Sprite theSprite;
+    private List<Potion> potionsCreated = new List<Potion>();
+    private Dictionary<int, Potion> slotPotionDictionary = null;
     private int slot = 1;
 
-    private System.Random random = new System.Random();
+    private Color unselectedSlotColor = new Color(0.4f, 0.4f, 0.4f, 0.9f);
+    private Color highlightSlotColor = new Color(1f, 1f, 1f, 1f);
 
     public void PopulateInventory()
     {
-        anIterator = new PotionInventoryIterator();
-
-        // Reset slot so that inventory always starts populating at slot 1
         Reset();
 
-        // Check to verify there are objects in the inventory and there are open slots available
-        // Currently there are 8 slots total on the canvas
-        while (anIterator.hasNext() && slot < 9)
+        potionsCreated = CurrentGameObjects.Instance.GetPotionsCreated();
+
+        slotPotionDictionary = new Dictionary<int, Potion>();
+
+        // Loop through the potion inventory
+        foreach (Potion aPotion in potionsCreated)
         {
-            //Get key value pair from iterator
-            KeyValuePair<string, int> keyValue = (KeyValuePair<string, int>)anIterator.next();
+            // There are currently only 8 slots available to populate
+            if (slot <= 8)
+            {
+                // Add potion and slot number to dictionary to be used during selling
+                slotPotionDictionary.Add(slot, aPotion);
 
-            string key = keyValue.Key;
-            int value = keyValue.Value;
+                // Get the image from the Potion Opject and add it to the button, enable to button so the potion can be clicked
+                theGameObject = GameObject.Find("Slot" + slot);
+                theGameObject.GetComponent<Button>().enabled = true;
+                theGameObject.GetComponent<Image>().sprite = aPotion.PotionImage;
 
-            //Load a random 2d sprite image located in the Resources/Potions folder
-            theSprite = Resources.Load<Sprite>("/Potions/PotionImage" + random.Next(1,3));
-
-            //Find the game object to place that sprite (the 2d image)
-            theGameObject = GameObject.Find("Slot " + slot);
-            theGameObject.GetComponent<Image>().sprite = theSprite;
-
-            //Find the game object to place the text for potion information (name and coin value)
-            theGameObject = GameObject.Find("Slot (" + slot + ")/Potion Info");
-            theGameObject.GetComponent<Text>().text = key + "\n" + "Value: " + value;
+                // Find the game object to place the text for potion information (name and coin value)
+                theGameObject = GameObject.Find("Slot" + slot + "/Details");
+                theGameObject.GetComponent<Text>().text = aPotion.PotionName + "\n" + "Value: " + aPotion.PotionCoinValue; 
+            }
 
             slot += 1;
         }
     }
 
     //Reset slot count for inventory; this is needed to prevent duplicating inventory items when user opens inventory more then once
-    public void Reset()
+    private void Reset()
     {
+        DisableButtons();
         this.slot = 1;
     }
+
+    private void DisableButtons()
+    {
+        for (int aSlot = 1; aSlot <= 8; aSlot++)
+        {
+            GameObject.Find("Slot" + aSlot).GetComponent<Button>().enabled = false;
+
+            GameObject.Find("Slot" + aSlot).GetComponent<Image>().color = unselectedSlotColor;
+        }
+    }
+
+    public void HighlightSlot(int slotNumber)
+    {
+        GameObject.Find("Slot" + slotNumber).GetComponent<Image>().color = highlightSlotColor;
+    }
+
+    public void UnhighlightSlot(int slotNumber)
+    {
+        GameObject.Find("Slot" + slotNumber).GetComponent<Image>().color = unselectedSlotColor;
+    }
+
+    public Dictionary<int, Potion> SlotPotionDictionary
+    {
+        get { return this.slotPotionDictionary; }
+    }
+
 }

@@ -14,6 +14,7 @@ public sealed class CurrentGameObjects
 
     // A dictionary to hold the object name and quantity of object collected
     private Dictionary<string, int> objectsCollected = new Dictionary<string, int>();
+    private List<Potion> potionsCrafted = new List<Potion>();
 
     private readonly static CurrentGameObjects instance;
 
@@ -55,6 +56,11 @@ public sealed class CurrentGameObjects
         objectsPopulated.Remove(aPlant);
     }
 
+    public void removePotion(Potion aPotion)
+    {
+        this.potionsCrafted.Remove(aPotion);
+    }
+
     //Add objects collected by player
     public void addObjectsCollected(GameObject aPlant)
     {
@@ -82,19 +88,36 @@ public sealed class CurrentGameObjects
         return objectsCollected;
     }
 
-    // Return just potions from collected objects
-    public Dictionary<string, int> GetPotionsCollected()
+    // Return just potions created by the user
+    public List<Potion> GetPotionsCreated()
     {
-        Dictionary<string, int> allObjects = objectsCollected;
-        Dictionary<string, int> justPotions = null;
-        foreach (KeyValuePair<string, int> anObjectCollected in allObjects)
-        {
-            if (anObjectCollected.Key.Contains("Potion") || anObjectCollected.Key.Contains("potion"))
-            {
-                justPotions.Add(anObjectCollected.Key, anObjectCollected.Value);
-            }
-        }
-        return justPotions;
+        List<Potion> potions = new List<Potion>();
+
+        // Create Strength Potion
+        List<CollectablePlantsEnum> strengthPotionPlantIngredients = new List<CollectablePlantsEnum>
+        { CollectablePlantsEnum.Rose, CollectablePlantsEnum.Wheatgrass, CollectablePlantsEnum.ConeFlower};
+
+        Potion strengthPotion = new Potion("Strength Potion", 1000, strengthPotionPlantIngredients);
+
+        // Create Speed Potion
+        List<CollectablePlantsEnum> speedPotionPlantIngredients = new List<CollectablePlantsEnum>
+        { CollectablePlantsEnum.Ginger, CollectablePlantsEnum.ConeFlower, CollectablePlantsEnum.Spearmint};
+
+        Potion speedPotion = new Potion("Speed Potion", 3000, speedPotionPlantIngredients);
+
+        // Create Sleep Potion
+        List<CollectablePlantsEnum> sleepPotionPlantIngredients = new List<CollectablePlantsEnum>
+        { CollectablePlantsEnum.Lavender, CollectablePlantsEnum.Chamomile, CollectablePlantsEnum.Ginger};
+
+        Potion sleepPotion = new Potion("Sleep Potion", 2000, sleepPotionPlantIngredients);
+
+        potions.Add(strengthPotion);
+        potions.Add(speedPotion);
+        potions.Add(sleepPotion);
+
+        return potions;
+
+        // return this.potionsCreated;
     }
 
     //Count the total number of objects collected thus far
