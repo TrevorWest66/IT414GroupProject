@@ -81,6 +81,22 @@ public sealed class CurrentGameObjects
             objectsCollected[plantName] = 1;
         }
     }
+    
+    //Remove objects collected by player
+    public void removeObjectCollected(GameObject aPlant)
+    {
+        string plantName = aPlant.name;
+
+        //Check to see if the key is already in the dictionary
+        if (objectsCollected.ContainsKey(plantName))
+        {
+            int value;
+            objectsCollected.TryGetValue(plantName, out value);
+
+            //decrease current quantity by 1
+            objectsCollected[plantName] = value - 1;
+        }
+    }
 
     //Return the dictionary of objects collected by the player so far
     public Dictionary<string, int> getObjectsCollected()
