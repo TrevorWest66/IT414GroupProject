@@ -12,7 +12,7 @@ public class PlantSpawner : MonoBehaviour
     void Update()
     {
         // Will populate a plant if there are less than 50 objects populated
-        if (CurrentGameObjects.Instance.getObjectsPopulated().Count < 75)
+        if (CurrentGameObjects.Instance.GetObjectsPopulated().Count < 75)
         {
             aRandomPositionGenerator = new GenerateRandomPosition(WorldTerrain, TerrainLayer);
             Vector3 aRandomPosition = aRandomPositionGenerator.GenerateRandomPositionOnTerrain();

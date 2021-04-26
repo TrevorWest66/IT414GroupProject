@@ -48,7 +48,7 @@ public class SellingPotionCanvas : MonoBehaviour
             // Set to null, the current selected was sold
             currentPotionSelection = null;
 
-            CurrentGameObjects.Instance.removePotion(currentPotionSelection);
+            CurrentGameObjects.Instance.RemovePotion(currentPotionSelection);
         }
     }
 
