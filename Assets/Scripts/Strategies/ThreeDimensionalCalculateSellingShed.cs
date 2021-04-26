@@ -12,11 +12,13 @@ public class ThreeDimensionalCalculateSellingShed : AbstractCalculate
 
         if (distance <= 5)
         {
+            // Is within distance of selling shed
             closeEnough = true;
         }
 
         else
         {
+            // Is not within distance of selling shed
             closeEnough = false;
         }
 

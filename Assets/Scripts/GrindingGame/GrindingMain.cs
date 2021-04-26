@@ -1,5 +1,5 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Main program for the Grinding Mini game
 
 using UnityEngine;
@@ -33,10 +33,10 @@ public class GrindingMain : MonoBehaviour
     public void EndGmae()
     {
         startGame = false;
-        // destroys the prompt
+        // Destroys the prompt
         GameObject.Destroy(GameObject.Find("KeyPromptImage"));
         GameObject.Destroy(GameObject.Find("IndicatedKey"));
-        // switches to the end screen and adds final score to final score display
+        // Switches to the end screen and adds final score to final score display
         PlayerScoreDisplay.SetActive(false);
         EndPanel.SetActive(true);
         FinalPlayerScore.GetComponent<TextMeshProUGUI>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
@@ -45,28 +45,17 @@ public class GrindingMain : MonoBehaviour
 
     public void PlayGame()
     {
-        // starts the game and switches off the main menu
+        // Starts the game and switches off the main menu
         startGame = true;
         PlayerPrefs.SetInt("GrindingMiniGameScore", 0);
         PlayerScoreDisplay.SetActive(true);
         StartPanel.SetActive(false);
         strikes = 0;
-
-        // Delete Later
-        GameObject plant1 = new GameObject();
-        plant1.name = "Rose";
-        GameObject plant2 = new GameObject();
-        plant2.name = "Wheatgrass";
-        GameObject plant3 = new GameObject();
-        plant3.name = "ConeFlower";
-        CurrentGameObjects.Instance.Ingredients.Add(plant1.name);
-        CurrentGameObjects.Instance.Ingredients.Add(plant2.name);
-        CurrentGameObjects.Instance.Ingredients.Add(plant3.name);
     }
 
     void Start()
     {
-        // intializes basic vaiables
+        // Intializes basic variables
         PromptLengthCalculator = new PromptLengthCalc();
         PositionFinder = new PositionGenerator();
         KeyPromptPicker = new KeyPicker();
@@ -76,37 +65,37 @@ public class GrindingMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // chekcs if the game has been started
+        // Checks if the game has been started
         if (startGame)
         {
-            // increases the timer for the game
+            // Increases the timer for the game
             miniGameTimer += Time.deltaTime;
-            // if there are no prompt objects creates them
+            // If there are no prompt objects creates them
             if (GameObject.Find("KeyPromptImage") == null)
             {
-                // determines the prompt length
+                // Determines the prompt length
                 promptLength = PromptLengthCalculator.DeterminePropmptLength(miniGameTimer);
                 // Determines the prompts location
                 ButtonPosition = PositionFinder.GeneratePosition(xClamp, yClamp);
                 // Creates the prompt
                 KeyPromptObject = new KeyPrompt(ButtonPosition, scale);
-                // make the object editble by the decorator
+                // Make the object editble by the decorator
                 IKeyPrompt keyPromptDecorator = new KeyPromptDecorator(KeyPromptObject);
-                // picks a decorator to add an image for a key
+                // Picks a decorator to add an image for a key
                 Decorator = KeyPromptPicker.PickKeyPrompt(keyPromptDecorator);
-                // decorator adds the key image to the prompt
+                // Decorator adds the key image to the prompt
                 Decorator.GetObjectForSprite();
-                // sets the timer for the pompt to 0
+                // Sets the timer for the pompt to 0
                 promptTimer = 0f;
             }
 
             // Calls the method to see if the correct key is pressed, increments the strikes if not
             strikes += CorrectKey.Determine(Decorator, PlayerScoreDisplay);
 
-            // increases the timer for the prompt
+            // Increases the timer for the prompt
             promptTimer += Time.deltaTime;
 
-            // if the prompt timer exceeds the allowed time destroys the prompt and adds a strike
+            // If the prompt timer exceeds the allowed time destroys the prompt and adds a strike
             if (promptTimer >= promptLength)
             {
                 GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -114,7 +103,6 @@ public class GrindingMain : MonoBehaviour
                 strikes += 1;
             }
 
-            Debug.Log(strikes);
             if (strikes == 1)
             {
                 StrikeOne.SetActive(true);
@@ -131,7 +119,7 @@ public class GrindingMain : MonoBehaviour
                 StrikeThree.SetActive(true);
             }
 
-            // if the user gets 3 strikes ends the game
+            // If the user gets 3 strikes ends the game
             if (strikes >= 3)
             {
                 EndGmae();

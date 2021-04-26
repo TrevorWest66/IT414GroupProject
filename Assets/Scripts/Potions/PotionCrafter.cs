@@ -12,7 +12,7 @@ public class PotionCrafter
 
     public Potion DeterminePotion(List<string> ingrediants)
     {
-        // creates a list of enums that contain the selected ingrediants
+        // Creates a list of enums that contain the selected ingrediants
         List<CollectablePlantsEnum> plantEnum = new List<CollectablePlantsEnum>();
         foreach (string plants in ingrediants)
         {

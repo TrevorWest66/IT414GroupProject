@@ -1,25 +1,25 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Decorator
 
 using UnityEngine;
 
 public class ADecorator : KeyPromptDecorator
 {
-    // sets the scale and key value
+    // Sets the scale and key value
     private readonly float scale = .25f;
     private readonly string keyValue = "A";
     public ADecorator(IKeyPrompt keyPrompt) : base(keyPrompt) { }
 
     public override GameObject GetObjectForSprite()
     {
-        // get the sprite from object
+        // Get the sprite from object
         GameObject gameObject = base.GetObjectForSprite();
 
-        // create a new object for the text
+        // Ceate a new object for the text
         GameObject textObject = new GameObject();
 
-        // name the object and attach it to the sprite object as a child and set it's scale
+        // Name the object and attach it to the sprite object as a child and set it's scale
         textObject.name = "IndicatedKey";
         textObject.transform.parent = gameObject.transform;
         textObject.transform.position = gameObject.transform.position;
@@ -33,7 +33,7 @@ public class ADecorator : KeyPromptDecorator
         textRenderer.anchor = TextAnchor.MiddleCenter;
         textRenderer.alignment = TextAlignment.Center;
 
-        // returns the sprite object
+        // Returns the sprite object
         return gameObject;
     }
 

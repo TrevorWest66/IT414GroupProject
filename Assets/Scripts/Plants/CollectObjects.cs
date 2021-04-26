@@ -1,9 +1,12 @@
 ﻿// Written by Rebecca Henry
+// 04/11/2021
+// This class is used to pickup and destroy the picked up plant in the game
+
 using UnityEngine;
 
 public class CollectObjects : MonoBehaviour
 {
-    private ThreeDimensionalCalculate aCalculate = new ThreeDimensionalCalculate();
+    private AbstractCalculate aCalculate = new ThreeDimensionalCalculatePlants();
     private CurrentGameObjects GameObjects = CurrentGameObjects.Instance;
 
     void Update()
@@ -20,10 +23,10 @@ public class CollectObjects : MonoBehaviour
             // Checks if player wants to pickup the object
             if (Input.GetKey("e"))
             {
-                // add plant to objects collected dictionary in the singleton
+                // Add plant to objects collected dictionary in the singleton
                 GameObjects.AddObjectsCollected(Plant);
 
-                // remove plant from list in singleton containing all spawned plants
+                // Remove plant from list in singleton containing all spawned plants
                 GameObjects.RemoveObject(Plant);
 
                 Destroy(Plant);

@@ -1,5 +1,7 @@
 ﻿// Written by Rebecca Henry
 // 4/25/21
+// Singleton containing the list of plants selected by player for crafting potions 
+
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,8 +24,8 @@ public sealed class PlantPotionObjects
     public static PlantPotionObjects Instance
     {
         get
-        {   //use this keyword when dealing with a single object
-            //this variable below is attached to the classname
+        {   // Use "this." keyword when dealing with a single object
+            // This variable below is attached to the classname
             return PlantPotionObjects.instance;
         }
     }
@@ -31,7 +33,7 @@ public sealed class PlantPotionObjects
     // Method to add objects to the list
     public void addPlantInPotion(GameObject aPlant)
     {
-        // if there is already 3 plants selected, remove the last plant and add the plant most recent plant
+        // If there is already 3 plants selected, remove the last plant and add the most recent plant
         if(potionIngredients.Count == 3)
         {
             potionIngredients.RemoveAt(2);
@@ -68,5 +70,4 @@ public sealed class PlantPotionObjects
     {
         return potionIngredients.Count;
     }
-
 }

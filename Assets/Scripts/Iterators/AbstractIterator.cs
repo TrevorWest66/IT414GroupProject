@@ -1,5 +1,6 @@
-﻿//Written by Lance Graham
-//Iterator Pattern - All concrete iterators must implement the two methods below
+﻿// Written by Lance Graham
+// 03/23/2021
+// Iterator Pattern - All concrete iterators must implement the two methods below
 using System;
 using System.Collections;
 using System.Collections.Generic;

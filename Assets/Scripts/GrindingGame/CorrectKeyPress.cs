@@ -1,5 +1,5 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Determines if the correct key was pressed
 
 using UnityEngine;
@@ -18,12 +18,12 @@ public class CorrectKeyPress
             // Checks if the prompt key is W
             if (correctKey.Equals("W"))
             {
-                // if the prompt key is W checks if the W key is pressed and if it is updates score on screen and in player prefs
-                // then destroys the prompt
-                // if the key is wrong it adds a strike
+                // If the prompt key is W checks if the W key is pressed and if it is updates score on screen and in player prefs
+                // then destroys the prompt.
+                // If the key is wrong it adds a strike
                 if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
                 {
-                    //score increase will go here
+                    // Score increase will go here
                     PlayerPrefs.SetInt("GrindingMiniGameScore", PlayerPrefs.GetInt("GrindingMiniGameScore") + 1);
                     playerScore.GetComponent<TextMeshPro>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
                     GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -40,7 +40,7 @@ public class CorrectKeyPress
             {
                 if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
                 {
-                    //score increase will go here
+                    // Score increase will go here
                     PlayerPrefs.SetInt("GrindingMiniGameScore", PlayerPrefs.GetInt("GrindingMiniGameScore") + 1);
                     playerScore.GetComponent<TextMeshPro>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
                     GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -56,7 +56,7 @@ public class CorrectKeyPress
             {
                 if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
                 {
-                    //score increase will go here
+                    // Score increase will go here
                     PlayerPrefs.SetInt("GrindingMiniGameScore", PlayerPrefs.GetInt("GrindingMiniGameScore") + 1);
                     playerScore.GetComponent<TextMeshPro>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
                     GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -72,7 +72,7 @@ public class CorrectKeyPress
             {
                 if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
                 {
-                    //score increase will go here
+                    // Score increase will go here
                     PlayerPrefs.SetInt("GrindingMiniGameScore", PlayerPrefs.GetInt("GrindingMiniGameScore") + 1);
                     playerScore.GetComponent<TextMeshPro>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
                     GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -88,7 +88,7 @@ public class CorrectKeyPress
             {
                 if (Input.GetKeyDown(KeyCode.Space))
                 {
-                    //score increase will go here
+                    // Score increase will go here
                     PlayerPrefs.SetInt("GrindingMiniGameScore", PlayerPrefs.GetInt("GrindingMiniGameScore") + 1);
                     playerScore.GetComponent<TextMeshPro>().SetText(PlayerPrefs.GetInt("GrindingMiniGameScore") + "");
                     GameObject.Destroy(GameObject.Find("KeyPromptImage"));
@@ -102,7 +102,7 @@ public class CorrectKeyPress
             }
         }
 
-        // returns if the there was no strike
+        // Returns if the there was no strike
         return strikes;
     }
 }

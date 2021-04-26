@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class SellingPrompt : MonoBehaviour
 {
-    private Vector3 player, sellingShed;
+    private Vector3 playerLocation, sellingShed;
+    private GameObject player;
     private Canvas sellPotionCanvas, potionInventoryCanvas;
 
     private bool enablePrompt = false;
@@ -14,7 +15,7 @@ public class SellingPrompt : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.Find("Male A").transform.position;
+        player = GameObject.Find("Male A");
         sellingShed = GameObject.Find("Selling Shed").transform.position;
         sellPotionCanvas = GameObject.Find("SellPotionCanvas").GetComponent<Canvas>();
         potionInventoryCanvas = GameObject.Find("PotionInventoryCanvas").GetComponent<Canvas>();
@@ -22,9 +23,9 @@ public class SellingPrompt : MonoBehaviour
 
     void OnGUI()
     {
-        player = GameObject.Find("Male A").transform.position;
+        playerLocation = player.transform.position;
 
-        enablePrompt = distance.Calculate(player, sellingShed);
+        enablePrompt = distance.Calculate(playerLocation, sellingShed);
 
         // If the player is close enough and the potion inventory cavas is not displayed
         if (enablePrompt && (!potionInventoryCanvas.enabled))
@@ -48,7 +49,7 @@ public class SellingPrompt : MonoBehaviour
 
     private void UnlockCursor()
     {
-        //Unlock player cursor since one of the canvas' is going to be displayed which requires user interaction
+        // Unlock player cursor since one of the canvas' is going to be displayed which requires user interaction
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
     }

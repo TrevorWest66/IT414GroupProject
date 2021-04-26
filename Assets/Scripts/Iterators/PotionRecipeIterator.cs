@@ -1,6 +1,6 @@
 ﻿// Written By Ellie McDonald
 // 04/09/21
-// This class iterates can iterate through a list of potions from the potion factory
+// This class can iterate through a list of potions from the potion factory
 
 using System.Collections.Generic;
 using UnityEngine;
