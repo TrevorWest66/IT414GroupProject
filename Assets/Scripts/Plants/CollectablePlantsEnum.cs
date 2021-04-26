@@ -16,15 +16,15 @@ public enum CollectablePlantsEnum
     Ginger,
     [Description("Spearmint")]
     Spearmint,
-    [Description("Lavendar")]
+    [Description("Lavender")]
     Lavender,
     [Description("Chamomile")]
     Chamomile,
     [Description("Aloe")]
     Aloe,
-    [Description("Nightsade")]
+    [Description("Nightshade")]
     Nightshade,
     [Description("Mandrake")]
-    Mandranke
+    Mandrake
 }
 

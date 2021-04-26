@@ -10,6 +10,7 @@ public class Potion
     private int potionCoinValue;
     private Sprite potionImage;
     private List<CollectablePlantsEnum> plantsInPotion;
+    public string keyName = "55";
 
     private System.Random random = null;
 
@@ -17,6 +18,12 @@ public class Potion
     {
         get { return this.potionName; }
         set { this.potionName = value; }
+    }
+
+    public string KeyName
+    {
+        get { return this.keyName; }
+        set { this.keyName = value; }
     }
 
     public int PotionCoinValue

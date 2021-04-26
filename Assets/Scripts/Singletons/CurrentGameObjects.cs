@@ -12,6 +12,8 @@ public sealed class CurrentGameObjects
     // Lists all the objects populated on the map
     private List<GameObject> objectsPopulated = new List<GameObject>();
 
+    public List<string> Ingrediants { get; set; } = new List<string>();
+
     // A dictionary to hold the object name and quantity of object collected
     private Dictionary<string, int> objectsCollected = new Dictionary<string, int>();
     private List<Potion> potionsCrafted = new List<Potion>();
@@ -36,33 +38,39 @@ public sealed class CurrentGameObjects
         }
     }
     // Method to add objects to the list
-    public void addObjectsPopulated(GameObject aPlant)
+    public void AddObjectsPopulated(GameObject aPlant)
     {
         objectsPopulated.Add(aPlant);
     }
 
-    public GameObject getObjectPopulated(int i)
+    public GameObject GetObjectPopulated(int i)
     {
         return objectsPopulated[i];
     }
 
-    public List<GameObject> getObjectsPopulated()
+    public List<GameObject> GetObjectsPopulated()
     {
         return objectsPopulated;
     }
 
-    public void removeObject(GameObject aPlant)
+    public void RemoveObject(GameObject aPlant)
     {
         objectsPopulated.Remove(aPlant);
     }
 
-    public void removePotion(Potion aPotion)
+    public void RemovePotion(Potion aPotion)
     {
         this.potionsCrafted.Remove(aPotion);
+        objectsCollected.Remove(aPotion.keyName);
+    }
+
+    public void AddPotion(Potion aPotion)
+    {
+        this.potionsCrafted.Add(aPotion);
     }
 
     //Add objects collected by player
-    public void addObjectsCollected(GameObject aPlant)
+    public void AddObjectsCollected(GameObject aPlant)
     {
         string plantName = aPlant.name;
 
@@ -80,6 +88,11 @@ public sealed class CurrentGameObjects
             //Key is not in the dictionary so we add it
             objectsCollected[plantName] = 1;
         }
+    }
+
+    public void AddObjectToInventory(string key, int quantity)
+    {
+        objectsCollected[key] = quantity;
     }
 
     //Return the dictionary of objects collected by the player so far
