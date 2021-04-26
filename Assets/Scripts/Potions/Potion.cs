@@ -10,7 +10,7 @@ public class Potion
     private int potionCoinValue;
     private Sprite potionImage;
     private List<CollectablePlantsEnum> plantsInPotion;
-    public string keyName = "55";
+    public string keyName = "PotionID";
 
     private System.Random random = null;
 

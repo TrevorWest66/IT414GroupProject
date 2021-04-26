@@ -12,7 +12,7 @@ public sealed class CurrentGameObjects
     // Lists all the objects populated on the map
     private List<GameObject> objectsPopulated = new List<GameObject>();
 
-    public List<string> Ingrediants { get; set; } = new List<string>();
+    public List<string> Ingredients { get; set; } = new List<string>();
 
     // A dictionary to hold the object name and quantity of object collected
     private Dictionary<string, int> objectsCollected = new Dictionary<string, int>();

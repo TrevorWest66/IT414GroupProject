@@ -30,7 +30,7 @@ public class Inventory : MonoBehaviour
             string key = keyValue.Key;
             int value = keyValue.Value;
 
-            if (key.Substring(0,2).Equals("55")) 
+            if (key.Substring(0,2).Equals("PotionID")) 
             {
                 //TODO
                 // search positionsCrafted for one with correct ID and then display the potion image for that potion

@@ -59,9 +59,9 @@ public class GrindingMain : MonoBehaviour
         plant2.name = "Wheatgrass";
         GameObject plant3 = new GameObject();
         plant3.name = "ConeFlower";
-        CurrentGameObjects.Instance.Ingrediants.Add(plant1.name);
-        CurrentGameObjects.Instance.Ingrediants.Add(plant2.name);
-        CurrentGameObjects.Instance.Ingrediants.Add(plant3.name);
+        CurrentGameObjects.Instance.Ingredients.Add(plant1.name);
+        CurrentGameObjects.Instance.Ingredients.Add(plant2.name);
+        CurrentGameObjects.Instance.Ingredients.Add(plant3.name);
     }
 
     void Start()
