@@ -117,9 +117,10 @@ public class InGameDisplay : MonoBehaviour
         // The player's current location on map
         currentLocation = thePlayer.transform.position;
 
-        // First conditional checks to make sure that the user doesn't have the regular inventory canvas open.
+        // First conditional checks to make sure that the user doesn't have the regular inventory canvas open and
+        // that the pause game canvas isn't open.
         // The regular inventory canvas doesn't have back button or play mini game button
-        if (!PeekPlayerInventory.inventoryDisplayed)
+        if (!PeekPlayerInventory.inventoryDisplayed && !PauseGame.GameIsPaused)
         {
             // The distance between the player and the cauldron
             bool showCraftingButton = distanceCalculatorCrafting.Calculate(theCauldron, currentLocation);
