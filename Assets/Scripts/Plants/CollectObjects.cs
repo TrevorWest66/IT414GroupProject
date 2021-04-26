@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// Written by Rebecca Henry
 using UnityEngine;
 
 public class CollectObjects : MonoBehaviour
@@ -22,10 +21,10 @@ public class CollectObjects : MonoBehaviour
             if (Input.GetKey("e"))
             {
                 // add plant to objects collected dictionary in the singleton
-                GameObjects.addObjectsCollected(Plant);
+                GameObjects.AddObjectsCollected(Plant);
 
                 // remove plant from list in singleton containing all spawned plants
-                GameObjects.removeObject(Plant);
+                GameObjects.RemoveObject(Plant);
 
                 Destroy(Plant);
             }

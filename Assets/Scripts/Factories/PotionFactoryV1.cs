@@ -34,7 +34,7 @@ class PotionFactoryV1 : AbstractPotionFactory
 
         // Create Death Potion
         List<CollectablePlantsEnum> deathPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Nightshade, CollectablePlantsEnum.Spearmint, CollectablePlantsEnum.Mandranke};
+        { CollectablePlantsEnum.Nightshade, CollectablePlantsEnum.Spearmint, CollectablePlantsEnum.Mandrake};
 
         Potion deathPotion = new Potion("Death Potion", 2000, deathPotionPlantIngredients);
 

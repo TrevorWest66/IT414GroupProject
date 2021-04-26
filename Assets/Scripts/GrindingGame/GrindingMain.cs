@@ -51,6 +51,17 @@ public class GrindingMain : MonoBehaviour
         PlayerScoreDisplay.SetActive(true);
         StartPanel.SetActive(false);
         strikes = 0;
+
+        // Delete Later
+        GameObject plant1 = new GameObject();
+        plant1.name = "Rose";
+        GameObject plant2 = new GameObject();
+        plant2.name = "Wheatgrass";
+        GameObject plant3 = new GameObject();
+        plant3.name = "ConeFlower";
+        CurrentGameObjects.Instance.Ingredients.Add(plant1.name);
+        CurrentGameObjects.Instance.Ingredients.Add(plant2.name);
+        CurrentGameObjects.Instance.Ingredients.Add(plant3.name);
     }
 
     void Start()

@@ -17,6 +17,9 @@ public class CauldronFactory : AbstractGameObjectFactory
         //Resize the cauldron
         cauldron.transform.localScale = new Vector3(scale, scale, scale);
 
+        //Prevent other objects from passing through cauldron
+        cauldron.AddComponent<BoxCollider>();
+
         //Rename the game object
         cauldron.name = "Cauldron";
 

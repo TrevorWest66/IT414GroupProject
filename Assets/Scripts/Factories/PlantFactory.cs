@@ -60,7 +60,7 @@ public class PlantFactory : AbstractGameObjectFactory
         PlantObject.transform.localScale = new Vector3(scale, scale, scale);
 
         // Adds object to list
-        CurrentGameObjects.Instance.addObjectsPopulated(PlantObject);
+        CurrentGameObjects.Instance.AddObjectsPopulated(PlantObject);
 
         return PlantObject;
     }
