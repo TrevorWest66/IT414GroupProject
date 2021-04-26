@@ -1,6 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿// Written by Rebecca Henry
+using System.Collections;
 using UnityEngine;
 
 public class GenerateRandomPosition

@@ -13,6 +13,7 @@ public class Inventory : MonoBehaviour
     private Sprite theSprite;
     private AbstractIterator anIterator;
     private int slot = 1;
+
     public void PopulateInventory()
     {
         //Our abstract iterator initialized to our concrete InventoryIterator to iterate through the collected game objects
@@ -63,4 +64,5 @@ public class Inventory : MonoBehaviour
     {
         this.slot = 1;
     }
+
 }
