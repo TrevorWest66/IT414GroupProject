@@ -7,7 +7,7 @@ using UnityEngine;
 public class PotionDictAdapter
 {
 
-    // Takes an potion and changes it to bne able to go into the dictionary that is the inventory
+    // Takes a potion and changes and adapts it so that it can be put in the inventory dictionary
     public void AddPotionToDictionary(string value, int key)
     {
         // Create a unique potion name for the dictionary key
