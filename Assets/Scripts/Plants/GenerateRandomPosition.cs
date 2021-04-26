@@ -1,6 +1,6 @@
 ﻿// Written by Rebecca Henry
 // 04/11/2021
-// Used to generate a random location on the terrarin that will be used for spawning plants
+// Used to generate a random location on the terrain that will be used for spawning plants
 
 using System.Collections;
 using UnityEngine;
