@@ -1,5 +1,6 @@
 ﻿// Written by Ellie McDonald
 // 04/11/21
+// The EnumHelper is a generic class used to help find a constant in an enum
 
 using System;
 using System.ComponentModel;

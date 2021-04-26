@@ -1,6 +1,6 @@
 ﻿// Trevor West
-// 3/28/2021
-// Interface that decorator will modify
+// 03/28/2021
+// Interface that the decorator will modify
 
 using UnityEngine;
 

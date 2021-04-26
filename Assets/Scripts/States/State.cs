@@ -1,7 +1,7 @@
-﻿//Written by Lance Graham
-// 4/10/2021
-//This is the interface used for the state pattern.
-//There are three states: no plant, crafting, and an inventory state.
+﻿// Written by Lance Graham
+// 04/10/2021
+// This is the interface used for the state pattern.
+// There are three states: no plant, crafting, and an inventory state.
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

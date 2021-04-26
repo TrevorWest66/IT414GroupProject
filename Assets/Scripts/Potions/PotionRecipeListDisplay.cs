@@ -8,7 +8,6 @@ using UnityEngine.UI;
 
 public class PotionRecipeListDisplay : MonoBehaviour
 {
-    private InGameDisplay inGameDisplay;
     public GameObject recipeTextBox;
     private AbstractIterator iterator;
 
@@ -26,8 +25,14 @@ public class PotionRecipeListDisplay : MonoBehaviour
         myText.fontSize = 35;
         myText.color = Color.white;
         myText.alignment = TextAnchor.MiddleCenter;
-        string recipe = "";
 
+        myText.text = PopulatePotionRecipe();
+    }
+    
+    // Method will return a string containing the recipe
+    public string PopulatePotionRecipe()
+    {
+        string recipe = "";
         iterator = new PotionRecipeIterator();
 
         while (iterator.hasNext())
@@ -36,7 +41,7 @@ public class PotionRecipeListDisplay : MonoBehaviour
 
             string potionName = aPotion.PotionName;
             recipe += potionName + " = ";
-            
+
             List<CollectablePlantsEnum> plantsInPotion = aPotion.PlantsInPotion;
 
             int plantCount = 1;
@@ -45,20 +50,16 @@ public class PotionRecipeListDisplay : MonoBehaviour
                 if (plantCount < plantsInPotion.Count)
                 {
                     recipe += plant.GetDescription() + " + ";
-                } 
+                }
                 else
                 {
                     recipe += plant.GetDescription();
                 }
-                
+
                 plantCount++;
             }
-
             recipe += "\n";
-            
         }
-
-        myText.text = recipe;
+        return recipe;
     }
-
 }

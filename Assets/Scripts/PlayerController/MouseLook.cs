@@ -1,6 +1,7 @@
 ﻿// Ellie McDonald
-// 3/25/2021
+// 03/25/2021
 // This class controls the camera using the player mouse
+
 using UnityEngine;
 
 public class MouseLook : MonoBehaviour
@@ -23,8 +24,8 @@ public class MouseLook : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        xRotation -= mouseY; // if += rotation is opposite of desired direction
-        xRotation = Mathf.Clamp(xRotation, -45f, 45f); // prevents over rotations so the camera doesn't rotate behind the player
+        xRotation -= mouseY; // If += rotation is opposite of desired direction
+        xRotation = Mathf.Clamp(xRotation, -45f, 45f); // Prevents over rotations so the camera doesn't rotate behind the player
         transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
 
         playerBody.Rotate(Vector3.up * mouseX);

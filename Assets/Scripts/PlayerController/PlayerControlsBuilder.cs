@@ -1,5 +1,5 @@
 ﻿// Written by Ellie McDonald
-// 3/13/21
+// 03/13/21
 // These classes use the builder pattern to help set the controls for the player
 using System;
 using System.Collections.Generic;
@@ -47,9 +47,9 @@ public class WASDContolsBuilder : PlayerControlsBuilder
     {
         anXmlParser.loadDocument("WASDControls.xml");
         forward = anXmlParser.parseXml("forward");      // W 
-        backward = anXmlParser.parseXml("backward");    //S 
-        left = anXmlParser.parseXml("left");            //A
-        right = anXmlParser.parseXml("right");          //D 
+        backward = anXmlParser.parseXml("backward");    // S 
+        left = anXmlParser.parseXml("left");            // A
+        right = anXmlParser.parseXml("right");          // D 
         jump = anXmlParser.parseXml("jump");            // Space bar
 
         listOfKeys.Add(forward);
