@@ -1,10 +1,12 @@
 ﻿// Written by Rebecca Henry
+// 04/11/2021
 // Checks the distance between object and player and displays the name when within a certain distance
+
 using UnityEngine;
 
 public class ObjectTextProximity : MonoBehaviour
 {
-    private ThreeDimensionalCalculate aCalculate = new ThreeDimensionalCalculate();
+    private AbstractCalculate aCalculate = new ThreeDimensionalCalculatePlants();
 
     void Update()
     {

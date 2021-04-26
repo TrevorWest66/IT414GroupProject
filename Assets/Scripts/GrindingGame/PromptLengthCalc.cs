@@ -1,15 +1,15 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Determines how long the key prompt will stay on the screen
 
 public class PromptLengthCalc
 {
     public float DeterminePropmptLength(float gameTimer)
     {
-        // sets a default prompt length
+        // Sets a default prompt length
         float promptLength = 5f;
 
-        // sets teh prompt length based off of how long the game has been running
+        // Sets the prompt length based off of how long the game has been running
         if (gameTimer <= 5)
         {
             promptLength = 5f;

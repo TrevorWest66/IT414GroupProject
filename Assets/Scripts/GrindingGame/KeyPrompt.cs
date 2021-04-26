@@ -1,5 +1,5 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Creates the object for the background of the key prompt
 
 using UnityEngine;
@@ -19,10 +19,10 @@ class KeyPrompt : IKeyPrompt
         SpriteObject = new GameObject();
         SpriteObject.transform.position = thePosition;
 
-        //Resizes the background object
+        // Resizes the background object
         SpriteObject.transform.localScale = new Vector3(scale, scale, scale);
 
-        //Rename the game object
+        // Rename the game object
         SpriteObject.name = "KeyPromptImage";
 
         // Add sprite component and sets sprite
@@ -30,13 +30,13 @@ class KeyPrompt : IKeyPrompt
         spriteRenderer.sprite = backGroundSprite;
     }
 
-    // gets the object with the background image that the letter will be attached to
+    // Gets the object with the background image that the letter will be attached to
     public GameObject GetObjectForSprite()
     {
         return SpriteObject;
     }
 
-    // gets teh key value
+    // Gets the key value
     public string GetKeyValue()
     {
         return KeyValue;

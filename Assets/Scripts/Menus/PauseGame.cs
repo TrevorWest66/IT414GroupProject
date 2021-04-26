@@ -1,7 +1,7 @@
 ﻿// Written by Trevor West
+// 03/04/2021
+// This is the logic behind the pause menu where the user can resume the game, modify game options, or quit the game
 
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -26,6 +26,7 @@ public class PauseGame : MonoBehaviour
         }
     }
 
+    // Resume game
     public void Resume()
     {
         // Locks the users cursor when the game resumes
@@ -36,6 +37,7 @@ public class PauseGame : MonoBehaviour
         GameIsPaused = false;
     }
 
+    // Pause game
     public void Pause()
     {
         // Unlocks the users cursor when the game pauses
@@ -47,6 +49,7 @@ public class PauseGame : MonoBehaviour
         GameIsPaused = true;
     }
 
+    // Quit game
     public void QuitToMenu()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);

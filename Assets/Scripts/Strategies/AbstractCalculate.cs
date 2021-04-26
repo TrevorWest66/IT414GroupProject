@@ -1,5 +1,6 @@
-﻿//Written by Lance Graham
-//Strategy pattern - there are many different calculations that can be performed against two vectors
+﻿// Written by Lance Graham
+// 03/01/2021
+// Strategy pattern - there are many different calculations that can be performed against two vectors
 using UnityEngine;
 
 public abstract class AbstractCalculate

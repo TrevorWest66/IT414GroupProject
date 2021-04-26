@@ -1,4 +1,7 @@
 ﻿// Written by Rebecca Henry
+// 04/11/2021
+// Used to generate a random location on the terrain that will be used for spawning plants
+
 using System.Collections;
 using UnityEngine;
 
@@ -62,15 +65,6 @@ public class GenerateRandomPosition
         {
             randomPosition = GenerateRandomPositionOnTerrain();
         }
-
-        /*// check position of the plant and verify there is not already a plant there
-        foreach(GameObject p in CurrentGameObjects.Instance.getObjectsPopulated())
-        {
-            if (p.transform.position == randomPosition);
-            {
-                GenerateRandomPositionOnTerrain();
-            }
-        }*/
 
         return randomPosition;
     }

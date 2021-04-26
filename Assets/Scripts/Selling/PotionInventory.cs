@@ -78,5 +78,4 @@ public class PotionInventory
     {
         get { return this.slotPotionDictionary; }
     }
-
 }

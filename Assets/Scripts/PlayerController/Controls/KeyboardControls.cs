@@ -6,7 +6,7 @@ using UnityEngine;
 public class KeyboardControls : MonoBehaviour
 {
     private static KeyboardControls instance = null;
-    private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // default is WASD, when game starts
+    private KeyboardControlsEnum controlType = KeyboardControlsEnum.WASD; // Default is WASD when game starts
 
     public static GameObject controlsSingleton;
 
@@ -44,9 +44,7 @@ public class KeyboardControls : MonoBehaviour
         }
     }
 
-    /**
-     * Use for the options menu to set prefernces when the toggle button is clicked
-     */
+    // Use for the options menu to set prefernces when the toggle button is clicked
     public void OnClickLeft()
     {
         if (controlType.Equals(KeyboardControlsEnum.Arrows))

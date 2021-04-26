@@ -58,8 +58,8 @@ public class TurnRight : AbstractPlayerControllerCommand
     }
 }
 
-//This will jump the player in the air (up and down) and hold for a brief second
-//before dropping the player back onto the plane. 
+// This will jump the player in the air (up and down) and hold for a brief second
+// before dropping the player back onto the plane. 
 public class JumpUp : AbstractPlayerControllerCommand
 {
     public override async void Execute(GameObject aCharacter, CharacterController aController)

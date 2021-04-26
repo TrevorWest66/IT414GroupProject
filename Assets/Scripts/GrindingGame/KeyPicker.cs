@@ -1,5 +1,5 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Decides what key the prompt will ask for
 
 public class KeyPicker
@@ -9,10 +9,10 @@ public class KeyPicker
 
     public IKeyPrompt PickKeyPrompt(IKeyPrompt keyPromptDecorator)
     {
-        // creates a random number between 0 and 4 (inclusivve)
+        // Creates a random number between 0 and 4 (inclusivve)
         int chosenNum = RandomGenerator.Next(5);
 
-        // picks a decorator for adding the key image based of the random numbner
+        // Picks a decorator for adding the key image based of the random numbner
         if (chosenNum.Equals(0))
         {
             decorator = new WDecorator(keyPromptDecorator);
@@ -34,7 +34,7 @@ public class KeyPicker
             decorator = new SpaceDecorator(keyPromptDecorator);
         }
 
-        // returns the chosen decroator
+        // Returns the chosen decorator
         return decorator;
 
     }

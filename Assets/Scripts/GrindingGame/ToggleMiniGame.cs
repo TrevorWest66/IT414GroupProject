@@ -1,5 +1,5 @@
 ﻿// Trevor West
-// 3/28/2021
+// 03/28/2021
 // Ends the mini gamne
 
 using UnityEngine;
@@ -9,10 +9,11 @@ using System.Collections.Generic;
 public class ToggleMiniGame : MonoBehaviour
 {
     private List<string> Ingrediants = CurrentGameObjects.Instance.Ingredients;
-    // this just switches the scene back to the main one, when more mini games are addded will intstead move scene forward
+
+    // This just switches the scene back to the main scene; when more mini games are addded will intstead move scene forward
     public void CloseMiniGame()
     {
-        // creates a potion and adds it to the players inventory
+        // Creates a potion and adds it to the players inventory
         PotionCrafter potionMaker = new PotionCrafter();
         Potion madePotion = potionMaker.DeterminePotion(Ingrediants);
         CurrentGameObjects.Instance.AddPotion(madePotion);
@@ -22,6 +23,7 @@ public class ToggleMiniGame : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 
+    // Switches the scene from the main scene to the next scene, the mini game scene
     public void OpenMiniGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
