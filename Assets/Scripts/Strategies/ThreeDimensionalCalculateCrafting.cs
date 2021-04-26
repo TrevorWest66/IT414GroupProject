@@ -15,11 +15,13 @@ public class ThreeDimensionalCalculateCrafting : AbstractCalculate
     
         if (distance <= 2)
         {
+            // Is within distance of cauldron
             currentDistance = true;
         }
 
         else
         {
+            // Is not within distanc of cauldron
             currentDistance = false;
         }
 
