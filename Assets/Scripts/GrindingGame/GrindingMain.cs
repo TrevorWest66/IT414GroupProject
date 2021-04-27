@@ -30,7 +30,7 @@ public class GrindingMain : MonoBehaviour
     float miniGameTimer = 0f;
     float promptTimer = 0f;
 
-    public void EndGmae()
+    public void EndGame()
     {
         startGame = false;
         // Destroys the prompt
@@ -122,7 +122,7 @@ public class GrindingMain : MonoBehaviour
             // If the user gets 3 strikes ends the game
             if (strikes >= 3)
             {
-                EndGmae();
+                EndGame();
             }
         }
     }

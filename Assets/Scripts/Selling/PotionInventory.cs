@@ -20,7 +20,7 @@ public class PotionInventory
     {
         Reset();
 
-        potionsCreated = CurrentGameObjects.Instance.GetPotionsCreated();
+        potionsCreated = CurrentGameObjects.Instance.GetPotionsCrafted();
 
         slotPotionDictionary = new Dictionary<int, Potion>();
 
