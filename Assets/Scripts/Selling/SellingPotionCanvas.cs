@@ -45,9 +45,11 @@ public class SellingPotionCanvas : MonoBehaviour
             // TODO: Call method in coin class that will increase the players coin
             int coinValue = currentPotionSelection.PotionCoinValue;
 
-            // Set to null, the current selected was sold
+            // Set current potion to null and current slot to zero, the selected potion was sold
             currentPotionSelection = null;
+            currentSlotSelection = 0;
 
+            // Remove the potion from the potions crafted list
             CurrentGameObjects.Instance.RemovePotion(currentPotionSelection);
         }
     }
