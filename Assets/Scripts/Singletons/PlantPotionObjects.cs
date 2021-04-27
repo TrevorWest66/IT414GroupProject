@@ -8,7 +8,7 @@ using UnityEngine;
 public sealed class PlantPotionObjects
 {
     // Lists all the objects populated on the map
-    private List<GameObject> potionIngredients = new List<GameObject>();
+    private List<string> potionIngredients = new List<string>();
 
     private readonly static PlantPotionObjects instance;
 
@@ -31,7 +31,7 @@ public sealed class PlantPotionObjects
     }
 
     // Method to add objects to the list
-    public void addPlantInPotion(GameObject aPlant)
+    public void addPlantInPotion(string aPlant)
     {
         // If there is already 3 plants selected, remove the last plant and add the most recent plant
         if(potionIngredients.Count == 3)
@@ -42,17 +42,17 @@ public sealed class PlantPotionObjects
         potionIngredients.Add(aPlant);
     }
 
-    public GameObject getPlantInPotion(int i)
+    public string getPlantInPotion(int i)
     {
         return potionIngredients[i];
     }
 
-    public List<GameObject> getPlantsInPotion()
+    public List<string> getPlantsInPotion()
     {
         return potionIngredients;
     }
 
-    public void removePlantInPotion(GameObject aPlant)
+    public void removePlantInPotion(string aPlant)
     {
         potionIngredients.Remove(aPlant);
     }
