@@ -53,6 +53,6 @@ public class Potion
         PlantsInPotion = plantsInPotionRecipe;
 
         // TODO: Fix to have 1 image per potion type instead of random
-        PotionImage = Resources.Load<Sprite>("Potion" + random.Next(1,3).ToString());
+        PotionImage = Resources.Load<Sprite>("" + PotionName.ToString());
     }
 }

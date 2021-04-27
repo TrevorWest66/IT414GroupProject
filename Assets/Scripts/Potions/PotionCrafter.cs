@@ -10,11 +10,11 @@ public class PotionCrafter
 {
     private Potion CreatedPotion;
 
-    public Potion DeterminePotion(List<string> ingrediants)
+    public Potion DeterminePotion(List<string> ingredients)
     {
         // Creates a list of enums that contain the selected ingrediants
         List<CollectablePlantsEnum> plantEnum = new List<CollectablePlantsEnum>();
-        foreach (string plants in ingrediants)
+        foreach (string plants in ingredients)
         {
             if (plants.Equals("Rose"))
             {

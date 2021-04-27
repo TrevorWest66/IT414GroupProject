@@ -127,8 +127,9 @@ public sealed class CurrentGameObjects
     }
 
     // Return the potions created by the user
-    public List<Potion> GetPotionsCreated()
+    public List<Potion> GetPotionsCrafted()
     {
+        /*
         // All this is just dummy data to populate the potion inventory
         List<Potion> potions = new List<Potion>();
 
@@ -150,14 +151,28 @@ public sealed class CurrentGameObjects
 
         Potion sleepPotion = new Potion("Sleep Potion", 2000, sleepPotionPlantIngredients);
 
+        // Create Health Potion
+        List<CollectablePlantsEnum> healthPotionPlantIngredients = new List<CollectablePlantsEnum>
+        { CollectablePlantsEnum.Aloe, CollectablePlantsEnum.Lavender, CollectablePlantsEnum.Rose};
+
+        Potion healthPotion = new Potion("Health Potion", 1000, healthPotionPlantIngredients);
+
+        // Create Death Potion
+        List<CollectablePlantsEnum> deathPotionPlantIngredients = new List<CollectablePlantsEnum>
+        { CollectablePlantsEnum.Nightshade, CollectablePlantsEnum.Spearmint, CollectablePlantsEnum.Mandrake};
+
+        Potion deathPotion = new Potion("Death Potion", 2000, deathPotionPlantIngredients);
+
         potions.Add(strengthPotion);
         potions.Add(speedPotion);
         potions.Add(sleepPotion);
+        potions.Add(healthPotion);
+        potions.Add(deathPotion);
 
-        return potions;
+        return potions;*/
 
         // Uncomment this once potions are added to the list after the mini game
-        // return this.potionsCreated;
+        return this.potionsCrafted;
     }
 
     // Count the total number of objects collected thus far
