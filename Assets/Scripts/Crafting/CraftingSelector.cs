@@ -12,10 +12,11 @@ public class CraftingSelector : MonoBehaviour
 
     public void PlantToCraftPotion()
     {
-        string PlantName = img.GetComponent<Image>().sprite.name;
-        GameObject PlantObject = GameObject.Find(PlantName); // Finds the plant gameobject
+        string PlantNameOfImage = img.GetComponent<Image>().sprite.name;
+        string aPlant = PlantNameOfImage.Substring(0, PlantNameOfImage.Length - 6);
+        GameObject PlantObject = GameObject.Find(aPlant); // Finds the plant gameobject
 
-        potionIngredients.addPlantInPotion(PlantObject); // Adds to potion ingredient list
+        potionIngredients.addPlantInPotion(PlantObject.name); // Adds to potion ingredient list
         CurrentGameObjects.Instance.RemoveObject(PlantObject);  // Removes the plant from the inventory
 
         img.GetComponent<Image>().color = new Color(1, 0, 0);   // Sets the color of the image to red to distingish what plant is selected
