@@ -61,7 +61,7 @@ public class PotionInventory
             GameObject.Find("Slot" + aSlot).GetComponent<Button>().enabled = false;
             GameObject.Find("Slot" + aSlot).GetComponent<Image>().sprite = null;
             GameObject.Find("Slot" + aSlot).GetComponent<Image>().color = unselectedSlotColor;
-            GameObject.Find("Slot" + slot + "/Details").GetComponent<Text>().text = null;
+            GameObject.Find("Slot" + aSlot + "/Details").GetComponent<Text>().text = null;
         }
     }
 

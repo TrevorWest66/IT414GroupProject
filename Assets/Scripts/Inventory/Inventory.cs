@@ -74,9 +74,16 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    // Reset slot count for inventory; this is needed to prevent duplicating inventory items when user opens inventory more then once
+    // Reset slot count and the items in the inventory
     public void Reset()
     {
+        for (int aSlot = 1; aSlot < 13; aSlot++)
+        {
+            GameObject.Find("Slot (" + aSlot + ")/Image").GetComponent<Image>().sprite = null;
+            GameObject.Find("Slot (" + aSlot + ")/Name").GetComponent<Text>().text = null;
+            GameObject.Find("Slot (" + aSlot + ")/Quantity").GetComponent<Text>().text = null;
+        }
+
         this.slot = 1;
     }
 
