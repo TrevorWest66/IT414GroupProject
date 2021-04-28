@@ -12,8 +12,6 @@ public class Potion
     private List<CollectablePlantsEnum> plantsInPotion;
     public string keyName = "PotionID";
 
-    private System.Random random = null;
-
     public string PotionName
     {
         get { return this.potionName; }
@@ -47,7 +45,6 @@ public class Potion
     // Constructor
     public Potion(string potionName, int potionCoinValue, List<CollectablePlantsEnum> plantsInPotionRecipe)
     {
-        random = new System.Random();
         PotionName = potionName;
         PotionCoinValue = potionCoinValue;
         PlantsInPotion = plantsInPotionRecipe;

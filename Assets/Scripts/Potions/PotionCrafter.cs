@@ -16,7 +16,6 @@ public class PotionCrafter
         List<CollectablePlantsEnum> plantEnum = new List<CollectablePlantsEnum>();
         foreach (string plants in ingredients)
         {
-            Debug.Log("plant in determine potion: " + plants);
             if (plants.Equals("Rose"))
             {
                 plantEnum.Add(CollectablePlantsEnum.Rose);

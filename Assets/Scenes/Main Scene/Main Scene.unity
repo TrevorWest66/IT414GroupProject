@@ -7496,7 +7496,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 0
+  m_Text: 
 --- !u!222 &1490879882
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10441,6 +10441,7 @@ GameObject:
   - component: {fileID: 2042937054}
   - component: {fileID: 2042937053}
   - component: {fileID: 2042937052}
+  - component: {fileID: 2042937055}
   m_Layer: 5
   m_Name: CoinCanvas
   m_TagString: Untagged
@@ -10529,6 +10530,19 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &2042937055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2042937050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e38e1e5cdbcd02144852a032b3daca84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CoinCount: {fileID: 1490879881}
 --- !u!1 &2083566206
 GameObject:
   m_ObjectHideFlags: 0

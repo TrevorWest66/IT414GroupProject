@@ -66,7 +66,6 @@ public sealed class CurrentGameObjects
     {
         this.potionsCrafted.Remove(aPotion);
         //objectsCollected.Remove(aPotion.keyName);
-        Debug.Log("number of potions: " + potionsCrafted.Count);
     }
 
     // Add a potion to the list of potions crafted by player
@@ -165,6 +164,5 @@ public sealed class CurrentGameObjects
         {
             RemoveObjectCollected(plant);
         }
-
     }
 }
