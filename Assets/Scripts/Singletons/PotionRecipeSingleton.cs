@@ -4,7 +4,7 @@
 // When more potion factories are made, they can be updated here
 // This needs to be a singleton because the potion factory is used across classes 
 
-public class PotionRecipeSingleton
+public sealed class PotionRecipeSingleton
 {
     private static PotionRecipeSingleton instance = null;
     private AbstractPotionFactory potionFactory = new PotionFactoryV1();
