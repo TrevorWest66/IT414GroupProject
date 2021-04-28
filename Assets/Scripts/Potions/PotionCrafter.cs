@@ -120,7 +120,9 @@ public class PotionCrafter
             CreatedPotion = new Potion("Death Potion", 500, plantEnum);
         }
 
-        CreatedPotion.PotionCoinValue *= PlayerPrefs.GetInt("GrindingMiniGameScore") / 20;
+        int score = PlayerPrefs.GetInt("GrindingMiniGameScore");
+
+        CreatedPotion.PotionCoinValue *= score / 10;
 
         return CreatedPotion;
     }

@@ -33,7 +33,7 @@ public class PotionInventory
                 // Add potion and slot number to dictionary to be used during selling
                 slotPotionDictionary.Add(slot, aPotion);
 
-                // Get the image from the Potion Opject and add it to the button, enable to button so the potion can be clicked
+                // Get the image from the Potion Object and add it to the button, enable to button so the potion can be clicked
                 theGameObject = GameObject.Find("Slot" + slot);
                 theGameObject.GetComponent<Button>().enabled = true;
                 theGameObject.GetComponent<Image>().sprite = aPotion.PotionImage;
@@ -48,7 +48,7 @@ public class PotionInventory
     }
 
     //Reset slot count for inventory; this is needed to prevent duplicating inventory items when user opens inventory more then once
-    private void Reset()
+    public void Reset()
     {
         DisableButtons();
         this.slot = 1;
@@ -59,8 +59,9 @@ public class PotionInventory
         for (int aSlot = 1; aSlot <= 8; aSlot++)
         {
             GameObject.Find("Slot" + aSlot).GetComponent<Button>().enabled = false;
-
+            GameObject.Find("Slot" + aSlot).GetComponent<Image>().sprite = null;
             GameObject.Find("Slot" + aSlot).GetComponent<Image>().color = unselectedSlotColor;
+            GameObject.Find("Slot" + slot + "/Details").GetComponent<Text>().text = null;
         }
     }
 

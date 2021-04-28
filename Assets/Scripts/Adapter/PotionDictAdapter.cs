@@ -12,6 +12,7 @@ public class PotionDictAdapter
     {
         // Create a unique potion name for the dictionary key
         value += Time.time.ToString();
+        PlayerPrefs.SetString("ThePotionKey", value);
         // Potions don't stack
         key = 1;
 

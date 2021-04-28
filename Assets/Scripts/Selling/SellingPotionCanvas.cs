@@ -45,12 +45,13 @@ public class SellingPotionCanvas : MonoBehaviour
             int coinValue = currentPotionSelection.PotionCoinValue;
             PlayerPrefs.SetInt("CoinCount", PlayerPrefs.GetInt("CoinCount") + coinValue);
 
+            // Remove the potion from the potions crafted list
+            CurrentGameObjects.Instance.RemovePotion(currentPotionSelection);
+
             // Set current potion to null and current slot to zero, the selected potion was sold
             currentPotionSelection = null;
             currentSlotSelection = 0;
-
-            // Remove the potion from the potions crafted list
-            CurrentGameObjects.Instance.RemovePotion(currentPotionSelection);
+            potionInventory.Reset();
 
             ClickBack();
         }

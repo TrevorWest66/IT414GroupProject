@@ -65,7 +65,7 @@ public sealed class CurrentGameObjects
     public void RemovePotion(Potion aPotion)
     {
         this.potionsCrafted.Remove(aPotion);
-        //objectsCollected.Remove(aPotion.keyName);
+        objectsCollected.Remove(aPotion.KeyName);
     }
 
     // Add a potion to the list of potions crafted by player
