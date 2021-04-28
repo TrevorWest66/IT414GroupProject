@@ -15,7 +15,7 @@ public class InventoryIterator : AbstractIterator
     // I also put all of the keys into an instance variable to help with iterating through the dictionary
     public InventoryIterator()
     {
-        this.collectedObjects = CurrentGameObjects.Instance.getObjectsCollected();
+        this.collectedObjects = CurrentGameObjects.Instance.GetObjectsCollected();
         this.theKeys = new List<string>(this.collectedObjects.Keys);
     }
 

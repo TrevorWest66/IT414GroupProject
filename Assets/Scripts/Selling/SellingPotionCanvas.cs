@@ -51,6 +51,8 @@ public class SellingPotionCanvas : MonoBehaviour
 
             // Remove the potion from the potions crafted list
             CurrentGameObjects.Instance.RemovePotion(currentPotionSelection);
+
+            ClickBack();
         }
     }
 

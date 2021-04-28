@@ -31,7 +31,7 @@ public sealed class PlantPotionObjects
     }
 
     // Method to add objects to the list
-    public void addPlantInPotion(string aPlant)
+    public void AddPlantInPotion(string aPlant)
     {
         // If there is already 3 plants selected, remove the last plant and add the most recent plant
         if(potionIngredients.Count == 3)
@@ -42,32 +42,33 @@ public sealed class PlantPotionObjects
         potionIngredients.Add(aPlant);
     }
 
-    public string getPlantInPotion(int i)
+    public string GetPlantInPotion(int i)
     {
         return potionIngredients[i];
     }
 
-    public List<string> getPlantsInPotion()
+    public List<string> GetPlantsInPotion()
     {
         return potionIngredients;
     }
 
-    public void removePlantInPotion(string aPlant)
+    public void RemovePlantInPotion(string aPlant)
     {
         potionIngredients.Remove(aPlant);
     }
 
-    public void removeAllPlantsInPotion()
+    public void RemoveAllPlantsInPotion()
     {
-        for (int i = plantsInPotionCount(); i > 0; i--)
+        for (int i = PlantsInPotionCount(); i > 0; i--)
         {
             potionIngredients.Clear();
         }
        
     }
 
-    public int plantsInPotionCount()
+    public int PlantsInPotionCount()
     {
         return potionIngredients.Count;
     }
+
 }

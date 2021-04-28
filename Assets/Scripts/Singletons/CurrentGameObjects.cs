@@ -11,9 +11,6 @@ public sealed class CurrentGameObjects
     // List containing the objects populated on the map
     private List<GameObject> objectsPopulated = new List<GameObject>();
 
-    // List for ingredients of a potion
-    public List<string> Ingredients { get; set; } = new List<string>();
-
     // A dictionary to hold the object name and quantity of object collected
     private Dictionary<string, int> objectsCollected = new Dictionary<string, int>();
 
@@ -68,7 +65,8 @@ public sealed class CurrentGameObjects
     public void RemovePotion(Potion aPotion)
     {
         this.potionsCrafted.Remove(aPotion);
-        objectsCollected.Remove(aPotion.keyName);
+        //objectsCollected.Remove(aPotion.keyName);
+        Debug.Log("number of potions: " + potionsCrafted.Count);
     }
 
     // Add a potion to the list of potions crafted by player
@@ -114,6 +112,28 @@ public sealed class CurrentGameObjects
         }
     }
 
+    // Remove object collected by player
+    public void RemoveObjectCollected(string plantName)
+    {
+        // Check to see if the key is already in the dictionary
+        if (objectsCollected.ContainsKey(plantName))
+        {
+            int value;
+            objectsCollected.TryGetValue(plantName, out value);
+
+            // If there is only one object, remove the key value pair
+            if (value < 2)
+            {
+                objectsCollected.Remove(plantName);
+            }
+            else
+            {
+                // Decrease current quantity by 1
+                objectsCollected[plantName] = value - 1;
+            }
+        }
+    }
+
     // Add to objects collected by player
     public void AddObjectsCollected(string key, int quantity)
     {
@@ -121,7 +141,7 @@ public sealed class CurrentGameObjects
     }
 
     // Return the dictionary of objects collected by the player so far
-    public Dictionary<string, int> getObjectsCollected()
+    public Dictionary<string, int> GetObjectsCollected()
     {
         return objectsCollected;
     }
@@ -129,49 +149,6 @@ public sealed class CurrentGameObjects
     // Return the potions created by the user
     public List<Potion> GetPotionsCrafted()
     {
-        /*
-        // All this is just dummy data to populate the potion inventory
-        List<Potion> potions = new List<Potion>();
-
-        // Create Strength Potion
-        List<CollectablePlantsEnum> strengthPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Rose, CollectablePlantsEnum.Wheatgrass, CollectablePlantsEnum.ConeFlower};
-
-        Potion strengthPotion = new Potion("Strength Potion", 1000, strengthPotionPlantIngredients);
-
-        // Create Speed Potion
-        List<CollectablePlantsEnum> speedPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Ginger, CollectablePlantsEnum.ConeFlower, CollectablePlantsEnum.Spearmint};
-
-        Potion speedPotion = new Potion("Speed Potion", 3000, speedPotionPlantIngredients);
-
-        // Create Sleep Potion
-        List<CollectablePlantsEnum> sleepPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Lavender, CollectablePlantsEnum.Chamomile, CollectablePlantsEnum.Ginger};
-
-        Potion sleepPotion = new Potion("Sleep Potion", 2000, sleepPotionPlantIngredients);
-
-        // Create Health Potion
-        List<CollectablePlantsEnum> healthPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Aloe, CollectablePlantsEnum.Lavender, CollectablePlantsEnum.Rose};
-
-        Potion healthPotion = new Potion("Health Potion", 1000, healthPotionPlantIngredients);
-
-        // Create Death Potion
-        List<CollectablePlantsEnum> deathPotionPlantIngredients = new List<CollectablePlantsEnum>
-        { CollectablePlantsEnum.Nightshade, CollectablePlantsEnum.Spearmint, CollectablePlantsEnum.Mandrake};
-
-        Potion deathPotion = new Potion("Death Potion", 2000, deathPotionPlantIngredients);
-
-        potions.Add(strengthPotion);
-        potions.Add(speedPotion);
-        potions.Add(sleepPotion);
-        potions.Add(healthPotion);
-        potions.Add(deathPotion);
-
-        return potions;*/
-
-        // Uncomment this once potions are added to the list after the mini game
         return this.potionsCrafted;
     }
 
@@ -179,5 +156,15 @@ public sealed class CurrentGameObjects
     public int CountObjectsCollected()
     {
         return objectsCollected.Count;
+    }
+
+    // Remove plants from collected game objects list
+    public void RemoveCollectedPlantsUsedInPotions(List<string> ingredients)
+    {
+        foreach (string plant in ingredients)
+        {
+            RemoveObjectCollected(plant);
+        }
+
     }
 }
