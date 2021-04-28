@@ -11,6 +11,7 @@ public class Inventory : MonoBehaviour
     private GameObject theGameObject;
     private Sprite theSprite;
     private AbstractIterator anIterator;
+    private Potion aPotion;
     private int slot = 1;
 
     public void PopulateInventory()
@@ -30,14 +31,33 @@ public class Inventory : MonoBehaviour
             string key = keyValue.Key;
             int value = keyValue.Value;
 
-            if (key.Substring(0,2).Equals("PotionID")) 
+            if (key.Substring(0,3).Equals("PID")) 
             {
-                // TODO
-                // Search potionsCrafted for one with correct ID and then display the potion image for that potion
-                // I am just going to copy and tweek ellies code for displaying the potions in the sell scene for this
+                foreach (Potion potion in CurrentGameObjects.Instance.GetPotionsCrafted())
+                {
+                    if (potion.KeyName.Equals(key))
+                    {
+                        aPotion = potion;
+                    }
+                }
+                // Get the image from the Potion Opject and add it to the button, enable to button so the potion can be clicked
+                theGameObject = GameObject.Find("Slot (" + slot + ")/Image");
+                theGameObject.GetComponent<Image>().sprite = aPotion.PotionImage;
+
+                Debug.Log("PotionName form inventory: " + aPotion.PotionName);
+                Debug.Log("Potion Key Name form inventory: " + aPotion.KeyName);
+
+                // Find the game object to place the text for potion information (name and coin value)
+                theGameObject = GameObject.Find("Slot (" + slot + ")/Name");
+                theGameObject.GetComponent<Text>().text = aPotion.PotionName;
+
+                // Find the game object to place the text for the quanity of that game object
+                theGameObject = GameObject.Find("Slot (" + slot + ")/Quantity");
+                theGameObject.GetComponent<Text>().text = aPotion.PotionCoinValue.ToString();
             }
             else
             {
+                Debug.Log("Populating Inventory");
                 // Load the 2d sprite image located in the Resources folder
                 theSprite = Resources.Load<Sprite>(key + " Image");
 

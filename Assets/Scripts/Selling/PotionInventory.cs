@@ -48,7 +48,7 @@ public class PotionInventory
     }
 
     //Reset slot count for inventory; this is needed to prevent duplicating inventory items when user opens inventory more then once
-    private void Reset()
+    public void Reset()
     {
         DisableButtons();
         this.slot = 1;
@@ -59,8 +59,9 @@ public class PotionInventory
         for (int aSlot = 1; aSlot <= 8; aSlot++)
         {
             GameObject.Find("Slot" + aSlot).GetComponent<Button>().enabled = false;
-
+            GameObject.Find("Slot" + aSlot).GetComponent<Image>().sprite = null;
             GameObject.Find("Slot" + aSlot).GetComponent<Image>().color = unselectedSlotColor;
+            GameObject.Find("Slot" + slot + "/Details").GetComponent<Text>().text = null;
         }
     }
 

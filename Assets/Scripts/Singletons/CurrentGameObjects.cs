@@ -65,8 +65,8 @@ public sealed class CurrentGameObjects
     public void RemovePotion(Potion aPotion)
     {
         this.potionsCrafted.Remove(aPotion);
-        //objectsCollected.Remove(aPotion.keyName);
-        Debug.Log("number of potions: " + potionsCrafted.Count);
+        objectsCollected.Remove(aPotion.KeyName);
+        Debug.Log("Dict Size" + objectsCollected.Count);
     }
 
     // Add a potion to the list of potions crafted by player
