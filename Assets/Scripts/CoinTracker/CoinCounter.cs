@@ -13,6 +13,6 @@ public class CoinCounter : MonoBehaviour
     void Update()
     {
         // Update text to display the current coin count
-        CoinCount.text = "0"; // player preferences for score
+        CoinCount.text = PlayerPrefs.GetInt("CoinCount").ToString();
     }
 }

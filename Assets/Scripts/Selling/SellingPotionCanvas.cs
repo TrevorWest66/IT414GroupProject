@@ -42,8 +42,8 @@ public class SellingPotionCanvas : MonoBehaviour
     {
         if (!(currentPotionSelection == null))
         {
-            // TODO: Call method in coin class that will increase the players coin
             int coinValue = currentPotionSelection.PotionCoinValue;
+            PlayerPrefs.SetInt("CoinCount", PlayerPrefs.GetInt("CoinCount") + coinValue);
 
             // Set current potion to null and current slot to zero, the selected potion was sold
             currentPotionSelection = null;

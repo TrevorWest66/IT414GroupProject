@@ -1634,7 +1634,7 @@ GameObject:
   - component: {fileID: 427273902}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1714,6 +1714,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 427273903}
           m_MethodName: PlantToCraftPotion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 427273903}
+          m_MethodName: CheckCorrectImageColor
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -2003,7 +2014,7 @@ GameObject:
   - component: {fileID: 467634445}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2347,7 +2358,7 @@ GameObject:
   - component: {fileID: 504476493}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3176,7 +3187,7 @@ GameObject:
   - component: {fileID: 787489701}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3635,7 +3646,7 @@ GameObject:
   - component: {fileID: 858407527}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3972,7 +3983,7 @@ GameObject:
   - component: {fileID: 898335972}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4963,7 +4974,7 @@ GameObject:
   - component: {fileID: 1018090358}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5351,7 +5362,7 @@ GameObject:
   - component: {fileID: 1058053760}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5703,7 +5714,7 @@ GameObject:
   - component: {fileID: 1079280062}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7038,7 +7049,7 @@ GameObject:
   - component: {fileID: 1381269195}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7118,6 +7129,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1381269196}
           m_MethodName: PlantToCraftPotion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1381269196}
+          m_MethodName: CheckCorrectImageColor
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8179,7 +8201,7 @@ GameObject:
   - component: {fileID: 1599402413}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8259,6 +8281,17 @@ MonoBehaviour:
         m_Calls:
         - m_Target: {fileID: 1599402414}
           m_MethodName: PlantToCraftPotion
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+        - m_Target: {fileID: 1599402414}
+          m_MethodName: CheckCorrectImageColor
           m_Mode: 1
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
@@ -8782,7 +8815,7 @@ GameObject:
   - component: {fileID: 1720525653}
   m_Layer: 5
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InventoryImg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

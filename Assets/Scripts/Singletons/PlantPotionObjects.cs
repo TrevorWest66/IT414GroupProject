@@ -32,13 +32,7 @@ public sealed class PlantPotionObjects
 
     // Method to add objects to the list
     public void addPlantInPotion(string aPlant)
-    {
-        // If there is already 3 plants selected, remove the last plant and add the most recent plant
-        if(potionIngredients.Count == 3)
-        {
-            potionIngredients.RemoveAt(2);
-        }
-        
+    {       
         potionIngredients.Add(aPlant);
     }
 
@@ -69,5 +63,17 @@ public sealed class PlantPotionObjects
     public int plantsInPotionCount()
     {
         return potionIngredients.Count;
+    }
+
+    public bool plantInIngredientList(GameObject aPlant)
+    {
+        if (potionIngredients.Contains(aPlant.name))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }
