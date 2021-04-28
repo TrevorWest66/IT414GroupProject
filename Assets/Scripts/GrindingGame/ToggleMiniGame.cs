@@ -25,7 +25,6 @@ public class ToggleMiniGame : MonoBehaviour
         PlantPotionObjects.Instance.RemoveAllPlantsInPotion();
         // they key is created in potionDictAdapter
         madePotion.KeyName = PlayerPrefs.GetString("ThePotionKey");
-        Debug.Log("Potion key value: " + madePotion.KeyName);
         CurrentGameObjects.Instance.AddPotion(madePotion);
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
