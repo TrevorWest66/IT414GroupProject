@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 public class ToggleMiniGame : MonoBehaviour
 {
-    private List<string> ingredients = PlantPotionObjects.Instance.getPlantsInPotion();
+    private List<string> ingredients = PlantPotionObjects.Instance.GetPlantsInPotion();
 
     // This just switches the scene back to the main scene; when more mini games are addded will intstead move scene forward
     public void CloseMiniGame()
@@ -16,10 +16,19 @@ public class ToggleMiniGame : MonoBehaviour
         // Creates a potion and adds it to the players inventory
         PotionCrafter potionMaker = new PotionCrafter();
         Potion madePotion = potionMaker.DeterminePotion(ingredients);
+
+        // Remove the plants from player inventory that were used in the potion
+        CurrentGameObjects.Instance.RemoveCollectedPlantsUsedInPotions(ingredients);
+
+
         CurrentGameObjects.Instance.AddPotion(madePotion);
         DictionaryItem potionForDict = new Adapter(madePotion.keyName, 1);
+        // Add potion to current game object collected list of objects collected in order for it to appear in the inventory
         potionForDict.AddToDictionary();
-        PlantPotionObjects.Instance.removeAllPlantsInPotion();
+
+        // Remove plants from plant potion objects and current game objects, these plants were used in the potions
+        PlantPotionObjects.Instance.RemoveAllPlantsInPotion();
+
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
     }
 

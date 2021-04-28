@@ -31,49 +31,38 @@ public sealed class PlantPotionObjects
     }
 
     // Method to add objects to the list
-    public void addPlantInPotion(string aPlant)
-    {       
+    public void AddPlantInPotion(string aPlant)
+    {
         potionIngredients.Add(aPlant);
     }
 
-    public string getPlantInPotion(int i)
+    public string GetPlantInPotion(int i)
     {
         return potionIngredients[i];
     }
 
-    public List<string> getPlantsInPotion()
+    public List<string> GetPlantsInPotion()
     {
         return potionIngredients;
     }
 
-    public void removePlantInPotion(string aPlant)
+    public void RemovePlantInPotion(string aPlant)
     {
         potionIngredients.Remove(aPlant);
     }
 
-    public void removeAllPlantsInPotion()
+    public void RemoveAllPlantsInPotion()
     {
-        for (int i = plantsInPotionCount(); i > 0; i--)
+        for (int i = PlantsInPotionCount(); i > 0; i--)
         {
             potionIngredients.Clear();
         }
        
     }
 
-    public int plantsInPotionCount()
+    public int PlantsInPotionCount()
     {
         return potionIngredients.Count;
     }
 
-    public bool plantInIngredientList(GameObject aPlant)
-    {
-        if (potionIngredients.Contains(aPlant.name))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
 }

@@ -17,7 +17,7 @@ public class CraftingSelector : MonoBehaviour
         string aPlant = PlantNameOfImage.Substring(0, PlantNameOfImage.Length - 6);
         GameObject PlantObject = GameObject.Find(aPlant); // Finds the plant gameobject
 
-        potionIngredients.addPlantInPotion(PlantObject.name); // Adds to potion ingredient list
+        potionIngredients.AddPlantInPotion(PlantObject.name); // Adds to potion ingredient list
         CurrentGameObjects.Instance.RemoveObject(PlantObject);  // Removes the plant from the inventory
 
         ColorizePlantSelection(PlantObject);
@@ -27,7 +27,7 @@ public class CraftingSelector : MonoBehaviour
     public void ResetPlantsSelected()
     {
         ClearAllColorPlantSelection();
-        potionIngredients.removeAllPlantsInPotion();
+        potionIngredients.RemoveAllPlantsInPotion();
     }
 
     public void ColorizePlantSelection(GameObject PlantObject)

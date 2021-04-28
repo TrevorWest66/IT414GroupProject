@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class PotionCrafter
 {
-    private Potion CreatedPotion;
+    private Potion CreatedPotion = null;
 
     public Potion DeterminePotion(List<string> ingredients)
     {
@@ -16,6 +16,7 @@ public class PotionCrafter
         List<CollectablePlantsEnum> plantEnum = new List<CollectablePlantsEnum>();
         foreach (string plants in ingredients)
         {
+            Debug.Log("plant in determine potion: " + plants);
             if (plants.Equals("Rose"))
             {
                 plantEnum.Add(CollectablePlantsEnum.Rose);
@@ -103,23 +104,27 @@ public class PotionCrafter
         }
 
         // Create Death Potion
-        if (plantEnum.Contains(CollectablePlantsEnum.Aloe))
+        if (plantEnum.Contains(CollectablePlantsEnum.Mandrake))
         {
-            if (plantEnum.Contains(CollectablePlantsEnum.Lavender))
+            if (plantEnum.Contains(CollectablePlantsEnum.Nightshade))
             {
-                if (plantEnum.Contains(CollectablePlantsEnum.Rose))
+                if (plantEnum.Contains(CollectablePlantsEnum.Spearmint))
                 {
                     CreatedPotion = new Potion("Death Potion", 2000, plantEnum);
                 }
             }
         }
-        else
+
+        // If no plant combination was a recipe, make a death potion
+        if (CreatedPotion == null)
         {
-            CreatedPotion = new Potion("Death Potion", 0, plantEnum);
+            CreatedPotion = new Potion("Death Potion", 500, plantEnum);
         }
 
         CreatedPotion.PotionCoinValue *= PlayerPrefs.GetInt("GrindingMiniGameScore") / 20;
 
         return CreatedPotion;
     }
+
+
 }
