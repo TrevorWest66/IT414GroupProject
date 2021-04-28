@@ -33,7 +33,7 @@ public class PotionInventory
                 // Add potion and slot number to dictionary to be used during selling
                 slotPotionDictionary.Add(slot, aPotion);
 
-                // Get the image from the Potion Opject and add it to the button, enable to button so the potion can be clicked
+                // Get the image from the Potion Object and add it to the button, enable to button so the potion can be clicked
                 theGameObject = GameObject.Find("Slot" + slot);
                 theGameObject.GetComponent<Button>().enabled = true;
                 theGameObject.GetComponent<Image>().sprite = aPotion.PotionImage;

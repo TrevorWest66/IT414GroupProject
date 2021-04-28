@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
                         aPotion = potion;
                     }
                 }
-                // Get the image from the Potion Opject and add it to the button, enable to button so the potion can be clicked
+                // Get the image from the Potion Object
                 theGameObject = GameObject.Find("Slot (" + slot + ")/Image");
                 theGameObject.GetComponent<Image>().sprite = aPotion.PotionImage;
 
