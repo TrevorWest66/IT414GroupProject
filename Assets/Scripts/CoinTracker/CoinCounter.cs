@@ -10,10 +10,6 @@ public class CoinCounter : MonoBehaviour
     // Players current coin count
     public Text CoinCount;
 
-    void Awake()
-    {
-        PlayerPrefs.SetInt("CoinCount", 0);
-    }
     void Update()
     {
         // Update text to display the current coin count
