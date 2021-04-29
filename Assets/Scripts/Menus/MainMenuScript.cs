@@ -16,6 +16,8 @@ public class MainMenuScript : MonoBehaviour
          * class in order to save player preferences
          */
         GameObject.FindGameObjectWithTag("MainMenuScreen").SetActive(false);
+
+        PlayerPrefs.SetInt("CoinCount", 0);
     }
 
     // Quit button is pressed
